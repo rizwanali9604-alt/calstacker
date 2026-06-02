@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator FY 2026-27 — Old vs New Regime | CalStacker.com</title>
+  <meta name="description" content="Compare income tax under old and new regime for FY 2026-27. Section 80C, 80D, HRA deductions with rebate 87A and 4% cess.">
+  <link rel="canonical" href="https://calstacker.com/calculators/income-tax/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Income Tax Calculator</div>
+      <h1 class="calc-page-title">Income Tax Calculator</h1>
+      <p class="calc-page-desc">Old vs new tax regime comparison — FY 2026-27</p>
+    </div>
+  </header>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="calc-interface">
+    <div class="calc-box">
+      <form id="taxForm" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="annualIncome">Annual Gross Income</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="annualIncome" value="1200000" min="0" step="1000">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="deduction80C">Section 80C (max ₹1.5L)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="deduction80C" value="150000" min="0" step="1000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deduction80D">Section 80D</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="deduction80D" value="25000" min="0" step="1000">
+            </div>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="hraExemption">HRA Exemption (annual)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="hraExemption" value="0" min="0" step="1000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="otherDeductions">Other Deductions</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="otherDeductions" value="0" min="0" step="1000">
+            </div>
+          </div>
+        </div>
+        <button type="button" class="calc-btn" id="calcBtn">Compare Tax Regimes</button>
+      </form>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Tax — Old Regime</div>
+            <div class="result-item-value" id="taxOld">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Tax — New Regime</div>
+            <div class="result-item-value blue" id="taxNew">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">You Save</div>
+            <div class="result-item-value green" id="taxSavings">₹0</div>
+          </div>
+        </div>
+        <div class="result-highlight" id="recommendation"></div>
+      </div>
+
+      <div class="affiliate-cta">
+        <span class="aff-icon">📋</span>
+        <div class="aff-text">
+          <strong>File ITR online with expert help</strong>
+          <span>Maximize refunds — compare e-filing platforms</span>
+        </div>
+        <a href="#" class="aff-btn" rel="nofollow sponsored">File ITR →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Pick the better tax regime in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter gross income</h4>
+          <p>Input your annual salary or total taxable income before deductions.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Add deductions</h4>
+          <p>Enter 80C, 80D, HRA exemption and other deductions for the old regime.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Compare & decide</h4>
+          <p>See tax under both regimes with cess and our recommendation on which saves more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">What are the new regime slabs for FY 2026-27?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Up to ₹4L: 0%; ₹4–8L: 5%; ₹8–12L: 10%; ₹12–16L: 15%; ₹16–20L: 20%; ₹20–24L: 25%; above ₹24L: 30%. Standard deduction is ₹75,000. Rebate u/s 87A makes tax zero if taxable income is up to ₹12 lakh.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can I claim 80C in the new regime?<span class="faq-icon">+</span></button>
+          <div class="faq-a">No. The new tax regime does not allow most deductions like 80C, 80D, or HRA. Only the standard deduction of ₹75,000 applies. The old regime allows these deductions against higher slab rates.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is Rebate u/s 87A?<span class="faq-icon">+</span></button>
+          <div class="faq-a">For FY 2026-27 under the new regime, if your taxable income (after standard deduction) is ₹12 lakh or less, your income tax is effectively zero thanks to the enhanced rebate under Section 87A.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is health and education cess included?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. This calculator adds 4% health and education cess on the base tax computed for both old and new regimes, as per current Indian tax rules.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Which regime should I choose?<span class="faq-icon">+</span></button>
+          <div class="faq-a">If you have large deductions (80C, home loan interest, HRA), the old regime may save more. With minimal deductions, the new regime with lower slabs and higher rebate is often better. Use this tool to compare for your exact income.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function withCess(baseTax) {
+      return Math.round(baseTax * 1.04);
+    }
+
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const income = getNum('annualIncome');
+      const d80c = Math.min(getNum('deduction80C') || 0, 150000);
+      const d80d = getNum('deduction80D') || 0;
+      const hra = getNum('hraExemption') || 0;
+      const other = getNum('otherDeductions') || 0;
+
+      if (!validatePositive(income, 'Annual income')) return;
+      if (!validatePositive(d80c, '80C')) return;
+      if (!validatePositive(d80d, '80D')) return;
+      if (!validatePositive(hra, 'HRA exemption')) return;
+      if (!validatePositive(other, 'Other deductions')) return;
+
+      const stdOld = 50000;
+      const stdNew = 75000;
+      const taxableOld = Math.max(0, income - stdOld - d80c - d80d - hra - other);
+      const taxableNew = Math.max(0, income - stdNew);
+
+      const taxOld = withCess(calcOldRegimeTax(taxableOld));
+      const taxNew = withCess(calcNewRegimeTax(taxableNew));
+      const savings = Math.abs(taxOld - taxNew);
+      const betterOld = taxOld < taxNew;
+
+      setResult('taxOld', formatINR(taxOld));
+      setResult('taxNew', formatINR(taxNew));
+      setResult('taxSavings', formatINR(savings));
+
+      const rec = document.getElementById('recommendation');
+      if (taxOld === taxNew) {
+        rec.textContent = 'Both regimes result in the same tax. You may choose either based on convenience.';
+      } else if (betterOld) {
+        rec.textContent = 'Recommendation: Old regime saves you ' + formatINR(savings) + ' — claim your deductions under 80C, 80D and HRA.';
+      } else {
+        rec.textContent = 'Recommendation: New regime saves you ' + formatINR(savings) + ' — simpler filing with lower effective tax.';
+      }
+
+      showResult();
+    });
+  </script>
+</body>
+</html>

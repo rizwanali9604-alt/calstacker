@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPF Calculator — 15 Year Maturity & Year-wise Breakdown | CalStacker.com</title>
+  <meta name="description" content="Calculate PPF maturity with annual deposits at 7.1% default rate. Year-by-year balance table for 15-year tenure. Free PPF calculator India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/ppf/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → PPF Calculator</div>
+      <h1 class="calc-page-title">PPF Calculator</h1>
+      <p class="calc-page-desc">Estimate Public Provident Fund maturity with year-by-year growth breakdown</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder — replace with AdSense after approval</div>
+  </div>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="annualInvestment">Annual Investment</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="annualInvestment" placeholder="e.g. 150000" min="500" max="150000" step="any" value="150000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="rate">Interest Rate (% p.a.)</label>
+          <input type="number" class="form-input" id="rate" placeholder="e.g. 7.1" min="0" step="0.1" value="7.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="tenure">Tenure (years)</label>
+          <input type="number" class="form-input" id="tenure" placeholder="e.g. 15" min="1" max="50" step="1" value="15">
+        </div>
+      </div>
+
+      <button type="button" class="calc-btn" onclick="calculatePPF()">Calculate PPF Maturity</button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Maturity Amount</div>
+          <div class="result-value" id="mainResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Invested</div>
+            <div class="result-item-value blue" id="resultInvested">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Interest Earned</div>
+            <div class="result-item-value green" id="resultInterest">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Tenure</div>
+            <div class="result-item-value" id="resultTenure">0 yrs</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:15px;font-weight:600;margin:24px 0 8px;">Year-wise Breakdown</h3>
+        <div class="table-wrap">
+          <table class="data-table" id="ppfTable">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Deposit</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="ppfTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <div class="aff-icon">🔒</div>
+        <div class="aff-text">
+          <strong>Diversify beyond PPF</strong>
+          <span>Compare PPF returns with equity SIP for long-term wealth</span>
+        </div>
+        <a href="#" class="aff-btn" rel="noopener">Explore SIP →</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder</div>
+  </div>
+
+  <section class="section-sm" style="background:var(--card);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This Calculator</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Annual Deposit</h4>
+          <p>Input how much you invest in PPF each year (max ₹1.5 lakh).</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Rate & Tenure</h4>
+          <p>Default is 7.1% for 15 years — adjust if needed.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Review Breakdown</h4>
+          <p>See maturity amount and year-by-year balance in the table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the minimum PPF tenure? <span class="faq-icon">+</span></button>
+          <div class="faq-a">A PPF account has a lock-in of 15 years from the date of opening. After maturity, you can extend in blocks of 5 years with or without further contributions.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the maximum annual PPF deposit? <span class="faq-icon">+</span></button>
+          <div class="faq-a">You can deposit a minimum of ₹500 and a maximum of ₹1,50,000 per financial year in a single PPF account.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Is PPF interest tax-free? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. PPF falls under the EEE category — deposits qualify for 80C deduction, interest is tax-free, and maturity amount is fully exempt from tax.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">How is PPF interest calculated? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Interest is compounded annually and credited at the end of each financial year (March 31). The rate is set by the government quarterly.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Can I open PPF for my child? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. A parent can open a PPF account for a minor. The combined limit of ₹1.5 lakh applies to parent and minor accounts together for 80C purposes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calculatePPF() {
+      const annual = getNum('annualInvestment');
+      const rate = getNum('rate');
+      const tenure = getNum('tenure');
+
+      if (!validateRequiredPositive(annual, 'Annual investment')) return;
+      if (!validateRequiredPositive(rate, 'Interest rate')) return;
+      if (!validateRequiredPositive(tenure, 'Tenure')) return;
+      if (annual > 150000) {
+        alert('Maximum annual PPF deposit is ₹1,50,000');
+        return;
+      }
+
+      let balance = 0;
+      const rows = [];
+      const years = Math.floor(tenure);
+
+      for (let y = 1; y <= years; y++) {
+        const opening = balance;
+        balance += annual;
+        const interest = balance * (rate / 100);
+        balance += interest;
+        rows.push({
+          year: y,
+          deposit: annual,
+          interest: interest,
+          balance: balance
+        });
+      }
+
+      const totalInvested = annual * years;
+      const interestEarned = balance - totalInvested;
+
+      setResult('mainResult', formatINRLarge(balance));
+      setResult('resultInvested', formatINR(totalInvested));
+      setResult('resultInterest', formatINR(interestEarned));
+      setResult('resultTenure', years + ' yrs');
+
+      const tbody = document.getElementById('ppfTableBody');
+      tbody.innerHTML = rows.map(r =>
+        '<tr><td>' + r.year + '</td><td>' + formatINR(r.deposit) + '</td><td>' +
+        formatINR(r.interest) + '</td><td>' + formatINR(r.balance) + '</td></tr>'
+      ).join('');
+
+      showResult();
+    }
+  </script>
+</body>
+</html>

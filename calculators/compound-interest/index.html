@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Calculator — Compounding Frequency | CalStacker.com</title>
+  <meta name="description" content="Calculate compound interest with frequency selector. Compare yearly, quarterly, monthly compounding — A = P(1+r/n)^(nt). Free for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/compound-interest/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/fd/" class="nav-cta">FD Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Compound Interest Calculator</div>
+      <h1 class="calc-page-title">Compound Interest Calculator</h1>
+      <p class="calc-page-desc">Power of compounding — A = P(1+r/n)<sup>nt</sup> with frequency comparison</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="principal">Principal Amount (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="principal" class="form-input" placeholder="100000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="rate">Annual Interest Rate (%)</label>
+          <input type="number" id="rate" class="form-input" placeholder="8" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="years">Time Period (Years)</label>
+          <input type="number" id="years" class="form-input" placeholder="5" min="1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="frequency">Compounding Frequency</label>
+        <select id="frequency" class="form-select">
+          <option value="1">Yearly</option>
+          <option value="2">Half-Yearly</option>
+          <option value="4" selected>Quarterly</option>
+          <option value="12">Monthly</option>
+          <option value="365">Daily</option>
+        </select>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcCompound()">Calculate Interest</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Maturity Amount</div>
+          <div class="result-value" id="maturityAmount">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Principal</div>
+            <div class="result-item-value" id="principalOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Compound Interest</div>
+            <div class="result-item-value green" id="interestEarned">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Effective Annual Rate</div>
+            <div class="result-item-value blue" id="effectiveRate">0%</div>
+          </div>
+        </div>
+        <h4 style="margin-top:20px;font-size:15px;">Frequency Comparison</h4>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Frequency</th><th>Maturity Amount</th><th>Interest Earned</th><th>Effective Rate</th></tr>
+            </thead>
+            <tbody id="compareTable"></tbody>
+          </table>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">💰</span>
+          <div class="aff-text"><strong>Earn more with compound interest</strong><span>Compare FD rates from top banks in India</span></div>
+          <a href="#" class="aff-btn">Compare FDs →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Calculate compound interest in three easy steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Principal</h4>
+          <p>Input the amount you want to invest or deposit.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Rate & Frequency</h4>
+          <p>Choose annual rate, tenure, and compounding frequency.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Compare Frequencies</h4>
+          <p>See how different compounding intervals affect your returns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is compound interest?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Compound interest is interest calculated on both the initial principal and accumulated interest from previous periods. It makes your money grow faster than simple interest.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How does compounding frequency matter?<span class="faq-icon">+</span></button>
+          <div class="faq-a">More frequent compounding (monthly vs yearly) yields slightly higher returns for the same nominal rate. Daily compounding gives the highest effective return.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is the compound interest formula?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A = P(1 + r/n)<sup>nt</sup>, where P is principal, r is annual rate (decimal), n is compounding periods per year, and t is time in years.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Compound vs simple interest?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Simple interest is calculated only on principal (SI = P×R×T/100). Compound interest reinvests earned interest, leading to exponential growth over long periods.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where is compound interest used in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Fixed deposits, PPF, EPF, mutual fund SIPs, and most savings products use compound interest. Bank FDs typically compound quarterly in India.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    const FREQ_LABELS = { 1: 'Yearly', 2: 'Half-Yearly', 4: 'Quarterly', 12: 'Monthly', 365: 'Daily' };
+    const FREQ_ORDER = [1, 2, 4, 12, 365];
+
+    function compoundAmount(P, rate, years, n) {
+      const r = rate / 100;
+      return P * Math.pow(1 + r / n, n * years);
+    }
+
+    function effectiveRate(rate, n) {
+      return (Math.pow(1 + rate / 100 / n, n) - 1) * 100;
+    }
+
+    function calcCompound() {
+      const P = getNum('principal');
+      const rate = getNum('rate');
+      const years = getNum('years');
+      const n = parseInt(document.getElementById('frequency').value, 10);
+      if (!validateRequiredPositive(P, 'Principal amount')) return;
+      if (!validateRequiredPositive(rate, 'Interest rate')) return;
+      if (!validateRequiredPositive(years, 'Time period')) return;
+
+      const A = compoundAmount(P, rate, years, n);
+      const interest = A - P;
+      const eff = effectiveRate(rate, n);
+
+      setResult('maturityAmount', formatINRLarge(A));
+      setResult('principalOut', formatINR(P));
+      setResult('interestEarned', formatINR(interest));
+      setResult('effectiveRate', eff.toFixed(2) + '%');
+
+      const tbody = document.getElementById('compareTable');
+      tbody.innerHTML = '';
+      FREQ_ORDER.forEach(freq => {
+        const amt = compoundAmount(P, rate, years, freq);
+        const int = amt - P;
+        const er = effectiveRate(rate, freq);
+        const tr = document.createElement('tr');
+        const highlight = freq === n ? ' style="font-weight:600;background:var(--primary-light)"' : '';
+        tr.innerHTML = '<td' + highlight + '>' + FREQ_LABELS[freq] + '</td><td' + highlight + '>' + formatINR(amt) + '</td><td' + highlight + '>' + formatINR(int) + '</td><td' + highlight + '>' + er.toFixed(2) + '%</td>';
+        tbody.appendChild(tr);
+      });
+      showResult();
+    }
+  </script>
+</body>
+</html>

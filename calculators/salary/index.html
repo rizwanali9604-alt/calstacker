@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salary Calculator — CTC to In-Hand Pay | CalStacker.com</title>
+  <meta name="description" content="Convert annual CTC to monthly in-hand salary. EPF, professional tax, TDS breakdown and 12-month projection for FY 2026-27.">
+  <link rel="canonical" href="https://calstacker.com/calculators/salary/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Salary Calculator</div>
+      <h1 class="calc-page-title">Salary Calculator</h1>
+      <p class="calc-page-desc">CTC to monthly in-hand salary with PF, PT & TDS</p>
+    </div>
+  </header>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="calc-interface">
+    <div class="calc-box">
+      <form id="salaryForm" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="ctc">Annual CTC</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="ctc" value="1200000" min="1" step="1000">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="basicOverride">Basic Salary (annual, optional)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="basicOverride" placeholder="Default: 40% of CTC" min="0" step="1000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="taxRegime">Tax Regime</label>
+            <select class="form-select" id="taxRegime">
+              <option value="new">New Regime</option>
+              <option value="old">Old Regime</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="cityType">City Type</label>
+            <select class="form-select" id="cityType">
+              <option value="metro">Metro</option>
+              <option value="nonmetro">Non-Metro</option>
+            </select>
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end;padding-bottom:8px;">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:600;">
+              <input type="checkbox" id="pfEnabled" checked style="width:18px;height:18px;">
+              Employee PF (12% of basic, cap ₹15,000/month)
+            </label>
+          </div>
+        </div>
+        <button type="button" class="calc-btn" id="calcBtn">Calculate In-Hand Salary</button>
+      </form>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Monthly In-Hand Salary</div>
+          <div class="result-value" id="inHandMonthly">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Employee PF (monthly)</div>
+            <div class="result-item-value" id="pfMonthly">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Professional Tax</div>
+            <div class="result-item-value" id="ptMonthly">₹200</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">TDS (monthly)</div>
+            <div class="result-item-value blue" id="tdsMonthly">₹0</div>
+          </div>
+        </div>
+        <h3 style="margin-top:24px;font-size:16px;font-weight:700;">12-Month Projection</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Gross</th>
+                <th>PF</th>
+                <th>PT</th>
+                <th>TDS</th>
+                <th>In-Hand</th>
+              </tr>
+            </thead>
+            <tbody id="projectionBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <span class="aff-icon">💼</span>
+        <div class="aff-text">
+          <strong>Negotiate your salary package smarter</strong>
+          <span>Compare offers — know your real take-home</span>
+        </div>
+        <a href="#" class="aff-btn" rel="nofollow sponsored">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Find your take-home pay in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter your CTC</h4>
+          <p>Input annual cost-to-company and optionally override basic salary (default 40% of CTC).</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Select regime & PF</h4>
+          <p>Choose old or new tax regime, city type, and whether employee PF applies.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View breakdown</h4>
+          <p>See monthly in-hand salary, PF, professional tax, TDS, and a month-by-month table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is CTC vs in-hand salary?<span class="faq-icon">+</span></button>
+          <div class="faq-a">CTC (Cost to Company) is the total annual package including employer contributions. In-hand (take-home) is what you receive after employee PF, professional tax, income tax (TDS), and other deductions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How is EPF calculated?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Employee EPF is 12% of basic salary per month, capped at 12% of ₹15,000 (i.e. max ₹1,800/month) when basic exceeds ₹15,000. Employer also contributes a matching amount, included in CTC but not deducted from your in-hand twice.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is professional tax?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Professional tax is a state levy on salaried employees. In many states including Maharashtra and Karnataka, it is ₹200 per month for most salary slabs. Rates vary by state.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does metro city affect this calculator?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Metro vs non-metro mainly affects HRA exemption calculations. This salary tool uses it for reference; tax is computed on CTC minus PF, PT, and standard deduction per your chosen regime.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is TDS the same every month?<span class="faq-icon">+</span></button>
+          <div class="faq-a">This calculator spreads annual estimated tax evenly across 12 months for projection. Employers may adjust TDS mid-year based on actual investments declared or bonus payouts.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function withCess(baseTax) {
+      return Math.round(baseTax * 1.04);
+    }
+
+    const MONTHS = ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
+
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const ctc = getNum('ctc');
+      const basicInput = document.getElementById('basicOverride').value;
+      const regime = document.getElementById('taxRegime').value;
+      const pfEnabled = document.getElementById('pfEnabled').checked;
+
+      if (!validateRequiredPositive(ctc, 'CTC')) return;
+
+      const basicAnnual = basicInput && !isNaN(parseFloat(basicInput))
+        ? parseFloat(basicInput)
+        : ctc * 0.4;
+      const basicMonthly = basicAnnual / 12;
+
+      const pfMonthly = pfEnabled ? 0.12 * Math.min(basicMonthly, 15000) : 0;
+      const pfAnnual = pfMonthly * 12;
+      const employerPfAnnual = pfAnnual;
+      const ptMonthly = 200;
+      const ptAnnual = ptMonthly * 12;
+
+      const grossAnnual = ctc - employerPfAnnual;
+      const grossMonthly = grossAnnual / 12;
+
+      const stdDed = regime === 'new' ? 75000 : 50000;
+      const taxable = Math.max(0, grossAnnual - pfAnnual - ptAnnual - stdDed);
+      const baseTax = regime === 'new' ? calcNewRegimeTax(taxable) : calcOldRegimeTax(taxable);
+      const annualTax = withCess(baseTax);
+      const tdsMonthly = annualTax / 12;
+
+      const inHandMonthly = grossMonthly - pfMonthly - ptMonthly - tdsMonthly;
+
+      setResult('inHandMonthly', formatINR(inHandMonthly));
+      setResult('pfMonthly', formatINR(pfMonthly));
+      setResult('ptMonthly', formatINR(ptMonthly));
+      setResult('tdsMonthly', formatINR(tdsMonthly));
+
+      const tbody = document.getElementById('projectionBody');
+      tbody.innerHTML = '';
+      for (let i = 0; i < 12; i++) {
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + MONTHS[i] + '</td>' +
+          '<td>' + formatINR(grossMonthly) + '</td>' +
+          '<td>' + formatINR(pfMonthly) + '</td>' +
+          '<td>' + formatINR(ptMonthly) + '</td>' +
+          '<td>' + formatINR(tdsMonthly) + '</td>' +
+          '<td>' + formatINR(inHandMonthly) + '</td>';
+        tbody.appendChild(tr);
+      }
+
+      showResult();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Interest Calculator — SI = P×R×T/100 | CalStacker.com</title>
+  <meta name="description" content="Calculate simple interest instantly. SI = P×R×T/100 with principal, rate and time inputs — free calculator for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/simple-interest/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/fd/" class="nav-cta">FD Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Simple Interest Calculator</div>
+      <h1 class="calc-page-title">Simple Interest Calculator</h1>
+      <p class="calc-page-desc">Basic interest calculation — SI = P × R × T / 100</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="principal">Principal Amount (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="principal" class="form-input" placeholder="100000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="rate">Interest Rate (% p.a.)</label>
+          <input type="number" id="rate" class="form-input" placeholder="8" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="years">Time Period (Years)</label>
+          <input type="number" id="years" class="form-input" placeholder="3" min="0.1" step="0.1">
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcSimpleInterest()">Calculate Interest</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Simple Interest</div>
+          <div class="result-value" id="simpleInterest">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Principal</div>
+            <div class="result-item-value" id="principalOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Amount</div>
+            <div class="result-item-value green" id="totalAmount">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Monthly Interest</div>
+            <div class="result-item-value blue" id="monthlyInterest">₹0</div>
+          </div>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">➕</span>
+          <div class="aff-text"><strong>Earn compound interest instead</strong><span>Compare FD and RD rates for better returns than simple interest</span></div>
+          <a href="#" class="aff-btn">Compare Rates →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Calculate simple interest in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Principal</h4>
+          <p>Input the loan or deposit amount in rupees.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Rate & Time</h4>
+          <p>Enter annual interest rate and duration in years.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View Results</h4>
+          <p>See simple interest, total amount, and monthly interest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is simple interest?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Simple interest is calculated only on the original principal amount throughout the loan or deposit period. The interest earned does not get reinvested or compounded.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is the simple interest formula?<span class="faq-icon">+</span></button>
+          <div class="faq-a">SI = P × R × T / 100, where P is principal, R is annual rate of interest (%), and T is time in years. Total amount = P + SI.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where is simple interest used?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Simple interest is commonly used for short-term personal loans, car loans, some government schemes, and educational loans. Most bank deposits use compound interest instead.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Simple vs compound interest?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Simple interest grows linearly; compound interest grows exponentially because interest is reinvested. Over long periods, compound interest significantly outperforms simple interest.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can time be in months?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Convert months to years by dividing by 12. For example, 18 months = 1.5 years. Enter decimal values in the time field for partial years.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calcSimpleInterest() {
+      const P = getNum('principal');
+      const R = getNum('rate');
+      const T = getNum('years');
+      if (!validateRequiredPositive(P, 'Principal amount')) return;
+      if (!validateRequiredPositive(R, 'Interest rate')) return;
+      if (!validateRequiredPositive(T, 'Time period')) return;
+
+      const SI = (P * R * T) / 100;
+      const total = P + SI;
+      const monthly = SI / (T * 12);
+
+      setResult('simpleInterest', formatINR(SI));
+      setResult('principalOut', formatINR(P));
+      setResult('totalAmount', formatINRLarge(total));
+      setResult('monthlyInterest', formatINR(monthly));
+      showResult();
+    }
+  </script>
+</body>
+</html>

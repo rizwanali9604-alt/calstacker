@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Worth Calculator — Assets vs Liabilities | CalStacker.com</title>
+  <meta name="description" content="Calculate your net worth — property, gold, FD, MF, savings minus loans and credit card debt. Visual breakdown bar — free for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/net-worth/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Net Worth Calculator</div>
+      <h1 class="calc-page-title">Net Worth Calculator</h1>
+      <p class="calc-page-desc">Total assets minus liabilities — know your true financial position</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <h3 style="font-size:16px;margin-bottom:16px;color:var(--accent);">Assets</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="property">Property (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="property" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="gold">Gold (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="gold" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fd">Fixed Deposits (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="fd" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="mf">Mutual Funds (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="mf" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="savings">Savings & Cash (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="savings" class="form-input" placeholder="0" min="0" value="0">
+        </div>
+      </div>
+
+      <h3 style="font-size:16px;margin:24px 0 16px;color:var(--danger);">Liabilities</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="loans">Loans (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="loans" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="creditCard">Credit Card Debt (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="creditCard" class="form-input" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcNetWorth()">Calculate Net Worth</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Your Net Worth</div>
+          <div class="result-value" id="netWorth">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Assets</div>
+            <div class="result-item-value green" id="totalAssets">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Liabilities</div>
+            <div class="result-item-value" id="totalLiabilities" style="color:var(--danger)">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Debt-to-Asset Ratio</div>
+            <div class="result-item-value blue" id="debtRatio">0%</div>
+          </div>
+        </div>
+        <div class="breakdown-bar" id="breakdownBar"></div>
+        <div class="breakdown-legend" id="breakdownLegend"></div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">⚖️</span>
+          <div class="aff-text"><strong>Grow your net worth faster</strong><span>Start investing to build assets and reduce liabilities</span></div>
+          <a href="#" class="aff-btn">Invest Now →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Calculate your net worth in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>List Your Assets</h4>
+          <p>Enter values for property, gold, FDs, mutual funds, and savings.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Enter Liabilities</h4>
+          <p>Input outstanding loan balances and credit card debt.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View Breakdown</h4>
+          <p>See net worth and visual asset breakdown bar instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is net worth?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Net worth is the difference between everything you own (assets) and everything you owe (liabilities). It is the most accurate snapshot of your financial health.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Should I include my home in net worth?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, include property at current market value. Also include any outstanding home loan under liabilities. Your home equity (value minus loan) contributes to net worth.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is a good net worth by age in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A common benchmark is net worth equal to your age × annual income ÷ 10. By 30, aim for 1× annual income; by 40, aim for 3×. These are guidelines, not rules.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How often should I calculate net worth?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Review quarterly or semi-annually. Tracking net worth over time shows whether you are building wealth or accumulating debt faster than assets grow.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can net worth be negative?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If total liabilities exceed total assets — common for young professionals with education loans — net worth is negative. Focus on increasing assets and reducing high-interest debt.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    const ASSET_COLORS = {
+      property: '#2563EB',
+      gold: '#F59E0B',
+      fd: '#10B981',
+      mf: '#8B5CF6',
+      savings: '#06B6D4'
+    };
+
+    function getAssetVal(id) {
+      const v = getNum(id);
+      return isNaN(v) || v < 0 ? 0 : v;
+    }
+
+    function calcNetWorth() {
+      const property = getAssetVal('property');
+      const gold = getAssetVal('gold');
+      const fd = getAssetVal('fd');
+      const mf = getAssetVal('mf');
+      const savings = getAssetVal('savings');
+      const loans = getAssetVal('loans');
+      const creditCard = getAssetVal('creditCard');
+
+      if (!validatePositive(property, 'Property')) return;
+      if (!validatePositive(gold, 'Gold')) return;
+      if (!validatePositive(fd, 'Fixed deposits')) return;
+      if (!validatePositive(mf, 'Mutual funds')) return;
+      if (!validatePositive(savings, 'Savings')) return;
+      if (!validatePositive(loans, 'Loans')) return;
+      if (!validatePositive(creditCard, 'Credit card debt')) return;
+
+      const totalAssets = property + gold + fd + mf + savings;
+      const totalLiabilities = loans + creditCard;
+      const netWorth = totalAssets - totalLiabilities;
+      const debtRatio = totalAssets > 0 ? ((totalLiabilities / totalAssets) * 100).toFixed(1) : '0';
+
+      setResult('netWorth', formatINRLarge(netWorth));
+      setResult('totalAssets', formatINR(totalAssets));
+      setResult('totalLiabilities', formatINR(totalLiabilities));
+      setResult('debtRatio', debtRatio + '%');
+
+      const bar = document.getElementById('breakdownBar');
+      const legend = document.getElementById('breakdownLegend');
+      bar.innerHTML = '';
+      legend.innerHTML = '';
+
+      const items = [
+        { key: 'property', label: 'Property', value: property },
+        { key: 'gold', label: 'Gold', value: gold },
+        { key: 'fd', label: 'FD', value: fd },
+        { key: 'mf', label: 'MF', value: mf },
+        { key: 'savings', label: 'Savings', value: savings }
+      ].filter(i => i.value > 0);
+
+      if (items.length === 0) {
+        bar.innerHTML = '<div class="breakdown-segment" style="width:100%;background:var(--border)"></div>';
+      } else {
+        items.forEach(item => {
+          const pct = (item.value / totalAssets) * 100;
+          const seg = document.createElement('div');
+          seg.className = 'breakdown-segment';
+          seg.style.width = pct + '%';
+          seg.style.background = ASSET_COLORS[item.key];
+          seg.title = item.label + ': ' + formatINR(item.value);
+          bar.appendChild(seg);
+
+          const leg = document.createElement('div');
+          leg.className = 'breakdown-legend-item';
+          leg.innerHTML = '<span class="breakdown-dot" style="background:' + ASSET_COLORS[item.key] + '"></span>' + item.label + ' — ' + formatINR(item.value) + ' (' + pct.toFixed(0) + '%)';
+          legend.appendChild(leg);
+        });
+      }
+
+      const nwEl = document.getElementById('netWorth');
+      nwEl.style.color = netWorth >= 0 ? 'var(--primary)' : 'var(--danger)';
+      showResult();
+    }
+  </script>
+</body>
+</html>

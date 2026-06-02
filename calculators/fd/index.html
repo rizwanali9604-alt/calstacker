@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FD Calculator — Fixed Deposit Maturity & Interest | CalStacker.com</title>
+  <meta name="description" content="Calculate fixed deposit maturity using A = P(1+r/n)^(nt). Yearly breakdown with yearly, quarterly, or monthly compounding. Free FD calculator India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/fd/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → FD Calculator</div>
+      <h1 class="calc-page-title">Fixed Deposit (FD) Calculator</h1>
+      <p class="calc-page-desc">Calculate FD maturity amount with compound interest and yearly balance growth</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder — replace with AdSense after approval</div>
+  </div>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="principal">Principal Amount</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="principal" placeholder="e.g. 100000" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="rate">Interest Rate (% p.a.)</label>
+          <input type="number" class="form-input" id="rate" placeholder="e.g. 7.5" min="0" step="0.01">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="tenure">Tenure (years)</label>
+          <input type="number" class="form-input" id="tenure" placeholder="e.g. 5" min="0.25" step="any">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="compounding">Compounding Frequency</label>
+          <select class="form-select" id="compounding">
+            <option value="1">Yearly</option>
+            <option value="4" selected>Quarterly</option>
+            <option value="12">Monthly</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="calc-btn" onclick="calculateFD()">Calculate FD Maturity</button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Maturity Amount</div>
+          <div class="result-value" id="mainResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Principal</div>
+            <div class="result-item-value blue" id="resultPrincipal">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Interest Earned</div>
+            <div class="result-item-value green" id="resultInterest">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Effective Yield</div>
+            <div class="result-item-value" id="resultYield">0%</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:15px;font-weight:600;margin:24px 0 8px;">Year-wise Balance</h3>
+        <div class="table-wrap">
+          <table class="data-table" id="fdTable">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Opening Balance</th>
+                <th>Interest</th>
+                <th>Closing Balance</th>
+              </tr>
+            </thead>
+            <tbody id="fdTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <div class="aff-icon">🏦</div>
+        <div class="aff-text">
+          <strong>Compare FD rates across banks</strong>
+          <span>Shop for the best FD interest rate before locking in</span>
+        </div>
+        <a href="#" class="aff-btn" rel="noopener">Compare Rates →</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder</div>
+  </div>
+
+  <section class="section-sm" style="background:var(--card);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This Calculator</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter FD Details</h4>
+          <p>Input principal, annual interest rate, tenure, and compounding frequency.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Calculate Maturity</h4>
+          <p>We apply A = P(1 + r/n)^(nt) for accurate compound interest.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Review Yearly Growth</h4>
+          <p>Check the year-wise table to see how your FD balance grows over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the FD compound interest formula? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Maturity amount A = P × (1 + r/n)^(n×t), where P is principal, r is annual rate (decimal), n is compounding periods per year, and t is tenure in years.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Which compounding gives higher returns? <span class="faq-icon">+</span></button>
+          <div class="faq-a">More frequent compounding (monthly vs yearly) yields slightly higher maturity for the same nominal rate, because interest earns interest sooner.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Is FD interest taxable? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. FD interest is fully taxable as per your income tax slab. Banks deduct TDS at 10% if annual interest exceeds ₹40,000 (₹50,000 for senior citizens).</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the difference between cumulative and non-cumulative FD? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Cumulative FD reinvests interest and pays everything at maturity (this calculator). Non-cumulative FD pays interest periodically (monthly/quarterly) to your account.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Can I break an FD before maturity? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, but premature withdrawal usually attracts a penalty (0.5%–1% lower interest) and may recalculate interest at the savings rate for the period held.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calculateFD() {
+      const P = getNum('principal');
+      const annualRate = getNum('rate');
+      const tenure = getNum('tenure');
+      const n = parseInt(document.getElementById('compounding').value, 10);
+
+      if (!validateRequiredPositive(P, 'Principal')) return;
+      if (!validateRequiredPositive(annualRate, 'Interest rate')) return;
+      if (!validateRequiredPositive(tenure, 'Tenure')) return;
+
+      const r = annualRate / 100;
+      const t = tenure;
+      const maturity = P * Math.pow(1 + r / n, n * t);
+      const interest = maturity - P;
+      const effectiveYield = ((maturity / P - 1) / t * 100).toFixed(2);
+
+      setResult('mainResult', formatINRLarge(maturity));
+      setResult('resultPrincipal', formatINR(P));
+      setResult('resultInterest', formatINR(interest));
+      setResult('resultYield', effectiveYield + '% p.a.');
+
+      const fullYears = Math.floor(t);
+      const rows = [];
+      for (let y = 1; y <= fullYears; y++) {
+        const opening = y === 1 ? P : P * Math.pow(1 + r / n, n * (y - 1));
+        const closing = P * Math.pow(1 + r / n, n * y);
+        rows.push({
+          year: y,
+          opening: opening,
+          interest: closing - opening,
+          closing: closing
+        });
+      }
+      if (fullYears === 0 || t % 1 !== 0) {
+        rows.push({
+          year: t.toFixed(1) + ' (total)',
+          opening: P,
+          interest: interest,
+          closing: maturity
+        });
+      }
+
+      const tbody = document.getElementById('fdTableBody');
+      tbody.innerHTML = rows.map(r =>
+        '<tr><td>' + r.year + '</td><td>' + formatINR(r.opening) + '</td><td>' +
+        formatINR(r.interest) + '</td><td>' + formatINR(r.closing) + '</td></tr>'
+      ).join('');
+
+      showResult();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Calculator — Add or Remove GST 5/12/18/28% | CalStacker.com</title>
+  <meta name="description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/gst/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → GST Calculator</div>
+      <h1 class="calc-page-title">GST Calculator</h1>
+      <p class="calc-page-desc">Add or remove GST at 5%, 12%, 18%, or 28% — exclusive or inclusive amounts</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder — replace with AdSense after approval</div>
+  </div>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="amount">Amount</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" class="form-input" id="amount" placeholder="e.g. 10000" min="0" step="any">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="gstRate">GST Rate</label>
+          <select class="form-select" id="gstRate">
+            <option value="5">5%</option>
+            <option value="12">12%</option>
+            <option value="18" selected>18%</option>
+            <option value="28">28%</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="gstMode">Amount Type</label>
+          <select class="form-select" id="gstMode">
+            <option value="exclusive">GST Exclusive (add GST)</option>
+            <option value="inclusive">GST Inclusive (remove GST)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="calc-btn" onclick="calculateGST()">Calculate GST</button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label" id="totalLabel">Total Amount (incl. GST)</div>
+          <div class="result-value" id="mainResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Base Amount</div>
+            <div class="result-item-value blue" id="resultBase">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">GST Amount</div>
+            <div class="result-item-value green" id="resultGst">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">GST Rate</div>
+            <div class="result-item-value" id="resultRate">18%</div>
+          </div>
+        </div>
+        <div class="result-highlight" id="modeSummary"></div>
+      </div>
+
+      <div class="affiliate-cta">
+        <div class="aff-icon">🧾</div>
+        <div class="aff-text">
+          <strong>File GST returns easily</strong>
+          <span>Use professional tools for GST compliance and invoicing</span>
+        </div>
+        <a href="#" class="aff-btn" rel="noopener">Learn More →</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder</div>
+  </div>
+
+  <section class="section-sm" style="background:var(--card);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This Calculator</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Amount</h4>
+          <p>Input the price before or after GST depending on your mode.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Select Rate & Mode</h4>
+          <p>Choose GST slab (5/12/18/28%) and exclusive or inclusive pricing.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Get Breakdown</h4>
+          <p>See base amount, GST component, and final total instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">What are the GST slabs in India? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Common GST rates are 5%, 12%, 18%, and 28%. Some items are nil-rated or exempt. Essential goods often attract 5%, while luxury items may be at 28%.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is GST exclusive vs inclusive? <span class="faq-icon">+</span></button>
+          <div class="faq-a">GST exclusive means the entered amount is before tax — GST is added on top. GST inclusive means the amount already includes tax — we back-calculate the base and GST portion.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">How do I remove GST from an inclusive price? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Base = Total ÷ (1 + rate/100). For 18% GST on ₹11,800 inclusive: Base = 11,800 ÷ 1.18 = ₹10,000 and GST = ₹1,800.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Is CGST and SGST included? <span class="faq-icon">+</span></button>
+          <div class="faq-a">For intra-state sales, GST splits equally into CGST and SGST (e.g. 9% + 9% = 18%). For inter-state, IGST applies at the full rate. This calculator shows combined GST.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Do freelancers need to charge GST? <span class="faq-icon">+</span></button>
+          <div class="faq-a">GST registration is mandatory if annual turnover exceeds ₹20 lakh (₹10 lakh in special category states). Registered freelancers must charge GST on taxable services.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calculateGST() {
+      const amount = getNum('amount');
+      const rate = parseFloat(document.getElementById('gstRate').value);
+      const mode = document.getElementById('gstMode').value;
+
+      if (!validateRequiredPositive(amount, 'Amount')) return;
+
+      let base, gst, total;
+
+      if (mode === 'exclusive') {
+        base = amount;
+        gst = base * (rate / 100);
+        total = base + gst;
+      } else {
+        total = amount;
+        base = total / (1 + rate / 100);
+        gst = total - base;
+      }
+
+      document.getElementById('totalLabel').textContent =
+        mode === 'exclusive' ? 'Total Amount (incl. GST)' : 'Amount Entered (incl. GST)';
+
+      setResult('mainResult', formatINR(total));
+      setResult('resultBase', formatINR(base));
+      setResult('resultGst', formatINR(gst));
+      setResult('resultRate', rate + '%');
+
+      const summary = document.getElementById('modeSummary');
+      summary.style.display = 'block';
+      if (mode === 'exclusive') {
+        summary.textContent = 'Added ' + rate + '% GST (' + formatINR(gst) + ') to base ' + formatINR(base);
+      } else {
+        summary.textContent = 'Removed ' + rate + '% GST — base is ' + formatINR(base) + ', GST portion ' + formatINR(gst);
+      }
+
+      showResult();
+    }
+  </script>
+</body>
+</html>

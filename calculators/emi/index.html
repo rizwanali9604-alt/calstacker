@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMI Calculator for Home & Car Loan — CalStacker.com</title>
+  <meta name="description" content="Calculate home, car and personal loan EMI with full amortization schedule. Instant monthly EMI, total interest and payment for Indian loans.">
+  <link rel="canonical" href="https://calstacker.com/calculators/emi/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → EMI Calculator</div>
+      <h1 class="calc-page-title">EMI Calculator</h1>
+      <p class="calc-page-desc">Home, car & personal loan EMI with full amortization schedule</p>
+    </div>
+  </header>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="calc-interface">
+    <div class="calc-box">
+      <form id="emiForm" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="loanType">Loan Type</label>
+          <select class="form-select" id="loanType">
+            <option value="home">Home Loan (typical ~8.5%)</option>
+            <option value="car">Car Loan (typical ~9%)</option>
+            <option value="personal">Personal Loan (typical ~12%)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="principal">Loan Amount (Principal)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="principal" value="5000000" min="1" step="1000">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="rate">Interest Rate (% p.a.)</label>
+            <input type="number" class="form-input" id="rate" value="8.5" min="0" step="0.01">
+            <small id="rateHint" style="color:var(--text-secondary);font-size:12px;">Typical home loan rate: 8.5%</small>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="tenureValue">Loan Tenure</label>
+            <input type="number" class="form-input" id="tenureValue" value="20" min="1" step="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="tenureUnit">Tenure Unit</label>
+          <select class="form-select" id="tenureUnit">
+            <option value="years">Years</option>
+            <option value="months">Months</option>
+          </select>
+        </div>
+        <button type="button" class="calc-btn" id="calcBtn">Calculate EMI</button>
+      </form>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Monthly EMI</div>
+          <div class="result-value" id="emiResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Interest</div>
+            <div class="result-item-value" id="totalInterest">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Payment</div>
+            <div class="result-item-value blue" id="totalPayment">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Principal</div>
+            <div class="result-item-value" id="principalDisplay">₹0</div>
+          </div>
+        </div>
+        <h3 style="margin-top:24px;font-size:16px;font-weight:700;">Amortization Schedule</h3>
+        <div class="table-wrap">
+          <table class="data-table" id="amortTable">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>EMI</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amortBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <span class="aff-icon">🏦</span>
+        <div class="aff-text">
+          <strong>Compare home loan rates from top banks</strong>
+          <span>Save lakhs with a lower interest rate</span>
+        </div>
+        <a href="#" class="aff-btn" rel="nofollow sponsored">Check Rates →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Calculate your loan EMI in three simple steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter loan details</h4>
+          <p>Select loan type, principal amount, interest rate and tenure in years or months.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Click Calculate</h4>
+          <p>We apply the standard EMI formula with monthly compounding for accurate results.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Review schedule</h4>
+          <p>See monthly EMI, total interest, and the full month-by-month amortization table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is EMI?<span class="faq-icon">+</span></button>
+          <div class="faq-a">EMI (Equated Monthly Instalment) is a fixed payment you make each month toward your loan. It includes both principal repayment and interest, calculated so the loan is fully paid off by the end of the tenure.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How is EMI calculated in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">EMI = P × R × (1+R)^N / ((1+R)^N − 1), where P is principal, R is monthly interest rate (annual rate ÷ 12 ÷ 100), and N is tenure in months. This is the standard reducing-balance method used by Indian banks.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does prepayment reduce total interest?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Paying extra toward principal lowers the outstanding balance, which reduces future interest. Many home loans allow partial prepayment without penalty after a lock-in period—check your lender's terms.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is a good EMI-to-income ratio?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Banks typically prefer total EMIs (including this loan) to stay under 40–50% of net monthly income. Keeping EMIs lower leaves room for savings, emergencies, and other goals.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Are these EMI results exact?<span class="faq-icon">+</span></button>
+          <div class="faq-a">This calculator provides estimates based on your inputs. Actual EMI may differ slightly due to processing fees, insurance add-ons, rounding by the bank, or floating-rate changes. Always confirm with your lender before signing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    const LOAN_RATES = { home: 8.5, car: 9, personal: 12 };
+    const LOAN_HINTS = {
+      home: 'Typical home loan rate: 8.5%',
+      car: 'Typical car loan rate: 9%',
+      personal: 'Typical personal loan rate: 12%'
+    };
+
+    document.getElementById('loanType').addEventListener('change', function () {
+      const type = this.value;
+      const rate = LOAN_RATES[type];
+      document.getElementById('rate').value = rate;
+      document.getElementById('rateHint').textContent = LOAN_HINTS[type];
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const P = getNum('principal');
+      const annualRate = getNum('rate');
+      let tenureVal = getNum('tenureValue');
+      const unit = document.getElementById('tenureUnit').value;
+
+      if (!validateRequiredPositive(P, 'Loan amount')) return;
+      if (!validatePositive(annualRate, 'Interest rate')) return;
+      if (!validateRequiredPositive(tenureVal, 'Tenure')) return;
+
+      let months = unit === 'years' ? Math.round(tenureVal * 12) : Math.round(tenureVal);
+      if (months < 1) {
+        alert('Tenure must be at least 1 month');
+        return;
+      }
+
+      const emi = calcEMI(P, annualRate, months);
+      const totalPayment = emi * months;
+      const totalInterest = totalPayment - P;
+
+      setResult('emiResult', formatINR(emi));
+      setResult('totalInterest', formatINRLarge(totalInterest));
+      setResult('totalPayment', formatINRLarge(totalPayment));
+      setResult('principalDisplay', formatINRLarge(P));
+
+      const tbody = document.getElementById('amortBody');
+      tbody.innerHTML = '';
+      let balance = P;
+      const r = annualRate / 12 / 100;
+
+      for (let m = 1; m <= months; m++) {
+        const interest = annualRate === 0 ? 0 : balance * r;
+        const principalPart = emi - interest;
+        balance = Math.max(0, balance - principalPart);
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + m + '</td>' +
+          '<td>' + formatINR(emi) + '</td>' +
+          '<td>' + formatINR(principalPart) + '</td>' +
+          '<td>' + formatINR(interest) + '</td>' +
+          '<td>' + formatINR(balance) + '</td>';
+        tbody.appendChild(tr);
+      }
+
+      showResult();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWP Calculator — Systematic Withdrawal Plan | CalStacker.com</title>
+  <meta name="description" content="Simulate monthly SWP withdrawals from mutual fund corpus. See balance over time with line chart — free systematic withdrawal plan calculator for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/swp/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → SWP Calculator</div>
+      <h1 class="calc-page-title">SWP Calculator</h1>
+      <p class="calc-page-desc">Systematic Withdrawal Plan — simulate monthly withdrawals from your corpus</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="corpus">Initial Corpus (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="corpus" class="form-input" placeholder="5000000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="withdrawal">Monthly Withdrawal (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="withdrawal" class="form-input" placeholder="40000" min="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="returnRate">Expected Return (% p.a.)</label>
+          <input type="number" id="returnRate" class="form-input" placeholder="10" step="0.1" min="0.1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="years">Withdrawal Period (Years)</label>
+        <input type="number" id="years" class="form-input" placeholder="20" min="1">
+      </div>
+      <button type="button" class="calc-btn" onclick="calcSWP()">Calculate SWP</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Final Balance After SWP</div>
+          <div class="result-value" id="finalBalance">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Withdrawn</div>
+            <div class="result-item-value" id="totalWithdrawn">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Months Corpus Lasts</div>
+            <div class="result-item-value blue" id="monthsLasts">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Capital Appreciation</div>
+            <div class="result-item-value green" id="capitalGain">₹0</div>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="swpChart"></canvas>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">💸</span>
+          <div class="aff-text"><strong>Start SWP for regular income</strong><span>Set up systematic withdrawals from your mutual fund corpus</span></div>
+          <a href="#" class="aff-btn">Setup SWP →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Plan your systematic withdrawal in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Corpus</h4>
+          <p>Input your total mutual fund or investment corpus.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Withdrawal & Return</h4>
+          <p>Enter monthly withdrawal amount and expected annual return.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View Balance Chart</h4>
+          <p>See how your corpus depletes or grows over the withdrawal period.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is SWP in mutual funds?<span class="faq-icon">+</span></button>
+          <div class="faq-a">SWP (Systematic Withdrawal Plan) lets you withdraw a fixed amount from your mutual fund investment at regular intervals — ideal for retirees needing steady income.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is SWP better than FD for retirees?<span class="faq-icon">+</span></button>
+          <div class="faq-a">SWP from debt or hybrid funds can offer better post-tax returns than FDs for those in lower tax brackets. However, market-linked returns carry some volatility risk.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long will my corpus last?<span class="faq-icon">+</span></button>
+          <div class="faq-a">It depends on withdrawal amount, return rate, and initial corpus. If monthly returns exceed withdrawals, the corpus can last indefinitely. This calculator shows the projected timeline.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is SWP taxable?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Each SWP withdrawal is treated as redemption. Capital gains tax applies based on fund type and holding period. Only the gain portion is taxed, not the full withdrawal.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What withdrawal rate is safe?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A common rule is withdrawing 4–6% of corpus annually (roughly 0.33–0.5% monthly). Higher rates deplete corpus faster, especially in low-return environments.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/charts.js"></script>
+  <script>
+    function calcSWP() {
+      const corpus = getNum('corpus');
+      const withdrawal = getNum('withdrawal');
+      const returnRate = getNum('returnRate');
+      const years = getNum('years');
+      if (!validateRequiredPositive(corpus, 'Initial corpus')) return;
+      if (!validateRequiredPositive(withdrawal, 'Monthly withdrawal')) return;
+      if (!validateRequiredPositive(returnRate, 'Expected return')) return;
+      if (!validateRequiredPositive(years, 'Withdrawal period')) return;
+
+      const monthlyRate = returnRate / 12 / 100;
+      const totalMonths = years * 12;
+      let balance = corpus;
+      let totalWithdrawn = 0;
+      let monthsLasts = totalMonths;
+      const labels = [];
+      const balances = [];
+
+      labels.push('Start');
+      balances.push(Math.round(balance));
+
+      for (let m = 1; m <= totalMonths; m++) {
+        balance = balance * (1 + monthlyRate) - withdrawal;
+        totalWithdrawn += withdrawal;
+        if (balance <= 0 && monthsLasts === totalMonths) {
+          monthsLasts = m;
+          balance = 0;
+        }
+        if (m % 12 === 0 || m === totalMonths) {
+          labels.push('Year ' + Math.ceil(m / 12));
+          balances.push(Math.round(Math.max(0, balance)));
+        }
+      }
+
+      const finalBal = Math.max(0, balance);
+      const capitalGain = finalBal + totalWithdrawn - corpus;
+
+      setResult('finalBalance', formatINRLarge(finalBal));
+      setResult('totalWithdrawn', formatINR(totalWithdrawn));
+      setResult('monthsLasts', monthsLasts >= totalMonths ? totalMonths + ' (full period)' : monthsLasts + ' months');
+      setResult('capitalGain', formatINR(Math.max(0, capitalGain)));
+
+      renderLineChart('swpChart', labels, [{
+        label: 'Corpus Balance',
+        data: balances,
+        borderColor: '#2563EB',
+        backgroundColor: 'rgba(37,99,235,0.1)',
+        fill: true,
+        tension: 0.3
+      }]);
+      showResult();
+    }
+  </script>
+</body>
+</html>

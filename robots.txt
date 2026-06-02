@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://calstacker.com/sitemap.xml

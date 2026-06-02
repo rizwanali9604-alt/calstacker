@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIP Calculator — Mutual Fund Returns & Corpus | CalStacker.com</title>
+  <meta name="description" content="Calculate mutual fund SIP returns, total invested amount and final corpus. Free SIP calculator with chart for Indian investors.">
+  <link rel="canonical" href="https://calstacker.com/calculators/sip/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → SIP Calculator</div>
+      <h1 class="calc-page-title">SIP Calculator</h1>
+      <p class="calc-page-desc">Mutual fund SIP returns, invested amount & final corpus</p>
+    </div>
+  </header>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="calc-interface">
+    <div class="calc-box">
+      <form id="sipForm" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="monthlySip">Monthly SIP Amount</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="monthlySip" value="10000" min="1" step="500">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="returnRate">Expected Annual Return (%)</label>
+            <input type="number" class="form-input" id="returnRate" value="12" min="0" step="0.1">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="years">Investment Period (Years)</label>
+            <input type="number" class="form-input" id="years" value="10" min="1" step="1">
+          </div>
+        </div>
+        <button type="button" class="calc-btn" id="calcBtn">Calculate SIP Returns</button>
+      </form>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Estimated Corpus</div>
+          <div class="result-value" id="corpusResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Invested</div>
+            <div class="result-item-value" id="totalInvested">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Wealth Gained</div>
+            <div class="result-item-value green" id="returnsAmount">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Return Multiple</div>
+            <div class="result-item-value blue" id="returnMultiple">0×</div>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="sipChart" height="220"></canvas>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <span class="aff-icon">📈</span>
+        <div class="aff-text">
+          <strong>Start a SIP with a top-rated mutual fund</strong>
+          <span>Invest from ₹500/month — compare funds</span>
+        </div>
+        <a href="#" class="aff-btn" rel="nofollow sponsored">Explore Funds →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Project your SIP wealth in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter SIP amount</h4>
+          <p>Type your monthly SIP contribution and expected annual return rate.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set investment period</h4>
+          <p>Choose how many years you plan to stay invested in the mutual fund.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View corpus & chart</h4>
+          <p>See total invested, returns earned, final corpus, and a doughnut breakdown chart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is a SIP?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A Systematic Investment Plan (SIP) lets you invest a fixed amount in a mutual fund at regular intervals—usually monthly. It builds discipline and benefits from rupee-cost averaging over time.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What SIP formula does this calculator use?<span class="faq-icon">+</span></button>
+          <div class="faq-a">M = P × ((1+i)^n − 1) / i × (1+i), where P is monthly investment, i is monthly return (annual ÷ 12 ÷ 100), and n is total months. This is the standard future-value formula for SIPs with end-of-month contributions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is 12% return realistic for SIP?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Equity mutual funds have historically delivered around 10–14% CAGR over long periods, but past performance does not guarantee future returns. Debt funds offer lower but steadier returns. Adjust the rate to match your fund category.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is the minimum SIP amount?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Most mutual funds in India allow SIPs starting from ₹500 per month. Some funds have higher minimums. Check the fund's offer document on the AMC website.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Are SIP returns guaranteed?<span class="faq-icon">+</span></button>
+          <div class="faq-a">No. Mutual fund investments are subject to market risk. This calculator shows projected corpus based on your assumed return rate. Actual returns will vary with market performance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/charts.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const monthly = getNum('monthlySip');
+      const annualReturn = getNum('returnRate');
+      const years = getNum('years');
+
+      if (!validateRequiredPositive(monthly, 'Monthly SIP')) return;
+      if (!validatePositive(annualReturn, 'Return rate')) return;
+      if (!validateRequiredPositive(years, 'Investment period')) return;
+
+      const invested = monthly * years * 12;
+      const corpus = calcSIPCorpus(monthly, annualReturn, years);
+      const returns = Math.max(0, corpus - invested);
+      const multiple = invested > 0 ? (corpus / invested).toFixed(2) : '0';
+
+      setResult('corpusResult', formatINRLarge(corpus));
+      setResult('totalInvested', formatINRLarge(invested));
+      setResult('returnsAmount', formatINRLarge(returns));
+      setResult('returnMultiple', multiple + '×');
+
+      showResult();
+      renderDoughnutChart('sipChart', ['Invested', 'Returns'], [invested, returns], ['#2563EB', '#10B981']);
+    });
+  </script>
+</body>
+</html>

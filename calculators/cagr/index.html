@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAGR Calculator — Compound Annual Growth Rate | CalStacker.com</title>
+  <meta name="description" content="Calculate CAGR for investments and mutual funds. CAGR = (End/Start)^(1/n)-1 shown as percentage — free instant tool for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/cagr/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → CAGR Calculator</div>
+      <h1 class="calc-page-title">CAGR Calculator</h1>
+      <p class="calc-page-desc">Compound Annual Growth Rate — CAGR = (End/Start)<sup>1/n</sup> − 1</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="startValue">Initial Value (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="startValue" class="form-input" placeholder="100000" min="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="endValue">Final Value (₹)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" id="endValue" class="form-input" placeholder="250000" min="1">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="years">Investment Period (Years)</label>
+        <input type="number" id="years" class="form-input" placeholder="5" min="1">
+      </div>
+      <button type="button" class="calc-btn" onclick="calcCAGR()">Calculate CAGR</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Compound Annual Growth Rate</div>
+          <div class="result-value" id="cagrValue">0%</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Initial Value</div>
+            <div class="result-item-value" id="startOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Final Value</div>
+            <div class="result-item-value" id="endOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Absolute Gain</div>
+            <div class="result-item-value green" id="absGain">₹0</div>
+          </div>
+        </div>
+        <div class="result-highlight" id="cagrSummary"></div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">📉</span>
+          <div class="aff-text"><strong>Track your portfolio CAGR</strong><span>Monitor mutual fund performance with leading platforms</span></div>
+          <a href="#" class="aff-btn">Track Now →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Find your investment CAGR in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Start Value</h4>
+          <p>Input your initial investment or portfolio value.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Enter End Value</h4>
+          <p>Input the current or final value of your investment.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View CAGR</h4>
+          <p>See the smoothed annual growth rate as a percentage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is CAGR?<span class="faq-icon">+</span></button>
+          <div class="faq-a">CAGR (Compound Annual Growth Rate) is the mean annual growth rate of an investment over a specified period, assuming profits are reinvested each year. It smooths out volatility.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is CAGR calculated?<span class="faq-icon">+</span></button>
+          <div class="faq-a">CAGR = (Ending Value / Beginning Value)<sup>1/n</sup> − 1, where n is the number of years. Multiply by 100 to express as a percentage.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">CAGR vs absolute return?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Absolute return shows total gain over the period. CAGR annualises that return, making it easier to compare investments held for different durations.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can CAGR be negative?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If your final value is less than the initial value, CAGR will be negative, indicating an average annual loss over the investment period.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is CAGR accurate for SIP investments?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Standard CAGR works best for lumpsum investments. For SIPs with multiple cash flows, use XIRR (Extended Internal Rate of Return) for a more accurate measure.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calcCAGR() {
+      const start = getNum('startValue');
+      const end = getNum('endValue');
+      const years = getNum('years');
+      if (!validateRequiredPositive(start, 'Initial value')) return;
+      if (!validateRequiredPositive(end, 'Final value')) return;
+      if (!validateRequiredPositive(years, 'Investment period')) return;
+
+      const cagr = (Math.pow(end / start, 1 / years) - 1) * 100;
+      const gain = end - start;
+
+      setResult('cagrValue', cagr.toFixed(2) + '%');
+      setResult('startOut', formatINR(start));
+      setResult('endOut', formatINR(end));
+      setResult('absGain', formatINR(gain));
+
+      const summary = document.getElementById('cagrSummary');
+      if (cagr >= 0) {
+        summary.textContent = 'Your investment grew at ' + cagr.toFixed(2) + '% per year on average over ' + years + ' year(s).';
+      } else {
+        summary.textContent = 'Your investment declined at ' + Math.abs(cagr).toFixed(2) + '% per year on average over ' + years + ' year(s).';
+        summary.style.background = '#FEE2E2';
+        summary.style.color = '#991B1B';
+      }
+      showResult();
+    }
+  </script>
+</body>
+</html>

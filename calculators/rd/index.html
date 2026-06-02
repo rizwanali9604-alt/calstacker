@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RD Calculator — Recurring Deposit Maturity | CalStacker.com</title>
+  <meta name="description" content="Calculate recurring deposit maturity amount using bank RD formula. Quarterly compounding — free RD calculator for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/rd/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/fd/" class="nav-cta">FD Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → RD Calculator</div>
+      <h1 class="calc-page-title">RD Calculator</h1>
+      <p class="calc-page-desc">Recurring deposit maturity — M = R × [(1+i)<sup>n</sup> − 1] / (1 − (1+i)<sup>−1/3</sup>)</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="monthly">Monthly Deposit (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="monthly" class="form-input" placeholder="5000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="rate">Interest Rate (% p.a.)</label>
+          <input type="number" id="rate" class="form-input" placeholder="7" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="months">Tenure (Months)</label>
+          <input type="number" id="months" class="form-input" placeholder="60" min="1">
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcRD()">Calculate Maturity</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Maturity Amount</div>
+          <div class="result-value" id="maturityAmount">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Total Deposited</div>
+            <div class="result-item-value" id="totalDeposited">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Interest Earned</div>
+            <div class="result-item-value green" id="interestEarned">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Effective Return</div>
+            <div class="result-item-value blue" id="effectiveReturn">0%</div>
+          </div>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">📅</span>
+          <div class="aff-text"><strong>Open an RD with top banks</strong><span>Compare recurring deposit rates from SBI, HDFC, ICICI & more</span></div>
+          <a href="#" class="aff-btn">Compare RDs →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Calculate RD maturity in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Monthly Deposit</h4>
+          <p>Input the amount you deposit every month into your RD account.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Rate & Tenure</h4>
+          <p>Enter the bank's annual interest rate and tenure in months.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View Maturity</h4>
+          <p>See total maturity amount and interest earned instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is a recurring deposit?<span class="faq-icon">+</span></button>
+          <div class="faq-a">An RD is a bank deposit where you invest a fixed amount every month for a fixed tenure. Interest is compounded quarterly, similar to FDs but with monthly contributions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is RD interest calculated?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Indian banks use M = R × [(1+i)<sup>n</sup> − 1] / (1 − (1+i)<sup>−1/3</sup>) where i = rate/400 (quarterly rate) and n = number of quarters in the tenure.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">RD vs SIP — which is better?<span class="faq-icon">+</span></button>
+          <div class="faq-a">RDs offer guaranteed returns and are ideal for risk-averse savers. SIPs in equity mutual funds offer higher potential returns but with market risk. Many use both.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is RD interest taxable?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. RD interest is added to your income and taxed at your slab rate. Banks deduct TDS if interest exceeds ₹40,000/year (₹50,000 for senior citizens).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I break an RD prematurely?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, but banks charge a penalty (typically 0.5–1% lower interest rate) on premature closure. Partial withdrawals are usually not allowed in standard RD accounts.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calcRDMaturity(R, annualRate, months) {
+      const i = annualRate / 400;
+      const n = months / 3;
+      if (i === 0) return R * months;
+      const denominator = 1 - Math.pow(1 + i, -1 / 3);
+      return R * (Math.pow(1 + i, n) - 1) / denominator;
+    }
+
+    function calcRD() {
+      const R = getNum('monthly');
+      const rate = getNum('rate');
+      const months = getNum('months');
+      if (!validateRequiredPositive(R, 'Monthly deposit')) return;
+      if (!validateRequiredPositive(rate, 'Interest rate')) return;
+      if (!validateRequiredPositive(months, 'Tenure')) return;
+
+      const maturity = calcRDMaturity(R, rate, months);
+      const deposited = R * months;
+      const interest = maturity - deposited;
+      const effectiveReturn = deposited > 0 ? ((interest / deposited) * 100).toFixed(2) : '0';
+
+      setResult('maturityAmount', formatINRLarge(maturity));
+      setResult('totalDeposited', formatINR(deposited));
+      setResult('interestEarned', formatINR(interest));
+      setResult('effectiveReturn', effectiveReturn + '%');
+      showResult();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gratuity Calculator — Tax-Free Limit ₹20 Lakh | CalStacker.com</title>
+  <meta name="description" content="Calculate gratuity on retirement using (Basic + DA) × 15/26 × years of service. Check ₹20 lakh tax-free limit instantly. Free, no signup.">
+  <link rel="canonical" href="https://calstacker.com/calculators/gratuity/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → Gratuity Calculator</div>
+      <h1 class="calc-page-title">Gratuity Calculator</h1>
+      <p class="calc-page-desc">Estimate gratuity payable on retirement under the Payment of Gratuity Act</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder — replace with AdSense after approval</div>
+  </div>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="basic">Basic Salary (monthly)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="basic" placeholder="e.g. 50000" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="da">Dearness Allowance (monthly)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="da" placeholder="e.g. 10000" min="0" step="any" value="0">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="years">Years of Service</label>
+        <input type="number" class="form-input" id="years" placeholder="e.g. 5.5 (decimals allowed)" min="0" step="any">
+        <small style="color:var(--text-muted);font-size:12px;">Partial years count (e.g. 5 years 6 months = 5.5)</small>
+      </div>
+
+      <button type="button" class="calc-btn" onclick="calculateGratuity()">Calculate Gratuity</button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Estimated Gratuity</div>
+          <div class="result-value" id="mainResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Basic + DA (monthly)</div>
+            <div class="result-item-value blue" id="resultBasicDa">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Years of Service</div>
+            <div class="result-item-value" id="resultYears">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Tax-Free Limit</div>
+            <div class="result-item-value green" id="resultLimit">₹20,00,000</div>
+          </div>
+        </div>
+        <div class="result-highlight" id="taxStatus" style="display:none;"></div>
+      </div>
+
+      <div class="affiliate-cta">
+        <div class="aff-icon">💰</div>
+        <div class="aff-text">
+          <strong>Invest your gratuity wisely</strong>
+          <span>Open a free demat account and grow your retirement corpus</span>
+        </div>
+        <a href="#" class="aff-btn" rel="noopener">Open Account →</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder</div>
+  </div>
+
+  <section class="section-sm" style="background:var(--card);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This Calculator</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Salary Details</h4>
+          <p>Input your monthly basic salary, DA, and total years of service (decimals allowed).</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Click Calculate</h4>
+          <p>We apply the formula (Basic + DA) × 15/26 × years of service.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Check Tax Status</h4>
+          <p>See if your gratuity exceeds the ₹20 lakh tax-free exemption limit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the gratuity formula in India? <span class="faq-icon">+</span></button>
+          <div class="faq-a">For employees covered under the Payment of Gratuity Act, gratuity = (Last drawn Basic + DA) × 15/26 × Number of years of service. The factor 15/26 represents 15 days' wages for each completed year.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Is gratuity tax-free? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Gratuity received by government employees is fully exempt. For private sector employees, exemption is available up to ₹20 lakh under Section 10(10) of the Income Tax Act. Amount above this limit is taxable.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Can I use decimal years of service? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If you have completed 5 years and 6 months, enter 5.5. For service beyond 6 months in a year, many employers round up to the next full year for gratuity calculation.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">When am I eligible for gratuity? <span class="faq-icon">+</span></button>
+          <div class="faq-a">You must have completed at least 5 years of continuous service with the same employer (except in case of death or disablement). Gratuity is typically paid on resignation, retirement, or superannuation.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Does DA count in gratuity calculation? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Dearness Allowance (DA) is included along with basic salary in the "last drawn salary" used for gratuity computation under the Act.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    const TAX_FREE_LIMIT = 2000000;
+
+    function calculateGratuity() {
+      const basic = getNum('basic');
+      const da = getNum('da') || 0;
+      const years = getNum('years');
+
+      if (!validateRequiredPositive(basic, 'Basic salary')) return;
+      if (!validatePositive(da, 'DA')) return;
+      if (!validateRequiredPositive(years, 'Years of service')) return;
+
+      const monthly = basic + da;
+      const gratuity = monthly * (15 / 26) * years;
+      const exceeds = gratuity > TAX_FREE_LIMIT;
+
+      setResult('mainResult', formatINR(gratuity));
+      setResult('resultBasicDa', formatINR(monthly));
+      setResult('resultYears', years.toFixed(1) + ' yrs');
+
+      const statusEl = document.getElementById('taxStatus');
+      statusEl.style.display = 'block';
+      if (exceeds) {
+        statusEl.style.background = '#FEF2F2';
+        statusEl.style.color = '#991B1B';
+        statusEl.textContent = '⚠ Gratuity exceeds ₹20 lakh tax-free limit. Excess of ' +
+          formatINR(gratuity - TAX_FREE_LIMIT) + ' may be taxable.';
+      } else {
+        statusEl.style.background = 'var(--accent-light)';
+        statusEl.style.color = '#065F46';
+        statusEl.textContent = '✓ Within ₹20 lakh tax-free exemption limit.';
+      }
+
+      showResult();
+    }
+  </script>
+</body>
+</html>

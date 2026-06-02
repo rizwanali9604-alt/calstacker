@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step-Up SIP Calculator — Annual SIP Increase | CalStacker.com</title>
+  <meta name="description" content="Calculate step-up SIP returns with annual increase. Compare flat SIP vs step-up corpus with bar chart — free for Indian investors.">
+  <link rel="canonical" href="https://calstacker.com/calculators/step-up-sip/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Step-Up SIP Calculator</div>
+      <h1 class="calc-page-title">Step-Up SIP Calculator</h1>
+      <p class="calc-page-desc">SIP with annual increase — compare flat vs step-up corpus growth</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="monthly">Starting Monthly SIP (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="monthly" class="form-input" placeholder="10000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="stepUp">Annual Step-Up (%)</label>
+          <input type="number" id="stepUp" class="form-input" placeholder="10" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="returnRate">Expected Return (% p.a.)</label>
+          <input type="number" id="returnRate" class="form-input" placeholder="12" step="0.1" min="0.1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="years">Investment Period (Years)</label>
+        <input type="number" id="years" class="form-input" placeholder="15" min="1">
+      </div>
+      <button type="button" class="calc-btn" onclick="calcStepUpSIP()">Calculate Step-Up SIP</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Step-Up SIP Corpus</div>
+          <div class="result-value" id="stepUpCorpus">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Flat SIP Corpus</div>
+            <div class="result-item-value" id="flatCorpus">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Invested (Step-Up)</div>
+            <div class="result-item-value" id="totalInvested">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Extra Corpus vs Flat SIP</div>
+            <div class="result-item-value green" id="extraCorpus">₹0</div>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="stepUpChart"></canvas>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">📊</span>
+          <div class="aff-text"><strong>Start a step-up SIP today</strong><span>Automate annual SIP increases with leading fund houses</span></div>
+          <a href="#" class="aff-btn">Start SIP →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Compare flat SIP with step-up SIP in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Starting SIP</h4>
+          <p>Input your initial monthly SIP amount and annual step-up percentage.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Return & Duration</h4>
+          <p>Enter expected annual return and investment horizon in years.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Compare Results</h4>
+          <p>View step-up vs flat SIP corpus side by side in the bar chart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is a step-up SIP?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A step-up SIP automatically increases your monthly investment by a fixed percentage every year — typically aligned with salary hikes — helping you invest more as income grows.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How much should I step up annually?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A 10% annual step-up is common and mirrors typical salary increments. Even a 5% increase significantly boosts long-term corpus through compounding on higher contributions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Does step-up SIP beat flat SIP?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, over long horizons step-up SIPs typically build a larger corpus because you invest more each year. The difference widens dramatically over 15–20 year periods.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I set up step-up SIP with any AMC?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Most major Indian AMCs and platforms like Groww, Zerodha Coin, and MF Central offer step-up SIP facilities. Check with your fund house for minimum step-up amounts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is step-up SIP suitable for beginners?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Start with a regular SIP you can afford comfortably, then enable step-up once your income stabilises. The calculator helps you see the long-term benefit before committing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/charts.js"></script>
+  <script>
+    function calcStepUpCorpus(startMonthly, annualReturn, years, stepUpPct) {
+      const i = annualReturn / 12 / 100;
+      let balance = 0;
+      let totalInvested = 0;
+      let monthly = startMonthly;
+      for (let y = 0; y < years; y++) {
+        for (let m = 0; m < 12; m++) {
+          balance = balance * (1 + i) + monthly;
+          totalInvested += monthly;
+        }
+        monthly *= (1 + stepUpPct / 100);
+      }
+      return { corpus: balance, invested: totalInvested };
+    }
+
+    function calcStepUpSIP() {
+      const monthly = getNum('monthly');
+      const stepUp = getNum('stepUp');
+      const returnRate = getNum('returnRate');
+      const years = getNum('years');
+      if (!validateRequiredPositive(monthly, 'Starting monthly SIP')) return;
+      if (!validateRequiredPositive(stepUp, 'Annual step-up')) return;
+      if (!validateRequiredPositive(returnRate, 'Expected return')) return;
+      if (!validateRequiredPositive(years, 'Investment period')) return;
+
+      const stepUpResult = calcStepUpCorpus(monthly, returnRate, years, stepUp);
+      const flatCorpus = calcSIPCorpus(monthly, returnRate, years);
+      const extra = stepUpResult.corpus - flatCorpus;
+
+      setResult('stepUpCorpus', formatINRLarge(stepUpResult.corpus));
+      setResult('flatCorpus', formatINRLarge(flatCorpus));
+      setResult('totalInvested', formatINR(stepUpResult.invested));
+      setResult('extraCorpus', formatINR(extra));
+
+      renderBarChart('stepUpChart',
+        ['Flat SIP', 'Step-Up SIP'],
+        [{
+          label: 'Corpus (₹)',
+          data: [Math.round(flatCorpus), Math.round(stepUpResult.corpus)],
+          backgroundColor: ['#2563EB', '#10B981']
+        }]
+      );
+      showResult();
+    }
+  </script>
+</body>
+</html>

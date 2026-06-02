@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRA Calculator — Section 10(13A) Exemption | CalStacker.com</title>
+  <meta name="description" content="Calculate HRA exemption under Section 10(13A). Metro vs non-metro, rent paid, basic salary and annual tax savings for salaried employees in India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/hra/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → HRA Calculator</div>
+      <h1 class="calc-page-title">HRA Calculator</h1>
+      <p class="calc-page-desc">House rent allowance exemption under Section 10(13A)</p>
+    </div>
+  </header>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="calc-interface">
+    <div class="calc-box">
+      <form id="hraForm" onsubmit="return false;">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="basicMonthly">Basic Salary (monthly)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="basicMonthly" value="50000" min="0" step="500">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="hraReceived">HRA Received (monthly)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="hraReceived" value="20000" min="0" step="500">
+            </div>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="rentPaid">Rent Paid (monthly)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" class="form-input" id="rentPaid" value="18000" min="0" step="500">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="taxRate">Marginal Tax Rate (%)</label>
+            <input type="number" class="form-input" id="taxRate" value="30" min="0" max="100" step="0.5">
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:600;">
+            <input type="checkbox" id="isMetro" checked style="width:18px;height:18px;">
+            Metro city (Delhi, Mumbai, Chennai, Kolkata) — 50% of basic limit
+          </label>
+        </div>
+        <button type="button" class="calc-btn" id="calcBtn">Calculate HRA Exemption</button>
+      </form>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">Exempt HRA (monthly)</div>
+          <div class="result-value" id="exemptHra">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Taxable HRA (monthly)</div>
+            <div class="result-item-value" id="taxableHra">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Annual Exemption</div>
+            <div class="result-item-value green" id="annualExempt">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Annual Tax Saving</div>
+            <div class="result-item-value blue" id="annualTaxSaving">₹0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <span class="aff-icon">🏢</span>
+        <div class="aff-text">
+          <strong>Save rent receipts for ITR filing</strong>
+          <span>Landlord PAN required if rent exceeds ₹1L/year</span>
+        </div>
+        <a href="#" class="aff-btn" rel="nofollow sponsored">ITR Tips →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Find your HRA tax exemption in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter salary components</h4>
+          <p>Input monthly basic salary, HRA received from employer, and rent you pay.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set city & tax rate</h4>
+          <p>Check metro if applicable and enter your marginal income tax slab rate.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View exemption</h4>
+          <p>See exempt vs taxable HRA and estimated annual tax savings under the old regime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">How is HRA exemption calculated?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Exemption is the minimum of three amounts: (1) actual HRA received, (2) rent paid minus 10% of basic salary, and (3) 50% of basic (metro) or 40% of basic (non-metro). Only available under the old tax regime.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Which cities are metro for HRA?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Delhi, Mumbai, Chennai, and Kolkata are treated as metro cities for the 50%-of-basic limit. All other cities use the 40% limit.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can I claim HRA if I live with parents?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, if you pay rent to parents and they declare it as income. You need a rent agreement and rent receipts. Parents must show the rent in their income tax return.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is HRA available in the new tax regime?<span class="faq-icon">+</span></button>
+          <div class="faq-a">No. HRA exemption under Section 10(13A) is not available if you opt for the new tax regime. You must choose the old regime to benefit from HRA deduction.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What documents are needed for HRA claim?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Rent receipts for each month, rent agreement, and landlord PAN if annual rent exceeds ₹1 lakh. Submit these to your employer for Form 16 or claim while filing ITR.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const basic = getNum('basicMonthly');
+      const hra = getNum('hraReceived');
+      const rent = getNum('rentPaid');
+      const taxRate = getNum('taxRate');
+      const isMetro = document.getElementById('isMetro').checked;
+
+      if (!validatePositive(basic, 'Basic salary')) return;
+      if (!validatePositive(hra, 'HRA received')) return;
+      if (!validatePositive(rent, 'Rent paid')) return;
+      if (!validatePositive(taxRate, 'Tax rate')) return;
+
+      const limitPercent = isMetro ? 0.5 : 0.4;
+      const component1 = hra;
+      const component2 = Math.max(0, rent - 0.1 * basic);
+      const component3 = limitPercent * basic;
+      const exempt = Math.min(component1, component2, component3);
+      const taxable = Math.max(0, hra - exempt);
+      const annualExempt = exempt * 12;
+      const annualTaxSaving = Math.round(annualExempt * (taxRate / 100));
+
+      setResult('exemptHra', formatINR(exempt));
+      setResult('taxableHra', formatINR(taxable));
+      setResult('annualExempt', formatINRLarge(annualExempt));
+      setResult('annualTaxSaving', formatINRLarge(annualTaxSaving));
+
+      showResult();
+    });
+  </script>
+</body>
+</html>

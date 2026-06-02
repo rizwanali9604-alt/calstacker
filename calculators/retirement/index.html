@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retirement Calculator — Corpus & SIP Planner | CalStacker.com</title>
+  <meta name="description" content="Plan retirement with inflation-adjusted corpus and monthly SIP needed. Inputs: age, expenses, inflation, returns — free for India.">
+  <link rel="canonical" href="https://calstacker.com/calculators/retirement/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Retirement Planner</div>
+      <h1 class="calc-page-title">Retirement Calculator</h1>
+      <p class="calc-page-desc">Inflation-adjusted retirement corpus and monthly SIP required to reach your goal</p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="currentAge">Current Age</label>
+          <input type="number" id="currentAge" class="form-input" placeholder="30" min="18">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="retirementAge">Retirement Age</label>
+          <input type="number" id="retirementAge" class="form-input" placeholder="60" min="19">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="monthlyExpense">Current Monthly Expense (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="monthlyExpense" class="form-input" placeholder="50000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="inflation">Expected Inflation (% p.a.)</label>
+          <input type="number" id="inflation" class="form-input" placeholder="6" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="returnRate">Expected Return (% p.a.)</label>
+          <input type="number" id="returnRate" class="form-input" placeholder="12" step="0.1" min="0.1">
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcRetirement()">Plan Retirement</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Retirement Corpus Required</div>
+          <div class="result-value" id="corpusRequired">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Monthly SIP Needed</div>
+            <div class="result-item-value green" id="sipNeeded">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Expense at Retirement</div>
+            <div class="result-item-value" id="expenseAtRetirement">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Years to Retire</div>
+            <div class="result-item-value blue" id="yearsToRetire">0</div>
+          </div>
+        </div>
+        <div class="result-highlight" id="retirementSummary"></div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">🌴</span>
+          <div class="aff-text"><strong>Start your retirement SIP today</strong><span>Build a tax-efficient retirement corpus with NPS & mutual funds</span></div>
+          <a href="#" class="aff-btn">Plan Now →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Plan your retirement corpus in three steps</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Ages & Expenses</h4>
+          <p>Input current age, retirement age, and monthly living expenses.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Inflation & Returns</h4>
+          <p>Enter expected inflation rate and investment return assumptions.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View SIP Target</h4>
+          <p>See inflation-adjusted corpus and monthly SIP needed to reach it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">How much corpus do I need for retirement?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Corpus depends on your lifestyle expenses, inflation, and retirement duration. We calculate the amount needed to sustain inflation-adjusted monthly expenses for 25 years post-retirement using your return assumptions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Why adjust for inflation?<span class="faq-icon">+</span></button>
+          <div class="faq-a">₹50,000/month today won't buy the same in 30 years. At 6% inflation, expenses roughly quadruple over 25 years. Ignoring inflation leads to severe under-saving.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What return rate should I assume?<span class="faq-icon">+</span></button>
+          <div class="faq-a">For long-term equity-heavy portfolios, 10–12% is common. Conservative planners use 8–10%. Post-retirement, many shift to 7–8% in balanced or debt-heavy portfolios.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is NPS good for retirement?<span class="faq-icon">+</span></button>
+          <div class="faq-a">NPS offers tax benefits under Section 80CCD and low fund management costs. However, 60% of corpus must be annuitised at maturity. Many combine NPS with mutual fund SIPs.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">When should I start retirement planning?<span class="faq-icon">+</span></button>
+          <div class="faq-a">The earlier the better. Starting a SIP in your 20s or 30s leverages compounding over decades. Even small monthly amounts grow significantly over 25–30 years.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calcMonthlySIP(target, annualReturn, years) {
+      const i = annualReturn / 12 / 100;
+      const n = years * 12;
+      if (i === 0) return target / n;
+      return target / (((Math.pow(1 + i, n) - 1) / i) * (1 + i));
+    }
+
+    function calcRetirement() {
+      const currentAge = getNum('currentAge');
+      const retirementAge = getNum('retirementAge');
+      const monthlyExpense = getNum('monthlyExpense');
+      const inflation = getNum('inflation');
+      const returnRate = getNum('returnRate');
+      if (!validateRequiredPositive(currentAge, 'Current age')) return;
+      if (!validateRequiredPositive(retirementAge, 'Retirement age')) return;
+      if (!validateRequiredPositive(monthlyExpense, 'Monthly expense')) return;
+      if (!validateRequiredPositive(inflation, 'Inflation rate')) return;
+      if (!validateRequiredPositive(returnRate, 'Expected return')) return;
+      if (retirementAge <= currentAge) {
+        alert('Retirement age must be greater than current age');
+        return;
+      }
+
+      const yearsToRetire = retirementAge - currentAge;
+      const retirementYears = 25;
+      const expenseAtRetirement = monthlyExpense * Math.pow(1 + inflation / 100, yearsToRetire);
+      const annualExpenseAtRetirement = expenseAtRetirement * 12;
+
+      const realReturn = (1 + returnRate / 100) / (1 + inflation / 100) - 1;
+      let corpusRequired;
+      if (realReturn <= 0) {
+        corpusRequired = annualExpenseAtRetirement * retirementYears;
+      } else {
+        corpusRequired = annualExpenseAtRetirement * ((1 - Math.pow(1 + realReturn, -retirementYears)) / realReturn);
+      }
+
+      const sipNeeded = calcMonthlySIP(corpusRequired, returnRate, yearsToRetire);
+
+      setResult('corpusRequired', formatINRLarge(corpusRequired));
+      setResult('sipNeeded', formatINR(sipNeeded));
+      setResult('expenseAtRetirement', formatINR(expenseAtRetirement) + '/mo');
+      setResult('yearsToRetire', yearsToRetire + ' years');
+
+      document.getElementById('retirementSummary').textContent =
+        'Start investing ' + formatINR(sipNeeded) + '/month now to build a corpus of ' + formatINRLarge(corpusRequired) + ' by age ' + retirementAge + '.';
+      showResult();
+    }
+  </script>
+</body>
+</html>

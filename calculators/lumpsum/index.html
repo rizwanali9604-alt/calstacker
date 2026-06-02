@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumpsum Calculator — One-Time Investment Returns | CalStacker.com</title>
+  <meta name="description" content="Calculate lumpsum mutual fund or investment returns with compound growth. See year-wise corpus projection instantly — free, no signup.">
+  <link rel="canonical" href="https://calstacker.com/calculators/lumpsum/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/sip/" class="nav-cta">SIP Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → Lumpsum Calculator</div>
+      <h1 class="calc-page-title">Lumpsum Calculator</h1>
+      <p class="calc-page-desc">Project one-time investment growth with compound returns — A = P(1+r)<sup>t</sup></p>
+    </div>
+  </header>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-group">
+        <label class="form-label" for="principal">Investment Amount (₹)</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">₹</span>
+          <input type="number" id="principal" class="form-input" placeholder="500000" min="1">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="rate">Expected Return (% p.a.)</label>
+          <input type="number" id="rate" class="form-input" placeholder="12" step="0.1" min="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="years">Investment Period (Years)</label>
+          <input type="number" id="years" class="form-input" placeholder="10" min="1">
+        </div>
+      </div>
+      <button type="button" class="calc-btn" onclick="calcLumpsum()">Calculate Returns</button>
+
+      <div id="resultBox" class="result-box">
+        <div class="result-main">
+          <div class="result-label">Maturity Value</div>
+          <div class="result-value" id="maturityValue">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Principal Invested</div>
+            <div class="result-item-value" id="principalOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Wealth Gained</div>
+            <div class="result-item-value green" id="wealthGained">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Absolute Return</div>
+            <div class="result-item-value blue" id="absReturn">0%</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Year</th><th>Opening Balance</th><th>Interest Earned</th><th>Closing Balance</th></tr>
+            </thead>
+            <tbody id="yearTable"></tbody>
+          </table>
+        </div>
+        <div class="affiliate-cta">
+          <span class="aff-icon">📈</span>
+          <div class="aff-text"><strong>Start investing with a top broker</strong><span>Compare lumpsum & SIP options on leading platforms</span></div>
+          <a href="#" class="aff-btn">Invest Now →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot">Advertisement</div>
+  </main>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use</h2>
+        <p>Three simple steps to project your lumpsum investment</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Amount</h4>
+          <p>Input your one-time investment amount in rupees.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Set Return & Tenure</h4>
+          <p>Enter expected annual return and investment period in years.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>View Projection</h4>
+          <p>See maturity value and year-wise growth breakdown instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">What is a lumpsum investment?<span class="faq-icon">+</span></button>
+          <div class="faq-a">A lumpsum investment is a one-time payment into a mutual fund, stock, or fixed deposit. Unlike SIP, you invest the entire amount at once and let compounding work over time.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is lumpsum return calculated?<span class="faq-icon">+</span></button>
+          <div class="faq-a">We use the compound interest formula A = P(1+r)<sup>t</sup>, where P is principal, r is annual return rate (decimal), and t is years. Returns are compounded annually.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Lumpsum vs SIP — which is better?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Lumpsum works best when markets are low and you have a large amount ready. SIP reduces timing risk through rupee-cost averaging. Many investors combine both strategies.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Are returns guaranteed?<span class="faq-icon">+</span></button>
+          <div class="faq-a">No. This calculator shows projected returns based on your assumed rate. Equity mutual funds, stocks, and market-linked products carry risk and actual returns may vary.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is lumpsum investment taxable in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Equity funds held over 1 year attract LTCG tax at 12.5% above ₹1.25 lakh gains. Debt fund taxation depends on holding period and fund type. Consult a tax advisor for your situation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    function calcLumpsum() {
+      const P = getNum('principal');
+      const rate = getNum('rate');
+      const years = getNum('years');
+      if (!validateRequiredPositive(P, 'Investment amount')) return;
+      if (!validateRequiredPositive(rate, 'Expected return')) return;
+      if (!validateRequiredPositive(years, 'Investment period')) return;
+
+      const r = rate / 100;
+      const A = P * Math.pow(1 + r, years);
+      const gained = A - P;
+
+      setResult('maturityValue', formatINRLarge(A));
+      setResult('principalOut', formatINR(P));
+      setResult('wealthGained', formatINR(gained));
+      setResult('absReturn', ((gained / P) * 100).toFixed(1) + '%');
+
+      const tbody = document.getElementById('yearTable');
+      tbody.innerHTML = '';
+      let balance = P;
+      for (let y = 1; y <= years; y++) {
+        const opening = balance;
+        const closing = P * Math.pow(1 + r, y);
+        const interest = closing - opening;
+        balance = closing;
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td>Year ' + y + '</td><td>' + formatINR(opening) + '</td><td>' + formatINR(interest) + '</td><td>' + formatINR(closing) + '</td>';
+        tbody.appendChild(tr);
+      }
+      showResult();
+    }
+  </script>
+</body>
+</html>

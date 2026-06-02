@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPF Calculator — PF Corpus at Retirement | CalStacker.com</title>
+  <meta name="description" content="Calculate EPF retirement corpus with 12% employee + 3.67% employer contribution on ₹15,000 wage ceiling. Monthly compounding at 8.25% p.a.">
+  <link rel="canonical" href="https://calstacker.com/calculators/epf/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/#employee" class="nav-link">Employee Tools</a>
+        <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → EPF Calculator</div>
+      <h1 class="calc-page-title">EPF / PF Calculator</h1>
+      <p class="calc-page-desc">Project your Provident Fund corpus at retirement with monthly compounding</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder — replace with AdSense after approval</div>
+  </div>
+
+  <main class="calc-interface">
+    <div class="calc-box">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="basic">Basic Salary (monthly)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="basic" placeholder="e.g. 40000" min="0" step="any">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="da">Dearness Allowance (monthly)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="da" placeholder="e.g. 5000" min="0" step="any" value="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="currentAge">Current Age</label>
+          <input type="number" class="form-input" id="currentAge" placeholder="e.g. 28" min="18" max="70" step="1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="retirementAge">Retirement Age</label>
+          <input type="number" class="form-input" id="retirementAge" placeholder="e.g. 58" min="40" max="70" step="1" value="58">
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">
+        Contributions: 12% employee + 3.67% employer on min(Basic+DA, ₹15,000). Interest: 8.25% p.a. compounded monthly.
+      </p>
+
+      <button type="button" class="calc-btn" onclick="calculateEPF()">Calculate EPF Corpus</button>
+
+      <div class="result-box" id="resultBox">
+        <div class="result-main">
+          <div class="result-label">EPF Corpus at Retirement</div>
+          <div class="result-value" id="mainResult">₹0</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-item-label">Monthly Employee (12%)</div>
+            <div class="result-item-value blue" id="resultEmployee">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Monthly Employer (3.67%)</div>
+            <div class="result-item-value" id="resultEmployer">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Monthly Contribution</div>
+            <div class="result-item-value green" id="resultMonthly">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">PF Wage Base (capped)</div>
+            <div class="result-item-value" id="resultWageBase">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Years to Retirement</div>
+            <div class="result-item-value" id="resultYears">0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Total Contributions</div>
+            <div class="result-item-value blue" id="resultContributions">₹0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="affiliate-cta">
+        <div class="aff-icon">📈</div>
+        <div class="aff-text">
+          <strong>Boost retirement savings beyond EPF</strong>
+          <span>Start a SIP alongside your PF for higher long-term returns</span>
+        </div>
+        <a href="#" class="aff-btn" rel="noopener">Start SIP →</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="container">
+    <div class="ad-slot">Ad placeholder</div>
+  </div>
+
+  <section class="section-sm" style="background:var(--card);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This Calculator</h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h4>Enter Salary & Age</h4>
+          <p>Input monthly basic, DA, your current age, and planned retirement age.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h4>Calculate Corpus</h4>
+          <p>We compute monthly PF contributions on the ₹15,000 wage ceiling and compound at 8.25%.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h4>Plan Retirement</h4>
+          <p>Compare EPF corpus with your retirement goals and consider additional investments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the EPF contribution rate? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Employees contribute 12% of basic + DA (subject to wage ceiling). Employers contribute 3.67% to EPF (plus 8.33% to EPS on capped wages). This calculator uses the EPF portion only.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the ₹15,000 wage ceiling? <span class="faq-icon">+</span></button>
+          <div class="faq-a">For employees earning above ₹15,000 basic + DA, statutory PF is calculated on a maximum of ₹15,000 per month unless the employer opts for higher PF on actual salary.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">What is the current EPF interest rate? <span class="faq-icon">+</span></button>
+          <div class="faq-a">EPF interest is declared annually by the government. For FY 2024-25 it was around 8.25% p.a. Rates change each year; this calculator uses 8.25% as an approximation.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Can I withdraw EPF before retirement? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Partial withdrawals are allowed for specific purposes like home purchase, medical emergency, or unemployment beyond 2 months. Full withdrawal is typically at retirement or after 2 months of unemployment.</div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-q">Is EPF interest tax-free? <span class="faq-icon">+</span></button>
+          <div class="faq-a">EPF withdrawals after 5 years of continuous service are tax-exempt. Interest on employee contributions above ₹2.5 lakh per year may be taxable for high earners under recent rules.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Employee Tools</h4>
+          <ul>
+            <li><a href="/calculators/salary/">Salary Calculator</a></li>
+            <li><a href="/calculators/income-tax/">Tax Calculator</a></li>
+            <li><a href="/calculators/hra/">HRA Calculator</a></li>
+            <li><a href="/calculators/emi/">EMI Calculator</a></li>
+            <li><a href="/calculators/gratuity/">Gratuity Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Investor Tools</h4>
+          <ul>
+            <li><a href="/calculators/sip/">SIP Calculator</a></li>
+            <li><a href="/calculators/lumpsum/">Lumpsum Calculator</a></li>
+            <li><a href="/calculators/ppf/">PPF Calculator</a></li>
+            <li><a href="/calculators/fd/">FD Calculator</a></li>
+            <li><a href="/calculators/retirement/">Retirement Planner</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CalStacker.com — Free Financial Calculators</span>
+        <span>Built for employees & investors worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script>
+    const EPF_RATE_ANNUAL = 8.25;
+    const WAGE_CEILING = 15000;
+
+    function calculateEPF() {
+      const basic = getNum('basic');
+      const da = getNum('da') || 0;
+      const currentAge = getNum('currentAge');
+      const retirementAge = getNum('retirementAge');
+
+      if (!validateRequiredPositive(basic, 'Basic salary')) return;
+      if (!validatePositive(da, 'DA')) return;
+      if (!validateRequiredPositive(currentAge, 'Current age')) return;
+      if (!validateRequiredPositive(retirementAge, 'Retirement age')) return;
+      if (retirementAge <= currentAge) {
+        alert('Retirement age must be greater than current age');
+        return;
+      }
+
+      const wageBase = Math.min(basic + da, WAGE_CEILING);
+      const employeeMonthly = wageBase * 0.12;
+      const employerMonthly = wageBase * 0.0367;
+      const monthlyContrib = employeeMonthly + employerMonthly;
+      const months = Math.round((retirementAge - currentAge) * 12);
+      const monthlyRate = EPF_RATE_ANNUAL / 12 / 100;
+
+      let balance = 0;
+      for (let m = 0; m < months; m++) {
+        balance = balance * (1 + monthlyRate) + monthlyContrib;
+      }
+
+      const totalContributions = monthlyContrib * months;
+      const interestEarned = balance - totalContributions;
+
+      setResult('mainResult', formatINRLarge(balance));
+      setResult('resultEmployee', formatINR(employeeMonthly));
+      setResult('resultEmployer', formatINR(employerMonthly));
+      setResult('resultMonthly', formatINR(monthlyContrib));
+      setResult('resultWageBase', formatINR(wageBase));
+      setResult('resultYears', (retirementAge - currentAge).toFixed(0) + ' yrs');
+      setResult('resultContributions', formatINR(totalContributions));
+
+      showResult();
+    }
+  </script>
+</body>
+</html>
