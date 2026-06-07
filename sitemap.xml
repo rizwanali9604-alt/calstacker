@@ -22,5 +22,7 @@
   <url><loc>https://calstacker.com/calculators/swp/</loc><priority>0.8</priority></url>
   <url><loc>https://calstacker.com/calculators/inflation/</loc><priority>0.8</priority></url>
   <url><loc>https://calstacker.com/about/</loc><priority>0.3</priority></url>
+  <url><loc>https://calstacker.com/disclaimer/</loc><priority>0.3</priority></url>
+  <url><loc>https://calstacker.com/contact/</loc><priority>0.3</priority></url>
   <url><loc>https://calstacker.com/privacy/</loc><priority>0.3</priority></url>
 </urlset>

@@ -1,0 +1,2 @@
+# Cloudflare Pages — redirect workers.dev preview to production
+https://calstacker.rizwanali9604.workers.dev/* https://calstacker.com/:splat 301
