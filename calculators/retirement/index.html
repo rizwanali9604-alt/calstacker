@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Retirement Calculator — Corpus & SIP Planner | CalStacker.com",
+      "description": "Plan retirement with inflation-adjusted corpus and monthly SIP needed. Inputs: age, expenses, inflation, returns — free for India.",
+      "url": "https://calstacker.com/calculators/retirement/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Retirement Calculator — Corpus & SIP Planner | CalStacker.com",
+          "item": "https://calstacker.com/calculators/retirement/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -96,7 +134,7 @@
         <div class="affiliate-cta">
           <span class="aff-icon">🌴</span>
           <div class="aff-text"><strong>Start your retirement SIP today</strong><span>Build a tax-efficient retirement corpus with NPS & mutual funds</span></div>
-          <a href="#" class="aff-btn">Plan Now →</a>
+          <a href="#" class="aff-btn" data-partner="angelone">Plan Now →</a>
         </div>
       </div>
     </div>
@@ -204,7 +242,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calcMonthlySIP(target, annualReturn, years) {
       const i = annualReturn / 12 / 100;
@@ -252,6 +293,7 @@
       document.getElementById('retirementSummary').textContent =
         'Start investing ' + formatINR(sipNeeded) + '/month now to build a corpus of ' + formatINRLarge(corpusRequired) + ' by age ' + retirementAge + '.';
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

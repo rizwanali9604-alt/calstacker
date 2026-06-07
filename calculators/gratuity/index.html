@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Gratuity Calculator — Tax-Free Limit ₹20 Lakh | CalStacker.com",
+      "description": "Calculate gratuity on retirement using (Basic + DA) × 15/26 × years of service. Check ₹20 lakh tax-free limit instantly. Free, no signup.",
+      "url": "https://calstacker.com/calculators/gratuity/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gratuity Calculator — Tax-Free Limit ₹20 Lakh | CalStacker.com",
+          "item": "https://calstacker.com/calculators/gratuity/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -100,7 +138,7 @@
           <strong>Invest your gratuity wisely</strong>
           <span>Open a free demat account and grow your retirement corpus</span>
         </div>
-        <a href="#" class="aff-btn" rel="noopener">Open Account →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="noopener">Open Account →</a>
       </div>
     </div>
   </main>
@@ -206,7 +244,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     const TAX_FREE_LIMIT = 2000000;
 
@@ -241,6 +282,7 @@
       }
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

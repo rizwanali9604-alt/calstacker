@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "emi/50-lakh-20-years",
+    "title": "EMI Calculator for ₹50 Lakh Home Loan — 20 Years",
+    "description": "Monthly EMI for ₹50 lakh home loan at 8.5% for 20 years. Total interest and payment breakdown.",
+    "calc": "emi",
+    "defaults": { "principal": 5000000, "rate": 8.5, "tenureValue": 20, "tenureUnit": "years", "loanType": "home" },
+    "intro": "Planning a ₹50 lakh home loan for 20 years? At typical rates around 8.5% p.a., your EMI and total interest are calculated below."
+  },
+  {
+    "slug": "emi/30-lakh-15-years",
+    "title": "EMI for ₹30 Lakh Loan — 15 Year Tenure",
+    "description": "Calculate EMI for ₹30 lakh home or personal loan over 15 years with instant breakdown.",
+    "calc": "emi",
+    "defaults": { "principal": 3000000, "rate": 8.5, "tenureValue": 15, "tenureUnit": "years", "loanType": "home" },
+    "intro": "A ₹30 lakh loan over 15 years keeps EMI lower than a 20-year tenure but increases monthly payment vs longer terms."
+  },
+  {
+    "slug": "emi/10-lakh-car-loan",
+    "title": "Car Loan EMI Calculator — ₹10 Lakh",
+    "description": "₹10 lakh car loan EMI at 9% interest. Monthly payment and total cost.",
+    "calc": "emi",
+    "defaults": { "principal": 1000000, "rate": 9, "tenureValue": 5, "tenureUnit": "years", "loanType": "car" },
+    "intro": "For a ₹10 lakh car loan at ~9% over 5 years, use this pre-filled calculator for instant EMI results."
+  },
+  {
+    "slug": "sip/5000-per-month-10-years",
+    "title": "SIP Calculator — ₹5,000/month for 10 Years",
+    "description": "See corpus if you invest ₹5,000 monthly in SIP for 10 years at 12% expected return.",
+    "calc": "sip",
+    "defaults": { "monthly": 5000, "rate": 12, "years": 10 },
+    "intro": "₹5,000 per month SIP for 10 years at 12% annual return — see total invested vs estimated gains."
+  },
+  {
+    "slug": "sip/10000-per-month-15-years",
+    "title": "SIP Calculator — ₹10,000/month for 15 Years",
+    "description": "Mutual fund SIP projection: ₹10,000 monthly for 15 years.",
+    "calc": "sip",
+    "defaults": { "monthly": 10000, "rate": 12, "years": 15 },
+    "intro": "Doubling SIP to ₹10,000 over 15 years significantly grows your mutual fund corpus."
+  },
+  {
+    "slug": "salary/35000-ctc-in-hand",
+    "title": "₹35,000 CTC to In-Hand Salary Calculator",
+    "description": "Convert ₹35,000 monthly CTC to take-home salary after PF, PT and TDS in India.",
+    "calc": "salary",
+    "defaults": { "ctc": 420000, "regime": "new" },
+    "intro": "If your offer letter shows ₹35,000 CTC per month (₹4.2L annually), here's your estimated in-hand salary."
+  },
+  {
+    "slug": "salary/600000-ctc-breakdown",
+    "title": "₹6 Lakh CTC Salary Breakdown — In-Hand Pay",
+    "description": "Full breakdown of ₹6 lakh annual CTC: PF, professional tax, TDS and monthly in-hand.",
+    "calc": "salary",
+    "defaults": { "ctc": 600000, "regime": "new" },
+    "intro": "₹6 lakh CTC is a common entry-level package. See PF deductions and tax under new regime."
+  },
+  {
+    "slug": "tax/12-lakh-salary-old-vs-new",
+    "title": "₹12 Lakh Salary — Old vs New Tax Regime 2026",
+    "description": "Compare income tax on ₹12 lakh salary under old and new regime FY 2026-27.",
+    "calc": "income-tax",
+    "defaults": { "annualIncome": 1200000, "deduction80C": 150000, "deduction80D": 25000 },
+    "intro": "At ₹12 lakh gross, the new regime offers zero tax up to ₹12L taxable income after standard deduction."
+  },
+  {
+    "slug": "tax/zero-tax-12-lakh",
+    "title": "Zero Tax on ₹12 Lakh Income — New Regime 2026",
+    "description": "How Section 87A rebate makes tax zero up to ₹12 lakh under new regime FY 2026-27.",
+    "calc": "income-tax",
+    "defaults": { "annualIncome": 1200000, "deduction80C": 0, "deduction80D": 0 },
+    "intro": "Budget 2025 enhanced rebate u/s 87A — many salaried Indians pay zero tax on ₹12L under the new regime."
+  },
+  {
+    "slug": "hra/bangalore-25000-basic",
+    "title": "HRA Exemption Calculator — Bangalore ₹25,000 Basic",
+    "description": "Calculate HRA exemption in Bangalore with ₹25,000 basic salary and metro 50% rule.",
+    "calc": "hra",
+    "defaults": { "basic": 25000, "hra": 10000, "rent": 15000, "metro": true },
+    "intro": "Bangalore is a metro city — HRA exemption uses 50% of basic. Pre-filled for ₹25,000 basic salary."
+  },
+  {
+    "slug": "emi/25-lakh-10-years",
+    "title": "₹25 Lakh Loan EMI — 10 Years",
+    "description": "EMI calculator for ₹25 lakh loan over 10 years at 8.5% interest.",
+    "calc": "emi",
+    "defaults": { "principal": 2500000, "rate": 8.5, "tenureValue": 10, "tenureUnit": "years", "loanType": "home" },
+    "intro": "Shorter 10-year tenure on ₹25 lakh loan means higher EMI but less total interest paid."
+  },
+  {
+    "slug": "sip/3000-per-month-20-years",
+    "title": "SIP ₹3,000/month for 20 Years — Corpus Calculator",
+    "description": "Small SIP of ₹3,000 monthly for 20 years — wealth projection at 12% return.",
+    "calc": "sip",
+    "defaults": { "monthly": 3000, "rate": 12, "years": 20 },
+    "intro": "Starting with ₹3,000/month SIP for 20 years builds significant wealth through compounding."
+  }
+]

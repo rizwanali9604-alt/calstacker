@@ -1,0 +1,4 @@
+.env
+.env.local
+dashboard/config.local.js
+node_modules/

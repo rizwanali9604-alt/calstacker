@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Salary Calculator — CTC to In-Hand Pay | CalStacker.com",
+      "description": "Convert annual CTC to monthly in-hand salary. EPF, professional tax, TDS breakdown and 12-month projection for FY 2026-27.",
+      "url": "https://calstacker.com/calculators/salary/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Salary Calculator — CTC to In-Hand Pay | CalStacker.com",
+          "item": "https://calstacker.com/calculators/salary/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -125,13 +163,20 @@
         </div>
       </div>
 
+      <!-- related-calculators -->
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">Related Tools</h3>
+        <div class="calc-grid"><a href="/calculators/income-tax/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Tax Calculator</div><div class="calc-desc">Regime comparison</div></div><span class="calc-arrow">→</span></a><a href="/calculators/hra/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">HRA Calculator</div><div class="calc-desc">Rent allowance exemption</div></div><span class="calc-arrow">→</span></a><a href="/guides/salary/35000-ctc-in-hand/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">₹35K CTC Guide</div><div class="calc-desc">In-hand breakdown</div></div><span class="calc-arrow">→</span></a></div>
+      </div>
+      <!-- /related-calculators -->
+
       <div class="affiliate-cta">
         <span class="aff-icon">💼</span>
         <div class="aff-text">
           <strong>Negotiate your salary package smarter</strong>
           <span>Compare offers — know your real take-home</span>
         </div>
-        <a href="#" class="aff-btn" rel="nofollow sponsored">Learn More →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="nofollow sponsored">Learn More →</a>
       </div>
     </div>
   </div>
@@ -238,7 +283,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function withCess(baseTax) {
       return Math.round(baseTax * 1.04);
@@ -296,6 +344,7 @@
       }
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
 </body>

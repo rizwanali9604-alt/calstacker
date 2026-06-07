@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "SIP Calculator — Mutual Fund Returns & Corpus | CalStacker.com",
+      "description": "Calculate mutual fund SIP returns, total invested amount and final corpus. Free SIP calculator with chart for Indian investors.",
+      "url": "https://calstacker.com/calculators/sip/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SIP Calculator — Mutual Fund Returns & Corpus | CalStacker.com",
+          "item": "https://calstacker.com/calculators/sip/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -91,13 +129,20 @@
         </div>
       </div>
 
+      <!-- related-calculators -->
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">Related Tools</h3>
+        <div class="calc-grid"><a href="/calculators/step-up-sip/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Step-Up SIP</div><div class="calc-desc">Increase SIP annually</div></div><span class="calc-arrow">→</span></a><a href="/calculators/lumpsum/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Lumpsum Calculator</div><div class="calc-desc">One-time vs SIP compare</div></div><span class="calc-arrow">→</span></a><a href="/guides/sip/5000-per-month-10-years/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">₹5K SIP Guide</div><div class="calc-desc">10-year corpus projection</div></div><span class="calc-arrow">→</span></a></div>
+      </div>
+      <!-- /related-calculators -->
+
       <div class="affiliate-cta">
         <span class="aff-icon">📈</span>
         <div class="aff-text">
           <strong>Start a SIP with a top-rated mutual fund</strong>
           <span>Invest from ₹500/month — compare funds</span>
         </div>
-        <a href="#" class="aff-btn" rel="nofollow sponsored">Explore Funds →</a>
+        <a href="#" class="aff-btn" data-partner="groww" rel="nofollow sponsored">Explore Funds →</a>
       </div>
     </div>
   </div>
@@ -204,8 +249,11 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/charts.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     document.getElementById('calcBtn').addEventListener('click', function () {
       const monthly = getNum('monthlySip');
@@ -227,6 +275,7 @@
       setResult('returnMultiple', multiple + '×');
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
       renderDoughnutChart('sipChart', ['Invested', 'Returns'], [invested, returns], ['#2563EB', '#10B981']);
     });
   </script>

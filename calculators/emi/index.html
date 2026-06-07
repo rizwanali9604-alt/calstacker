@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "EMI Calculator for Home & Car Loan",
+      "description": "Calculate home, car and personal loan EMI with full amortization schedule. Instant monthly EMI, total interest and payment for Indian loans.",
+      "url": "https://calstacker.com/calculators/emi/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "EMI Calculator for Home & Car Loan",
+          "item": "https://calstacker.com/calculators/emi/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -119,13 +157,20 @@
         </div>
       </div>
 
+      <!-- related-calculators -->
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">Related Tools</h3>
+        <div class="calc-grid"><a href="/calculators/sip/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Plan investments alongside EMIs</div></div><span class="calc-arrow">→</span></a><a href="/calculators/income-tax/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Tax Calculator</div><div class="calc-desc">Home loan 80C/24(b) tax impact</div></div><span class="calc-arrow">→</span></a><a href="/guides/emi/50-lakh-20-years/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">₹50L EMI Guide</div><div class="calc-desc">Pre-filled 20-year scenario</div></div><span class="calc-arrow">→</span></a></div>
+      </div>
+      <!-- /related-calculators -->
+
       <div class="affiliate-cta">
         <span class="aff-icon">🏦</span>
         <div class="aff-text">
           <strong>Compare home loan rates from top banks</strong>
           <span>Save lakhs with a lower interest rate</span>
         </div>
-        <a href="#" class="aff-btn" rel="nofollow sponsored">Check Rates →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="nofollow sponsored">Check Rates →</a>
       </div>
     </div>
   </div>
@@ -232,7 +277,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     const LOAN_RATES = { home: 8.5, car: 9, personal: 12 };
     const LOAN_HINTS = {
@@ -293,6 +341,7 @@
       }
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
 </body>

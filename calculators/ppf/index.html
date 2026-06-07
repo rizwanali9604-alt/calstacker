@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "PPF Calculator — 15 Year Maturity & Year-wise Breakdown | CalStacker.com",
+      "description": "Calculate PPF maturity with annual deposits at 7.1% default rate. Year-by-year balance table for 15-year tenure. Free PPF calculator India.",
+      "url": "https://calstacker.com/calculators/ppf/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PPF Calculator — 15 Year Maturity & Year-wise Breakdown | CalStacker.com",
+          "item": "https://calstacker.com/calculators/ppf/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -110,7 +148,7 @@
           <strong>Diversify beyond PPF</strong>
           <span>Compare PPF returns with equity SIP for long-term wealth</span>
         </div>
-        <a href="#" class="aff-btn" rel="noopener">Explore SIP →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="noopener">Explore SIP →</a>
       </div>
     </div>
   </main>
@@ -216,7 +254,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calculatePPF() {
       const annual = getNum('annualInvestment');
@@ -263,6 +304,7 @@
       ).join('');
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

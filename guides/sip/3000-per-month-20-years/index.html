@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIP ₹3,000/month for 20 Years — Corpus Calculator — CalStacker.com</title>
+  <meta name="description" content="Small SIP of ₹3,000 monthly for 20 years — wealth projection at 12% return.">
+  <link rel="canonical" href="https://calstacker.com/guides/sip/3000-per-month-20-years/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RR873MXQNX');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/#tools" class="nav-link">Calculators</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/guides/">Guides</a> → SIP ₹3,000/month for 20 Years — Corpus Calculator</div>
+      <h1 class="calc-page-title">SIP ₹3,000/month for 20 Years — Corpus Calculator</h1>
+    </div>
+  </header>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  <main class="calc-interface">
+    <div class="calc-box">
+      <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.7;">Starting with ₹3,000/month SIP for 20 years builds significant wealth through compounding.</p>
+      
+      <div class="form-group"><label class="form-label">Monthly SIP (₹)</label><input class="form-input" id="monthly" type="number" value="3000"></div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Return (% p.a.)</label><input class="form-input" id="rate" type="number" value="12"></div>
+        <div class="form-group"><label class="form-label">Years</label><input class="form-input" id="years" type="number" value="20"></div>
+      </div>
+      <button type="button" class="calc-btn" id="calcBtn">Calculate</button>
+      <div class="result-box" id="resultBox">
+        <div class="result-main"><div class="result-label">Estimated Corpus</div><div class="result-value" id="mainResult">₹0</div></div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">Total Invested</div><div class="result-item-value" id="r1">₹0</div></div>
+          <div class="result-item"><div class="result-item-label">Estimated Returns</div><div class="result-item-value green" id="r2">₹0</div></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;"><a href="/calculators/sip/">Open full sip calculator →</a></p>
+    </div>
+  </main>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const m = parseFloat(document.getElementById('monthly').value);
+      const r = parseFloat(document.getElementById('rate').value);
+      const y = parseFloat(document.getElementById('years').value);
+      if (!validateRequiredPositive(m, 'Monthly SIP')) return;
+      const corpus = calcSIPCorpus(m, r, y);
+      const invested = m * y * 12;
+      setResult('mainResult', formatINRLarge(corpus));
+      setResult('r1', formatINRLarge(invested));
+      setResult('r2', formatINRLarge(corpus - invested));
+      showResult();
+      if (typeof trackCalculate === 'function') trackCalculate('SIP ₹3,000/month for 20 Years — Corpus Calculator');
+    });
+  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:20px;">
+        <span>© 2026 CalStacker.com</span>
+        <span><a href="/disclaimer/" style="color:#94A3B8;">Disclaimer</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
+</body>
+</html>

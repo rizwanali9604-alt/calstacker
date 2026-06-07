@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "RD Calculator — Recurring Deposit Maturity | CalStacker.com",
+      "description": "Calculate recurring deposit maturity amount using bank RD formula. Quarterly compounding — free RD calculator for India.",
+      "url": "https://calstacker.com/calculators/rd/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "RD Calculator — Recurring Deposit Maturity | CalStacker.com",
+          "item": "https://calstacker.com/calculators/rd/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -85,7 +123,7 @@
         <div class="affiliate-cta">
           <span class="aff-icon">📅</span>
           <div class="aff-text"><strong>Open an RD with top banks</strong><span>Compare recurring deposit rates from SBI, HDFC, ICICI & more</span></div>
-          <a href="#" class="aff-btn">Compare RDs →</a>
+          <a href="#" class="aff-btn" data-partner="zerodha">Compare RDs →</a>
         </div>
       </div>
     </div>
@@ -193,7 +231,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calcRDMaturity(R, annualRate, months) {
       const i = annualRate / 400;
@@ -221,6 +262,7 @@
       setResult('interestEarned', formatINR(interest));
       setResult('effectiveReturn', effectiveReturn + '%');
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRA Exemption Calculator — Bangalore ₹25,000 Basic — CalStacker.com</title>
+  <meta name="description" content="Calculate HRA exemption in Bangalore with ₹25,000 basic salary and metro 50% rule.">
+  <link rel="canonical" href="https://calstacker.com/guides/hra/bangalore-25000-basic/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RR873MXQNX');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/#tools" class="nav-link">Calculators</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/guides/">Guides</a> → HRA Exemption Calculator — Bangalore ₹25,000 Basic</div>
+      <h1 class="calc-page-title">HRA Exemption Calculator — Bangalore ₹25,000 Basic</h1>
+    </div>
+  </header>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  <main class="calc-interface">
+    <div class="calc-box">
+      <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.7;">Bangalore is a metro city — HRA exemption uses 50% of basic. Pre-filled for ₹25,000 basic salary.</p>
+      
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Basic (₹/mo)</label><input class="form-input" id="basic" type="number" value="25000"></div>
+        <div class="form-group"><label class="form-label">HRA received</label><input class="form-input" id="hra" type="number" value="10000"></div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Rent paid</label><input class="form-input" id="rent" type="number" value="15000"></div>
+        <div class="form-group"><label class="form-label">Metro city</label><select class="form-select" id="metro"><option value="1" selected>Yes</option><option value="0">No</option></select></div>
+      </div>
+      <button type="button" class="calc-btn" id="calcBtn">Calculate</button>
+      <div class="result-box" id="resultBox">
+        <div class="result-main"><div class="result-label">HRA Exempt/month</div><div class="result-value" id="mainResult">₹0</div></div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">Taxable HRA</div><div class="result-item-value" id="r1">₹0</div></div>
+          <div class="result-item"><div class="result-item-label">Est. Tax Saved/yr</div><div class="result-item-value green" id="r2">₹0</div></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;"><a href="/calculators/hra/">Open full hra calculator →</a></p>
+    </div>
+  </main>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const basic = parseFloat(document.getElementById('basic').value);
+      const hra = parseFloat(document.getElementById('hra').value);
+      const rent = parseFloat(document.getElementById('rent').value);
+      const metro = document.getElementById('metro').value === '1';
+      if (!validateRequiredPositive(basic, 'Basic')) return;
+      const cap = metro ? basic * 0.5 : basic * 0.4;
+      const exempt = Math.max(0, Math.min(hra, rent - basic * 0.1, cap));
+      setResult('mainResult', formatINR(exempt));
+      setResult('r1', formatINR(hra - exempt));
+      setResult('r2', formatINR(exempt * 0.3 * 12));
+      showResult();
+      if (typeof trackCalculate === 'function') trackCalculate('HRA Exemption Calculator — Bangalore ₹25,000 Basic');
+    });
+  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:20px;">
+        <span>© 2026 CalStacker.com</span>
+        <span><a href="/disclaimer/" style="color:#94A3B8;">Disclaimer</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
+</body>
+</html>

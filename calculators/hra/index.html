@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "HRA Calculator — Section 10(13A) Exemption | CalStacker.com",
+      "description": "Calculate HRA exemption under Section 10(13A). Metro vs non-metro, rent paid, basic salary and annual tax savings for salaried employees in India.",
+      "url": "https://calstacker.com/calculators/hra/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "HRA Calculator — Section 10(13A) Exemption | CalStacker.com",
+          "item": "https://calstacker.com/calculators/hra/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -106,13 +144,20 @@
         </div>
       </div>
 
+      <!-- related-calculators -->
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">Related Tools</h3>
+        <div class="calc-grid"><a href="/calculators/income-tax/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Tax Calculator</div><div class="calc-desc">Apply HRA in tax calc</div></div><span class="calc-arrow">→</span></a><a href="/calculators/salary/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Salary Calculator</div><div class="calc-desc">Full pay breakdown</div></div><span class="calc-arrow">→</span></a><a href="/guides/hra/bangalore-25000-basic/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Bangalore HRA Guide</div><div class="calc-desc">Metro 50% rule</div></div><span class="calc-arrow">→</span></a></div>
+      </div>
+      <!-- /related-calculators -->
+
       <div class="affiliate-cta">
         <span class="aff-icon">🏢</span>
         <div class="aff-text">
           <strong>Save rent receipts for ITR filing</strong>
           <span>Landlord PAN required if rent exceeds ₹1L/year</span>
         </div>
-        <a href="#" class="aff-btn" rel="nofollow sponsored">ITR Tips →</a>
+        <a href="#" class="aff-btn" data-partner="cleartax" rel="nofollow sponsored">ITR Tips →</a>
       </div>
     </div>
   </div>
@@ -219,7 +264,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     document.getElementById('calcBtn').addEventListener('click', function () {
       const basic = getNum('basicMonthly');
@@ -248,6 +296,7 @@
       setResult('annualTaxSaving', formatINRLarge(annualTaxSaving));
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
 </body>

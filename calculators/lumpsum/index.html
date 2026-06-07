@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Lumpsum Calculator — One-Time Investment Returns | CalStacker.com",
+      "description": "Calculate lumpsum mutual fund or investment returns with compound growth. See year-wise corpus projection instantly — free, no signup.",
+      "url": "https://calstacker.com/calculators/lumpsum/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Lumpsum Calculator — One-Time Investment Returns | CalStacker.com",
+          "item": "https://calstacker.com/calculators/lumpsum/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -93,7 +131,7 @@
         <div class="affiliate-cta">
           <span class="aff-icon">📈</span>
           <div class="aff-text"><strong>Start investing with a top broker</strong><span>Compare lumpsum & SIP options on leading platforms</span></div>
-          <a href="#" class="aff-btn">Invest Now →</a>
+          <a href="#" class="aff-btn" data-partner="zerodha">Invest Now →</a>
         </div>
       </div>
     </div>
@@ -201,7 +239,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calcLumpsum() {
       const P = getNum('principal');
@@ -233,6 +274,7 @@
         tbody.appendChild(tr);
       }
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "FD Calculator — Fixed Deposit Maturity & Interest | CalStacker.com",
+      "description": "Calculate fixed deposit maturity using A = P(1+r/n)^(nt). Yearly breakdown with yearly, quarterly, or monthly compounding. Free FD calculator India.",
+      "url": "https://calstacker.com/calculators/fd/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FD Calculator — Fixed Deposit Maturity & Interest | CalStacker.com",
+          "item": "https://calstacker.com/calculators/fd/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -118,7 +156,7 @@
           <strong>Compare FD rates across banks</strong>
           <span>Shop for the best FD interest rate before locking in</span>
         </div>
-        <a href="#" class="aff-btn" rel="noopener">Compare Rates →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="noopener">Compare Rates →</a>
       </div>
     </div>
   </main>
@@ -224,7 +262,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calculateFD() {
       const P = getNum('principal');
@@ -275,6 +316,7 @@
       ).join('');
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

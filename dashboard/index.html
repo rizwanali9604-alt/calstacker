@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest Dashboard — CalStacker Revenue HQ</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/dashboard/dashboard.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RR873MXQNX');
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Site Home</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/docs/CHAT_HANDOFF.md" class="nav-link">Handoff Doc</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="dashboard-hero">
+    <div class="container">
+      <h1>Revenue Quest Dashboard</h1>
+      <p>Goal: ₹70,000/month by Month 6. Complete quests, track KPIs, export context for Cursor or DeepSeek.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="player-card">
+      <div class="player-row">
+        <div class="player-stats">
+          <div class="player-stat"><strong id="playerLevel">1</strong><span>Level</span></div>
+          <div class="player-stat"><strong id="totalXP">0</strong><span>Total XP</span></div>
+          <div class="player-stat"><strong id="questDone">0/0</strong><span>Quests Done</span></div>
+          <div class="player-stat"><strong id="goalProgress">0%</strong><span>Goal Progress</span></div>
+        </div>
+        <div class="xp-bar-wrap">
+          <div class="xp-bar-label"><span>XP to next level</span><span id="xpLabel">0 / 100</span></div>
+          <div class="xp-bar"><div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <main>
+      <div class="blocker-banner" id="blockerBanner">
+        <h3>Priority Blockers — complete these to unlock revenue</h3>
+        <div class="blocker-list" id="blockerList"></div>
+      </div>
+
+      <div class="phase-tabs" id="phaseTabs"></div>
+      <div class="quest-list" id="questList"></div>
+    </main>
+
+    <aside class="side-panel">
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:14px;">Revenue Tracker</h3>
+        <label>Monthly Visitors</label>
+        <input type="number" id="kpiVisitors" min="0" placeholder="0">
+        <label>AdSense (₹/month)</label>
+        <input type="number" id="kpiAdsense" min="0" placeholder="0">
+        <label>Affiliate (₹/month)</label>
+        <input type="number" id="kpiAffiliate" min="0" placeholder="0">
+        <label>Notes</label>
+        <textarea id="kpiNotes" rows="2" placeholder="Week notes..."></textarea>
+        <button type="button" class="btn-dash btn-primary-dash" id="saveKPI">Save KPIs</button>
+        <p style="font-size:12px;color:var(--text-muted);">Saved in browser. Export snapshot to sync with git via Cursor.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:14px;">DeepSeek Advisor</h3>
+        <label>API Key (localStorage only)</label>
+        <input type="password" id="deepseekKey" placeholder="sk-...">
+        <button type="button" class="btn-dash btn-primary-dash" id="saveDeepseekKey">Save Key</button>
+        <button type="button" class="btn-dash btn-secondary-dash" id="analyzeBtn">Analyze &amp; Recommend</button>
+        <div class="ai-response" id="aiResponse"></div>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">Future brain when Cursor subscription ends. Key never sent to CalStacker servers.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:14px;">Cursor Export</h3>
+        <button type="button" class="btn-dash btn-primary-dash" id="exportCursor">Copy Handoff Snapshot</button>
+        <button type="button" class="btn-dash btn-secondary-dash" id="exportProgress">Copy Progress JSON</button>
+        <p style="font-size:12px;color:var(--text-muted);">Paste into a new Cursor chat to continue the sprint.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:0;">
+        <span>CalStacker Quest Dashboard — internal use</span>
+        <span>Brain: Cursor Agent (now) / DeepSeek (later)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
+  <script src="/dashboard/app.js"></script>
+</body>
+</html>

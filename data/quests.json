@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "project": "CalStacker.com",
+    "goal": "70000 INR per month by Month 6",
+    "startDate": "2026-06-07",
+    "currency": "INR"
+  },
+  "phases": [
+    { "id": "blockers", "name": "Priority Blockers", "month": 0 },
+    { "id": "month1", "name": "Month 1 — Launch", "month": 1 },
+    { "id": "month2", "name": "Month 2 — Content Scale", "month": 2 },
+    { "id": "month3", "name": "Month 3 — SEO Scale", "month": 3 },
+    { "id": "month4", "name": "Month 4 — Tax Season", "month": 4 },
+    { "id": "month5", "name": "Month 5 — Double Down", "month": 5 },
+    { "id": "month6", "name": "Month 6 — ₹70k Push", "month": 6 }
+  ],
+  "quests": [
+    { "id": "blocker-dns", "phase": "blockers", "title": "Point calstacker.com DNS to Cloudflare Pages", "type": "manual", "priority": "blocker", "xp": 100, "description": "Cloudflare zone, apex + www, HTTPS Full, canonical redirect." },
+    { "id": "blocker-gsc", "phase": "blockers", "title": "Add site to Google Search Console", "type": "manual", "priority": "blocker", "xp": 80, "description": "Verify calstacker.com, submit sitemap.xml, request indexing for homepage + top 5 calcs." },
+    { "id": "blocker-adsense-approve", "phase": "blockers", "title": "Get Google AdSense approved", "type": "manual", "priority": "blocker", "xp": 150, "description": "Apply in AdSense. Client ID ca-pub-8332278519903196 already in head." },
+    { "id": "blocker-ad-units", "phase": "blockers", "title": "Create AdSense ad units + paste slot IDs", "type": "manual", "priority": "blocker", "xp": 60, "description": "Create display units. Paste IDs into assets/js/ads-config.js." },
+    { "id": "blocker-affiliate-zerodha", "phase": "blockers", "title": "Register Zerodha affiliate + paste URL", "type": "manual", "priority": "blocker", "xp": 80, "description": "Sign up partner program. Update monetization-config.js zerodha URL." },
+    { "id": "blocker-affiliate-groww", "phase": "blockers", "title": "Register Groww affiliate + paste URL", "type": "manual", "priority": "blocker", "xp": 80, "description": "Update monetization-config.js groww URL." },
+    { "id": "blocker-affiliate-cleartax", "phase": "blockers", "title": "Register ClearTax affiliate + paste URL", "type": "manual", "priority": "blocker", "xp": 60, "description": "For tax calculator CTAs." },
+    { "id": "blocker-affiliate-angel", "phase": "blockers", "title": "Register Angel One affiliate + paste URL", "type": "manual", "priority": "blocker", "xp": 60, "description": "For salary/investor CTAs." },
+    { "id": "blocker-deepseek-key", "phase": "blockers", "title": "Add DeepSeek API key in dashboard", "type": "manual", "priority": "blocker", "xp": 30, "description": "Optional future brain. Key stored in browser localStorage only." },
+
+    { "id": "m1-dashboard", "phase": "month1", "title": "Launch Quest Dashboard at /dashboard/", "type": "code", "priority": "high", "xp": 100, "description": "Gamified quest UI with XP, blockers, revenue tracker." },
+    { "id": "m1-ga-events", "phase": "month1", "title": "Wire GA4 custom events", "type": "code", "priority": "high", "xp": 50, "description": "calculate_click, affiliate_click, result_view." },
+    { "id": "m1-monetization-config", "phase": "month1", "title": "Central monetization config", "type": "code", "priority": "high", "xp": 40, "description": "assets/js/monetization-config.js + patch-affiliates.js." },
+    { "id": "m1-blog-hub", "phase": "month1", "title": "Create blog section + 4 cornerstone articles", "type": "code", "priority": "high", "xp": 80, "description": "blog/index.html + 4 India finance articles." },
+    { "id": "m1-guide-pages", "phase": "month1", "title": "Publish 12 long-tail guide pages", "type": "code", "priority": "high", "xp": 100, "description": "guides/ EMI, SIP, salary, tax, HRA scenarios." },
+    { "id": "m1-schema", "phase": "month1", "title": "Add JSON-LD schema to calculators", "type": "code", "priority": "medium", "xp": 40, "description": "WebApplication + FAQPage via patch-schema.js." },
+    { "id": "m1-privacy-analytics", "phase": "month1", "title": "Update privacy policy for GA4/AdSense", "type": "code", "priority": "medium", "xp": 20, "description": "Disclose analytics and advertising cookies." },
+    { "id": "m1-related-links", "phase": "month1", "title": "Related calculators on top 5 pages", "type": "code", "priority": "medium", "xp": 30, "description": "Internal linking on EMI, SIP, tax, salary, HRA." },
+    { "id": "m1-revenue-track", "phase": "month1", "title": "Log Week 1 revenue KPIs in dashboard", "type": "manual", "priority": "medium", "xp": 20, "description": "Visitors, AdSense ₹, affiliate ₹ in dashboard tracker." },
+
+    { "id": "m2-articles-20", "phase": "month2", "title": "Publish 20 SEO articles", "type": "code", "priority": "high", "xp": 150, "description": "1 article per week minimum; long-tail India finance." },
+    { "id": "m2-guides-30", "phase": "month2", "title": "Expand to 30+ guide pages", "type": "code", "priority": "high", "xp": 120, "description": "Run generate-guide-pages.js with expanded config." },
+    { "id": "m2-affiliate-live", "phase": "month2", "title": "All affiliate links live (not #)", "type": "manual", "priority": "high", "xp": 100, "description": "Complete all blocker-affiliate quests." },
+    { "id": "m2-ads-live", "phase": "month2", "title": "Replace ad placeholders with real units", "type": "manual", "priority": "high", "xp": 80, "description": "AdSense units rendering on all calculator pages." },
+    { "id": "m2-company-salary", "phase": "month2", "title": "Company salary pages (Wipro, TCS, Infosys)", "type": "code", "priority": "medium", "xp": 80, "description": "High-intent CTC to in-hand pages." },
+
+    { "id": "m3-programmatic-100", "phase": "month3", "title": "100+ programmatic SEO pages", "type": "code", "priority": "high", "xp": 200, "description": "Scale guide generator across EMI/SIP/salary matrices." },
+    { "id": "m3-internal-mesh", "phase": "month3", "title": "Full internal linking mesh", "type": "code", "priority": "medium", "xp": 60, "description": "Every article links to 3 calculators; calcs link to guides." },
+    { "id": "m3-traffic-15k", "phase": "month3", "title": "Reach 15,000 monthly visitors", "type": "manual", "priority": "high", "xp": 100, "description": "Check GA4; adjust content based on top pages." },
+
+    { "id": "m4-tax-burst", "phase": "month4", "title": "Tax season content burst (10 articles)", "type": "code", "priority": "high", "xp": 120, "description": "Old vs new regime, FY 2026-27, salary tax guides." },
+    { "id": "m4-tax-landing", "phase": "month4", "title": "Tax comparison landing pages", "type": "code", "priority": "high", "xp": 80, "description": "Programmatic old-vs-new for salary brackets." },
+    { "id": "m4-traffic-35k", "phase": "month4", "title": "Reach 35,000 monthly visitors", "type": "manual", "priority": "high", "xp": 100, "description": "Tax season peak traffic target." },
+
+    { "id": "m5-backlinks", "phase": "month5", "title": "Backlink outreach (10 placements)", "type": "manual", "priority": "medium", "xp": 80, "description": "Finance forums, guest posts, Reddit r/IndiaInvestments (no spam)." },
+    { "id": "m5-double-winners", "phase": "month5", "title": "2x content on top 10 GA4 pages", "type": "code", "priority": "high", "xp": 80, "description": "More guides + articles for highest traffic URLs." },
+    { "id": "m5-traffic-60k", "phase": "month5", "title": "Reach 60,000 monthly visitors", "type": "manual", "priority": "high", "xp": 100, "description": "GA4 monthly users target." },
+
+    { "id": "m6-cro-ab", "phase": "month6", "title": "A/B test affiliate CTA copy", "type": "code", "priority": "medium", "xp": 60, "description": "Test CTA variants on top 5 calculators." },
+    { "id": "m6-revenue-70k", "phase": "month6", "title": "Hit ₹70,000 monthly revenue", "type": "manual", "priority": "high", "xp": 500, "description": "AdSense + affiliate combined. Log in dashboard." },
+    { "id": "m6-email-capture", "phase": "month6", "title": "Optional email capture for tax PDF", "type": "code", "priority": "low", "xp": 40, "description": "Lead magnet on income-tax calculator." }
+  ]
+}

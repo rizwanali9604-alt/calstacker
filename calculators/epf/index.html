@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "EPF Calculator — PF Corpus at Retirement | CalStacker.com",
+      "description": "Calculate EPF retirement corpus with 12% employee + 3.67% employer contribution on ₹15,000 wage ceiling. Monthly compounding at 8.25% p.a.",
+      "url": "https://calstacker.com/calculators/epf/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "EPF Calculator — PF Corpus at Retirement | CalStacker.com",
+          "item": "https://calstacker.com/calculators/epf/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -117,7 +155,7 @@
           <strong>Boost retirement savings beyond EPF</strong>
           <span>Start a SIP alongside your PF for higher long-term returns</span>
         </div>
-        <a href="#" class="aff-btn" rel="noopener">Start SIP →</a>
+        <a href="#" class="aff-btn" data-partner="zerodha" rel="noopener">Start SIP →</a>
       </div>
     </div>
   </main>
@@ -223,7 +261,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     const EPF_RATE_ANNUAL = 8.25;
     const WAGE_CEILING = 15000;
@@ -267,6 +308,7 @@
       setResult('resultContributions', formatINR(totalContributions));
 
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

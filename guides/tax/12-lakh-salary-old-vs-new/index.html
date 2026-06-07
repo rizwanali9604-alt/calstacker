@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>₹12 Lakh Salary — Old vs New Tax Regime 2026 — CalStacker.com</title>
+  <meta name="description" content="Compare income tax on ₹12 lakh salary under old and new regime FY 2026-27.">
+  <link rel="canonical" href="https://calstacker.com/guides/tax/12-lakh-salary-old-vs-new/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RR873MXQNX');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/#tools" class="nav-link">Calculators</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/guides/">Guides</a> → ₹12 Lakh Salary — Old vs New Tax Regime 2026</div>
+      <h1 class="calc-page-title">₹12 Lakh Salary — Old vs New Tax Regime 2026</h1>
+    </div>
+  </header>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  <main class="calc-interface">
+    <div class="calc-box">
+      <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.7;">At ₹12 lakh gross, the new regime offers zero tax up to ₹12L taxable income after standard deduction.</p>
+      
+      <div class="form-group"><label class="form-label">Annual Income (₹)</label><input class="form-input" id="income" type="number" value="1200000"></div>
+      <div class="form-group"><label class="form-label">80C Deduction (₹)</label><input class="form-input" id="d80c" type="number" value="150000"></div>
+      <button type="button" class="calc-btn" id="calcBtn">Calculate</button>
+      <div class="result-box" id="resultBox">
+        <div class="result-main"><div class="result-label">Lower Tax</div><div class="result-value" id="mainResult">₹0</div></div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">Old Regime</div><div class="result-item-value" id="r1">₹0</div></div>
+          <div class="result-item"><div class="result-item-label">New Regime</div><div class="result-item-value green" id="r2">₹0</div></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;"><a href="/calculators/income-tax/">Open full income-tax calculator →</a></p>
+    </div>
+  </main>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  
+  <script>
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const inc = parseFloat(document.getElementById('income').value);
+      const d80c = Math.min(parseFloat(document.getElementById('d80c').value) || 0, 150000);
+      if (!validateRequiredPositive(inc, 'Income')) return;
+      const oldT = Math.round(calcOldRegimeTax(Math.max(0, inc - 50000 - d80c)) * 1.04);
+      const newT = Math.round(calcNewRegimeTax(Math.max(0, inc - 75000)) * 1.04);
+      setResult('mainResult', formatINR(Math.min(oldT, newT)));
+      setResult('r1', formatINR(oldT));
+      setResult('r2', formatINR(newT));
+      showResult();
+      if (typeof trackCalculate === 'function') trackCalculate('₹12 Lakh Salary — Old vs New Tax Regime 2026');
+    });
+  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:20px;">
+        <span>© 2026 CalStacker.com</span>
+        <span><a href="/disclaimer/" style="color:#94A3B8;">Disclaimer</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
+</body>
+</html>

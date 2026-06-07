@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Simple Interest Calculator — SI = P×R×T/100 | CalStacker.com",
+      "description": "Calculate simple interest instantly. SI = P×R×T/100 with principal, rate and time inputs — free calculator for India.",
+      "url": "https://calstacker.com/calculators/simple-interest/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Simple Interest Calculator — SI = P×R×T/100 | CalStacker.com",
+          "item": "https://calstacker.com/calculators/simple-interest/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -85,7 +123,7 @@
         <div class="affiliate-cta">
           <span class="aff-icon">➕</span>
           <div class="aff-text"><strong>Earn compound interest instead</strong><span>Compare FD and RD rates for better returns than simple interest</span></div>
-          <a href="#" class="aff-btn">Compare Rates →</a>
+          <a href="#" class="aff-btn" data-partner="zerodha">Compare Rates →</a>
         </div>
       </div>
     </div>
@@ -193,7 +231,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script>
     function calcSimpleInterest() {
       const P = getNum('principal');
@@ -212,6 +253,7 @@
       setResult('totalAmount', formatINRLarge(total));
       setResult('monthlyInterest', formatINR(monthly));
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>

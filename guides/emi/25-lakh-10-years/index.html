@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>₹25 Lakh Loan EMI — 10 Years — CalStacker.com</title>
+  <meta name="description" content="EMI calculator for ₹25 lakh loan over 10 years at 8.5% interest.">
+  <link rel="canonical" href="https://calstacker.com/guides/emi/25-lakh-10-years/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RR873MXQNX');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
+      <div class="nav-links">
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/#tools" class="nav-link">Calculators</a>
+        <a href="/calculators/emi/" class="nav-cta">EMI Calculator</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+  <header class="calc-page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> → <a href="/guides/">Guides</a> → ₹25 Lakh Loan EMI — 10 Years</div>
+      <h1 class="calc-page-title">₹25 Lakh Loan EMI — 10 Years</h1>
+    </div>
+  </header>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  <main class="calc-interface">
+    <div class="calc-box">
+      <p style="color:var(--text-secondary);margin-bottom:20px;line-height:1.7;">Shorter 10-year tenure on ₹25 lakh loan means higher EMI but less total interest paid.</p>
+      
+      <div class="form-group"><label class="form-label">Loan Amount (₹)</label><input class="form-input" id="principal" type="number" value="2500000"></div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Rate (% p.a.)</label><input class="form-input" id="rate" type="number" value="8.5" step="0.1"></div>
+        <div class="form-group"><label class="form-label">Tenure (years)</label><input class="form-input" id="tenure" type="number" value="10"></div>
+      </div>
+      <button type="button" class="calc-btn" id="calcBtn">Calculate</button>
+      <div class="result-box" id="resultBox">
+        <div class="result-main"><div class="result-label">Monthly EMI</div><div class="result-value" id="mainResult">₹0</div></div>
+        <div class="result-grid">
+          <div class="result-item"><div class="result-item-label">Total Interest</div><div class="result-item-value" id="r1">₹0</div></div>
+          <div class="result-item"><div class="result-item-label">Total Payment</div><div class="result-item-value green" id="r2">₹0</div></div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;"><a href="/calculators/emi/">Open full emi calculator →</a></p>
+    </div>
+  </main>
+  <div class="container"><div class="ad-slot">Advertisement</div></div>
+  
+  <script>
+    const defs = {"principal":2500000,"rate":8.5,"tenureValue":10,"tenureUnit":"years","loanType":"home"};
+    document.getElementById('calcBtn').addEventListener('click', function () {
+      const P = parseFloat(document.getElementById('principal').value);
+      const rate = parseFloat(document.getElementById('rate').value);
+      let months = parseInt(document.getElementById('tenure').value, 10) * 12;
+      if (!validateRequiredPositive(P, 'Principal')) return;
+      const emi = calcEMI(P, rate, months);
+      setResult('mainResult', formatINR(emi));
+      setResult('r1', formatINRLarge(emi * months - P));
+      setResult('r2', formatINRLarge(emi * months));
+      showResult();
+      if (typeof trackCalculate === 'function') trackCalculate('₹25 Lakh Loan EMI — 10 Years');
+    });
+  </script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:20px;">
+        <span>© 2026 CalStacker.com</span>
+        <span><a href="/disclaimer/" style="color:#94A3B8;">Disclaimer</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
+</body>
+</html>

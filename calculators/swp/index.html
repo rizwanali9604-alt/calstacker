@@ -19,6 +19,44 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "SWP Calculator — Systematic Withdrawal Plan | CalStacker.com",
+      "description": "Simulate monthly SWP withdrawals from mutual fund corpus. See balance over time with line chart — free systematic withdrawal plan calculator for India.",
+      "url": "https://calstacker.com/calculators/swp/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://calstacker.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SWP Calculator — Systematic Withdrawal Plan | CalStacker.com",
+          "item": "https://calstacker.com/calculators/swp/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -95,7 +133,7 @@
         <div class="affiliate-cta">
           <span class="aff-icon">💸</span>
           <div class="aff-text"><strong>Start SWP for regular income</strong><span>Set up systematic withdrawals from your mutual fund corpus</span></div>
-          <a href="#" class="aff-btn">Setup SWP →</a>
+          <a href="#" class="aff-btn" data-partner="zerodha">Setup SWP →</a>
         </div>
       </div>
     </div>
@@ -203,7 +241,10 @@
   </footer>
 
   <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/monetization-config.js"></script>
   <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/analytics-events.js"></script>
+  <script src="/assets/js/ads-config.js"></script>
   <script src="/assets/js/charts.js"></script>
   <script>
     function calcSWP() {
@@ -257,6 +298,7 @@
         tension: 0.3
       }]);
       showResult();
+    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     }
   </script>
 </body>
