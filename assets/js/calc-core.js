@@ -99,6 +99,15 @@ function calcSIPCorpus(monthly, annualReturn, years) {
   return monthly * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
 }
 
+/** Monthly SIP needed to reach goal corpus */
+function calcSIPForGoal(goalAmount, annualReturn, years) {
+  const i = annualReturn / 12 / 100;
+  const n = years * 12;
+  if (goalAmount <= 0 || years <= 0) return 0;
+  if (i === 0) return goalAmount / n;
+  return goalAmount * i / ((Math.pow(1 + i, n) - 1) * (1 + i));
+}
+
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.parentElement.classList.toggle('open');

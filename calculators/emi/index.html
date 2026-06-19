@@ -65,6 +65,13 @@
     </div>
   </header>
 
+  
+<div class="editorial-trust-bar">
+    <div class="container">
+      <span>✓ Free · No signup · Calculations run in your browser · <a href="/about/">About CalStacker</a></span>
+    </div>
+  </div>
+
   <div class="calc-interface">
     <div class="calc-box">
       <form id="emiForm" onsubmit="return false;">
@@ -81,6 +88,10 @@
           <div class="input-prefix-wrap">
             <span class="input-prefix">₹</span>
             <input type="number" class="form-input" id="principal" value="5000000" min="1" step="1000">
+          </div>
+          <div class="range-row">
+            <input type="range" id="principalRange" min="100000" max="20000000" step="100000" value="5000000">
+            <span class="range-val" id="principalRangeVal">₹50,00,000</span>
           </div>
         </div>
         <div class="form-grid">
@@ -122,6 +133,9 @@
             <div class="result-item-label">Principal</div>
             <div class="result-item-value" id="principalDisplay">₹0</div>
           </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="emiChart" height="200"></canvas>
         </div>
         <h3 style="margin-top:24px;font-size:16px;font-weight:700;">Amortization Schedule</h3>
         <div class="table-wrap">
@@ -177,6 +191,33 @@
     </div>
   </section>
 
+  <section class="section-sm calc-seo-section">
+    <div class="container">
+      <div class="calc-seo-content">
+        <h2>Understanding Emi in India</h2>
+        <p>An Equated Monthly Instalment (EMI) is the fixed amount you repay each month on a home, car, or personal loan in India. Banks use the reducing-balance method: interest is charged on the outstanding principal, so early EMIs contain a larger interest component. For a typical ₹50 lakh home loan at 8.5% over 20 years, your EMI is approximately ₹43,391 — but total interest paid exceeds ₹54 lakh. Understanding EMI before you sign a loan agreement helps you choose the right tenure, compare lenders, and plan your monthly budget alongside SIP and tax-saving investments.</p>
+        <h3>Formula</h3>
+        <p class="calc-formula-box">EMI = P × R × (1+R)^N / ((1+R)^N − 1), where P = loan principal, R = monthly interest rate (annual rate ÷ 12 ÷ 100), N = tenure in months.</p>
+        <h3>Worked Example</h3>
+        <p>For a ₹30,00,000 home loan at 8.5% p.a. for 15 years (180 months): monthly rate R = 0.7083%, EMI ≈ ₹29,542, total payment ≈ ₹53.2 lakh, total interest ≈ ₹23.2 lakh. Extending tenure to 25 years drops EMI to ~₹24,180 but total interest rises to ~₹42.5 lakh — almost double the interest cost for a lower monthly outflow.</p>
+        <h3>Key Factors That Affect Your Result</h3>
+        <ul class="calc-factor-list">
+          <li>Loan tenure — longer tenure lowers EMI but increases total interest significantly</li>
+          <li>Interest rate — even 0.25% difference saves lakhs on large home loans</li>
+          <li>Processing fee & insurance — add to effective cost beyond EMI</li>
+          <li>Prepayment — partial prepayment reduces outstanding principal and future interest</li>
+          <li>Fixed vs floating rate — floating rates change with RBI repo cycles</li>
+        </ul>
+        <div class="tool-cta-inline">
+          <h3>Read Our Full Home Loan EMI Guide</h3>
+          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
+          <a href="/guides/emi-guide/" class="btn-primary">Open Guide →</a>
+        </div>
+        <p class="editorial-byline">Written by CalStacker Editorial · Last updated June 2026 · <a href="/about/">Methodology</a></p>
+      </div>
+    </div>
+  </section>
+
   <section class="section-sm" style="padding-top:0;">
     <div class="container">
       <div class="section-header">
@@ -202,6 +243,18 @@
         <div class="faq-item">
           <button class="faq-q" type="button">Are these EMI results exact?<span class="faq-icon">+</span></button>
           <div class="faq-a">This calculator provides estimates based on your inputs. Actual EMI may differ slightly due to processing fees, insurance add-ons, rounding by the bank, or floating-rate changes. Always confirm with your lender before signing.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What is a good EMI to salary ratio in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Most banks prefer total EMIs (all loans combined) to stay within 40–50% of net monthly income. If your in-hand salary is ₹50,000, keep EMIs under ₹20,000–25,000. Use our salary calculator to estimate in-hand pay, then plan loan size accordingly.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">How much interest will I pay on a ₹50 lakh home loan?<span class="faq-icon">+</span></button>
+          <div class="faq-a">At 8.5% for 20 years, total interest is roughly ₹54.1 lakh on top of ₹50 lakh principal. At 20 years vs 15 years, you pay approximately ₹15 lakh more in interest for the same loan amount — always compare total cost, not just EMI.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does car loan EMI work the same as home loan EMI?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, the formula is identical. Car loans typically carry 9–11% interest and shorter tenures (3–7 years). A ₹10 lakh car loan at 9% for 5 years gives EMI around ₹20,758. Default risk is higher, so rates exceed home loans.</div>
         </div>
       </div>
     </div>
@@ -254,7 +307,8 @@
     </div>
   </footer>
 
-  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/charts.js"></script>
   <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
@@ -272,6 +326,18 @@
       document.getElementById('rate').value = rate;
       document.getElementById('rateHint').textContent = LOAN_HINTS[type];
     });
+
+    const principalInput = document.getElementById('principal');
+    const principalRange = document.getElementById('principalRange');
+    const principalRangeVal = document.getElementById('principalRangeVal');
+    function syncPrincipal(from) {
+      const v = from === 'range' ? parseFloat(principalRange.value) : parseFloat(principalInput.value);
+      principalInput.value = v;
+      principalRange.value = v;
+      principalRangeVal.textContent = formatINR(v);
+    }
+    principalRange.addEventListener('input', () => syncPrincipal('range'));
+    principalInput.addEventListener('change', () => syncPrincipal('input'));
 
     document.getElementById('calcBtn').addEventListener('click', function () {
       const P = getNum('principal');
@@ -318,6 +384,7 @@
       }
 
       showResult();
+      renderDoughnutChart('emiChart', ['Principal', 'Interest'], [P, totalInterest], ['#2563EB', '#F59E0B']);
     if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
