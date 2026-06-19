@@ -65,15 +65,37 @@
     </div>
   </header>
 
+  
+<div class="editorial-trust-bar">
+    <div class="container">
+      <span>✓ Free · No signup · Calculations run in your browser · <a href="/about/">About CalStacker</a></span>
+    </div>
+  </div>
+
   <div class="calc-interface">
     <div class="calc-box">
       <form id="sipForm" onsubmit="return false;">
+        <div class="calc-mode-tabs">
+          <button type="button" class="calc-mode-tab active" data-mode="invest">I know SIP amount</button>
+          <button type="button" class="calc-mode-tab" data-mode="goal">I know goal amount</button>
+        </div>
+        <div id="investMode">
         <div class="form-group">
           <label class="form-label" for="monthlySip">Monthly SIP Amount</label>
           <div class="input-prefix-wrap">
             <span class="input-prefix">₹</span>
             <input type="number" class="form-input" id="monthlySip" value="10000" min="1" step="500">
           </div>
+        </div>
+        </div>
+        <div id="goalMode" style="display:none;">
+        <div class="form-group">
+          <label class="form-label" for="goalAmount">Target Corpus (Goal)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="goalAmount" value="5000000" min="1" step="10000">
+          </div>
+        </div>
         </div>
         <div class="form-grid">
           <div class="form-group">
@@ -90,7 +112,7 @@
 
       <div class="result-box" id="resultBox">
         <div class="result-main">
-          <div class="result-label">Estimated Corpus</div>
+          <div class="result-label" id="mainResultLabel">Estimated Corpus</div>
           <div class="result-value" id="corpusResult">₹0</div>
         </div>
         <div class="result-grid">
@@ -149,6 +171,33 @@
     </div>
   </section>
 
+  <section class="section-sm calc-seo-section">
+    <div class="container">
+      <div class="calc-seo-content">
+        <h2>Understanding Sip in India</h2>
+        <p>A Systematic Investment Plan (SIP) lets you invest a fixed amount in mutual funds every month. In India, most AMCs accept SIPs from ₹500/month. Returns compound over time: ₹5,000/month at 12% CAGR grows to roughly ₹11.6 lakh in 10 years, ₹49.5 lakh in 20 years, and ₹1.76 crore in 30 years. SIPs benefit from rupee cost averaging — you buy more units when markets fall and fewer when they rise, smoothing volatility over long horizons.</p>
+        <h3>Formula</h3>
+        <p class="calc-formula-box">Future Value = P × [((1+r)^n − 1) / r] × (1+r), where P = monthly SIP, r = monthly return (derived from annual CAGR), n = number of months.</p>
+        <h3>Worked Example</h3>
+        <p>Investing ₹10,000/month for 10 years at 12% expected return: total invested = ₹12 lakh, estimated corpus ≈ ₹22.4 lakh, wealth gained ≈ ₹10.4 lakh. To reach ₹50 lakh in 10 years at 12%, you need roughly ₹21,500/month SIP.</p>
+        <h3>Key Factors That Affect Your Result</h3>
+        <ul class="calc-factor-list">
+          <li>Investment horizon — SIP works best for 5+ year goals</li>
+          <li>Expected return — equity funds historically 10–12% long term; not guaranteed</li>
+          <li>Fund category — equity for long term, debt for short term</li>
+          <li>Step-up SIP — increasing SIP 10% annually accelerates corpus significantly</li>
+          <li>Market timing — SIP removes need to time the market</li>
+        </ul>
+        <div class="tool-cta-inline">
+          <h3>Read Our Full SIP Investment Guide</h3>
+          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
+          <a href="/guides/sip-investment-guide/" class="btn-primary">Open Guide →</a>
+        </div>
+        <p class="editorial-byline">Written by CalStacker Editorial · Last updated June 2026 · <a href="/about/">Methodology</a></p>
+      </div>
+    </div>
+  </section>
+
   <section class="section-sm" style="padding-top:0;">
     <div class="container">
       <div class="section-header">
@@ -174,6 +223,18 @@
         <div class="faq-item">
           <button class="faq-q" type="button">Are SIP returns guaranteed?<span class="faq-icon">+</span></button>
           <div class="faq-a">No. Mutual fund investments are subject to market risk. This calculator shows projected corpus based on your assumed return rate. Actual returns will vary with market performance.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can I start SIP with ₹500 per month in India?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Most mutual fund houses allow minimum SIP of ₹500/month. Popular direct platforms include Groww, Zerodha Coin, and AMC websites. Start small and increase as income grows.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">What return rate should I use in a SIP calculator?<span class="faq-icon">+</span></button>
+          <div class="faq-a">For equity mutual funds, 10–12% annual return is commonly used for long-term projections. Debt funds: 6–8%. These are estimates — actual returns vary with market conditions. Never treat calculator output as guaranteed returns.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is SIP better than lump sum investment?<span class="faq-icon">+</span></button>
+          <div class="faq-a">SIP suits salaried investors with regular income and reduces timing risk. Lump sum can outperform if invested at market lows but requires large capital upfront. Many investors combine both strategies.</div>
         </div>
       </div>
     </div>
@@ -226,27 +287,51 @@
     </div>
   </footer>
 
-  <script src="/assets/js/calc-core.js"></script>
+  <script src="/assets/js/calc-core.js"></script>
   <script src="/assets/js/charts.js"></script>
   <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
   <script>
+    let sipMode = 'invest';
+    document.querySelectorAll('.calc-mode-tab').forEach(tab => {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.calc-mode-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        sipMode = this.dataset.mode;
+        document.getElementById('investMode').style.display = sipMode === 'invest' ? 'block' : 'none';
+        document.getElementById('goalMode').style.display = sipMode === 'goal' ? 'block' : 'none';
+        document.getElementById('mainResultLabel').textContent = sipMode === 'invest' ? 'Estimated Corpus' : 'Monthly SIP Required';
+      });
+    });
+
     document.getElementById('calcBtn').addEventListener('click', function () {
-      const monthly = getNum('monthlySip');
       const annualReturn = getNum('returnRate');
       const years = getNum('years');
-
-      if (!validateRequiredPositive(monthly, 'Monthly SIP')) return;
       if (!validatePositive(annualReturn, 'Return rate')) return;
       if (!validateRequiredPositive(years, 'Investment period')) return;
 
-      const invested = monthly * years * 12;
-      const corpus = calcSIPCorpus(monthly, annualReturn, years);
-      const returns = Math.max(0, corpus - invested);
-      const multiple = invested > 0 ? (corpus / invested).toFixed(2) : '0';
+      let monthly, invested, corpus, returns, multiple;
 
-      setResult('corpusResult', formatINRLarge(corpus));
+      if (sipMode === 'goal') {
+        const goal = getNum('goalAmount');
+        if (!validateRequiredPositive(goal, 'Goal amount')) return;
+        monthly = calcSIPForGoal(goal, annualReturn, years);
+        invested = monthly * years * 12;
+        corpus = goal;
+        returns = Math.max(0, corpus - invested);
+        multiple = invested > 0 ? (corpus / invested).toFixed(2) : '0';
+        setResult('corpusResult', formatINR(Math.round(monthly)) + '/mo');
+      } else {
+        monthly = getNum('monthlySip');
+        if (!validateRequiredPositive(monthly, 'Monthly SIP')) return;
+        invested = monthly * years * 12;
+        corpus = calcSIPCorpus(monthly, annualReturn, years);
+        returns = Math.max(0, corpus - invested);
+        multiple = invested > 0 ? (corpus / invested).toFixed(2) : '0';
+        setResult('corpusResult', formatINRLarge(corpus));
+      }
+
       setResult('totalInvested', formatINRLarge(invested));
       setResult('returnsAmount', formatINRLarge(returns));
       setResult('returnMultiple', multiple + '×');
