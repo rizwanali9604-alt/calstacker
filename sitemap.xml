@@ -22,11 +22,14 @@
   <url><loc>https://calstacker.com/calculators/cagr/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
   <url><loc>https://calstacker.com/calculators/swp/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
   <url><loc>https://calstacker.com/calculators/inflation/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/guides/salary-guide/</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/guides/tax-saving-guide/</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/guides/sip-investment-guide/</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/guides/emi-guide/</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/guides/epf-guide/</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/about/</loc><priority>0.5</priority><lastmod>2026-06-08</lastmod></url>
-  <url><loc>https://calstacker.com/privacy/</loc><priority>0.4</priority><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/guides/salary-guide/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/guides/tax-saving-guide/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/guides/sip-investment-guide/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/guides/emi-guide/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/guides/epf-guide/</loc><priority>0.8</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/about/</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/contact/</loc><priority>0.5</priority><changefreq>yearly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/privacy/</loc><priority>0.4</priority><changefreq>yearly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/terms/</loc><priority>0.4</priority><changefreq>yearly</changefreq><lastmod>2026-06-08</lastmod></url>
+  <url><loc>https://calstacker.com/disclaimer/</loc><priority>0.4</priority><changefreq>yearly</changefreq><lastmod>2026-06-08</lastmod></url>
 </urlset>

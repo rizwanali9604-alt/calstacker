@@ -40,13 +40,15 @@
 </head>
 <body>
 
-      <nav class="nav">
+        <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
       <div class="nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
+        <a href="/guides/" class="nav-link">Guides</a>
         <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">
           EMI Calculator →
         </a>
@@ -62,8 +64,6 @@
       <p class="calc-page-desc">Home, car & personal loan EMI with full amortization schedule</p>
     </div>
   </header>
-
-  <div class="ad-slot">Advertisement</div>
 
   <div class="calc-interface">
     <div class="calc-box">
@@ -143,40 +143,13 @@
       <!-- related-calculators -->
       <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
         <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">Related Tools</h3>
-        <div class="calc-grid"><a href="/calculators/sip/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Plan investments alongside EMIs</div></div><span class="calc-arrow">→</span></a><a href="/calculators/income-tax/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Tax Calculator</div><div class="calc-desc">Home loan 80C/24(b) tax impact</div></div><span class="calc-arrow">→</span></a><a href="/guides/emi/50-lakh-20-years/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">₹50L EMI Guide</div><div class="calc-desc">Pre-filled 20-year scenario</div></div><span class="calc-arrow">→</span></a></div>
+        <div class="calc-grid"><a href="/calculators/sip/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Plan investments alongside EMIs</div></div><span class="calc-arrow">→</span></a><a href="/calculators/income-tax/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Tax Calculator</div><div class="calc-desc">Home loan 80C/24(b) tax impact</div></div><span class="calc-arrow">→</span></a><a href="/guides/emi-guide/" class="calc-card" style="margin-bottom:8px;"><div class="calc-icon-wrap">🔗</div><div class="calc-info"><div class="calc-name">Home Loan EMI Guide</div><div class="calc-desc">First-time buyer guide with examples</div></div><span class="calc-arrow">→</span></a></div>
       </div>
       <!-- /related-calculators -->
 
-      <!-- AFFILIATE: replace href with your Zerodha affiliate URL from zerodha.com/open-account -->
-<div class="affiliate-cta">
-  <div class="aff-icon">📈</div>
-  <div class="aff-text">
-    <strong>Ready to invest your savings?</strong>
-    <span>Open free Zerodha account — India's #1 stock broker</span>
-  </div>
-  <a href="#affiliate-link-needed" target="_blank"
-     rel="noopener sponsored" class="aff-btn aff-zerodha">
-    Open Account Free →
-  </a>
-</div>
-
-<!-- AFFILIATE: replace href with your Angel One affiliate URL from angelone.in/partner -->
-<div class="affiliate-cta" style="margin-top:10px;">
-  <div class="aff-icon">💹</div>
-  <div class="aff-text">
-    <strong>Also try Angel One</strong>
-    <span>Free demat account + smart research tools for investors</span>
-  </div>
-  <a href="#affiliate-link-needed" target="_blank"
-     rel="noopener sponsored" class="aff-btn">
-    Open Account →
-  </a>
-</div>
       </div>
     </div>
   </div>
-
-  <div class="ad-slot">Advertisement</div>
 
   <section class="section-sm">
     <div class="container">
@@ -265,20 +238,23 @@
           <h4>Company</h4>
           <ul>
             <li><a href="/about/">About</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 CalStacker.com — Free Financial Calculators</span>
-        <span>Built for employees & investors worldwide</span>
+        <span>Made for Indian employees & investors</span>
       </div>
     </div>
   </footer>
 
-  <script src="/assets/js/calc-core.js"></script>
-  <script src="/assets/js/monetization-config.js"></script>
+  <script src="/assets/js/calc-core.js"></script>
   <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
@@ -345,5 +321,6 @@
     if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
+  <script src="/assets/js/cookie-consent.js"></script>
 </body>
 </html>

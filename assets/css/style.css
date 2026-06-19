@@ -615,3 +615,37 @@ a:hover { text-decoration: underline; }
 .guide-card h2 a { color: inherit; text-decoration: none; }
 .guide-card h2 a:hover { color: var(--primary); }
 .guide-card p { font-size: 14px; color: var(--text-secondary, #6b7280); margin: 0; }
+
+/* === COOKIE CONSENT === */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.15);
+}
+.cookie-banner p { margin: 0; flex: 1; min-width: 200px; }
+.cookie-banner a { color: #93c5fd; }
+.cookie-accept {
+  background: var(--primary, #2563eb);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cookie-accept:hover { opacity: 0.9; }

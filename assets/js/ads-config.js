@@ -1,9 +1,8 @@
 /**
- * AdSense ad unit slot IDs — paste after AdSense approval.
- * Quest: blocker-ad-units
+ * AdSense ad unit config — enable after Google AdSense approval.
  */
 const ADS_CONFIG = {
-  client: 'ca-pub-8332278519903196',
+  client: 'ca-pub-8332278513903196',
   slots: {
     topBanner: '',
     inContent: '',

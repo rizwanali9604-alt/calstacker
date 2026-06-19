@@ -1,3 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /blog/
+Disallow: /guides/emi/10-lakh-car-loan/
+Disallow: /guides/emi/25-lakh-10-years/
+Disallow: /guides/emi/30-lakh-15-years/
+Disallow: /guides/emi/50-lakh-20-years/
+Disallow: /guides/sip/5000-per-month-10-years/
+Disallow: /guides/sip/3000-per-month-20-years/
+Disallow: /guides/sip/10000-per-month-15-years/
+Disallow: /guides/salary/35000-ctc-in-hand/
+Disallow: /guides/salary/600000-ctc-breakdown/
+Disallow: /guides/tax/12-lakh-salary-old-vs-new/
+Disallow: /guides/tax/zero-tax-12-lakh/
+Disallow: /guides/hra/bangalore-25000-basic/
 Sitemap: https://calstacker.com/sitemap.xml
