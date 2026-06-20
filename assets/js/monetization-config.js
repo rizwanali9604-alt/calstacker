@@ -5,25 +5,25 @@
 const MONETIZATION = {
   zerodha: {
     name: 'Zerodha',
-    url: '#',
+    url: '#affiliate-link-needed',
     questId: 'blocker-affiliate-zerodha',
     calculators: ['sip', 'salary', 'hra', 'lumpsum', 'step-up-sip', 'swp', 'net-worth', 'gratuity', 'epf']
   },
   groww: {
     name: 'Groww',
-    url: '#',
+    url: '#affiliate-link-needed',
     questId: 'blocker-affiliate-groww',
     calculators: ['sip', 'step-up-sip', 'lumpsum']
   },
   cleartax: {
     name: 'ClearTax',
-    url: '#',
+    url: '#affiliate-link-needed',
     questId: 'blocker-affiliate-cleartax',
     calculators: ['income-tax', 'hra', 'salary']
   },
   angelone: {
     name: 'Angel One',
-    url: '#',
+    url: '#affiliate-link-needed',
     questId: 'blocker-affiliate-angel',
     calculators: ['salary', 'sip', 'retirement']
   }
