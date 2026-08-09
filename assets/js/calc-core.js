@@ -83,7 +83,9 @@ function calcOldRegimeTax(taxableIncome) {
     [1000000, 0.20],
     [Infinity, 0.30]
   ]);
-  return Math.round(Math.max(0, tax));
+  // Section 87A rebate (old regime): up to ₹12,500 when taxable income ≤ ₹5,00,000
+  const rebate = taxableIncome <= 500000 ? Math.min(tax, 12500) : 0;
+  return Math.round(Math.max(0, tax - rebate));
 }
 
 function calcEMI(principal, annualRate, months) {
