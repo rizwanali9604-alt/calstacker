@@ -6,6 +6,17 @@
   <title>Income Tax Calculator Free Online — CalStacker</title>
   <meta name="description" content="Compare income tax under old and new regime for FY 2026-27. Section 80C, 80D, HRA deductions with rebate 87A and 4% cess.">
   <link rel="canonical" href="https://calstacker.com/calculators/income-tax/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="Income Tax Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Compare income tax under old and new regime for FY 2026-27. Section 80C, 80D, HRA deductions with rebate 87A and 4% cess.">
+  <meta property="og:url" content="https://calstacker.com/calculators/income-tax/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Income Tax Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Compare income tax under old and new regime for FY 2026-27. Section 80C, 80D, HRA deductions with rebate 87A and 4% cess.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → Income Tax Calculator</div>
       <h1 class="calc-page-title">Income Tax Calculator</h1>
@@ -74,22 +86,23 @@
     <div class="calc-box">
       <form id="taxForm" onsubmit="return false;">
         <div class="form-group">
-          <label class="form-label" for="annualIncome">Annual Gross Income</label>
+          <label class="form-label" for="annualIncome">Annual gross salary / pension income</label>
           <div class="input-prefix-wrap">
             <span class="input-prefix">₹</span>
             <input type="number" class="form-input" id="annualIncome" value="1200000" min="0" step="1000">
           </div>
+          <p class="form-hint">This tool treats the amount as salary or pension so the standard deduction can apply. Do not include capital gains here — those are taxed at special rates and are not modelled.</p>
         </div>
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label" for="deduction80C">Section 80C (max ₹1.5L)</label>
+            <label class="form-label" for="deduction80C">Section 80C (old regime, max ₹1.5L)</label>
             <div class="input-prefix-wrap">
               <span class="input-prefix">₹</span>
               <input type="number" class="form-input" id="deduction80C" value="150000" min="0" step="1000">
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="deduction80D">Section 80D</label>
+            <label class="form-label" for="deduction80D">Section 80D (old regime)</label>
             <div class="input-prefix-wrap">
               <span class="input-prefix">₹</span>
               <input type="number" class="form-input" id="deduction80D" value="25000" min="0" step="1000">
@@ -98,18 +111,20 @@
         </div>
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label" for="hraExemption">HRA Exemption (annual)</label>
+            <label class="form-label" for="hraExemption">HRA exemption already computed (annual)</label>
             <div class="input-prefix-wrap">
               <span class="input-prefix">₹</span>
               <input type="number" class="form-input" id="hraExemption" value="0" min="0" step="1000">
             </div>
+            <p class="form-hint">Use the <a href="/calculators/hra/">HRA calculator</a> first if you pay rent. Applied only under the old regime.</p>
           </div>
           <div class="form-group">
-            <label class="form-label" for="otherDeductions">Other Deductions</label>
+            <label class="form-label" for="otherDeductions">Other old-regime deductions</label>
             <div class="input-prefix-wrap">
               <span class="input-prefix">₹</span>
               <input type="number" class="form-input" id="otherDeductions" value="0" min="0" step="1000">
             </div>
+            <p class="form-hint">Home-loan interest u/s 24(b), NPS 80CCD(1B), 80E, etc. Ignored in the new regime.</p>
           </div>
         </div>
         <button type="button" class="calc-btn" id="calcBtn">Compare Tax Regimes</button>
@@ -129,8 +144,25 @@
             <div class="result-item-label">You Save</div>
             <div class="result-item-value green" id="taxSavings">₹0</div>
           </div>
+          <div class="result-item">
+            <div class="result-item-label">Taxable (old)</div>
+            <div class="result-item-value" id="taxableOldOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Taxable (new)</div>
+            <div class="result-item-value" id="taxableNewOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Surcharge (if any)</div>
+            <div class="result-item-value" id="surchargeOut">₹0</div>
+          </div>
         </div>
         <div class="result-highlight" id="recommendation"></div>
+      </div>
+
+      <div class="rules-source-box">
+        <strong>FY 2026-27 rules — last verified 17 August 2026</strong>
+        Union Budget 2026 did not change personal income-tax slab rates from FY 2025-26. New-regime slabs: nil up to ₹4 lakh, then 5% / 10% / 15% / 20% / 25% / 30% in ₹4 lakh steps, with Section 87A rebate (and marginal relief) so tax is nil on taxable income up to ₹12 lakh. Standard deduction modelled: ₹75,000 (new) / ₹50,000 (old) for salary or pension. Surcharge: 10% above ₹50 lakh, 15% above ₹1 crore, 25% above ₹2 crore; old regime 37% above ₹5 crore (new regime capped at 25%). Plus 4% health and education cess. Sources: <a href="https://www.incometax.gov.in/" rel="noopener noreferrer">Income Tax Department</a>; Finance Act / Income-tax Act, 2025 as in force from 1 April 2026. This is an estimate, not an assessment order.
       </div>
 
       
@@ -177,26 +209,27 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How Old vs New Tax Regime Tax Is Calculated</h2>
-        <p>India offers two tax regimes for FY 2026-27. The new regime provides a ₹75,000 standard deduction and rebate making income up to ₹12 lakh effectively zero tax for many salaried employees. The old regime allows deductions under 80C (₹1.5L), 80D, HRA, and home loan interest — beneficial if you have high rent, home loan, or disciplined tax-saving investments.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">Tax = apply slab rates on taxable income after deductions. New regime slabs: 0–4L nil, 4–8L 5%, 8–12L 10%, 12–16L 15%, 16–20L 20%, 20–24L 25%, above 24L 30% (plus cess).</p>
-        <h3>Worked Example</h3>
-        <p>₹12 lakh annual salary, new regime, no other income: taxable after ₹75K standard deduction = ₹11.25L, tax after rebate often ₹0. Same salary, old regime with ₹1.5L 80C + ₹25K 80D + ₹2L HRA exemption: taxable income can drop by ₹3–4 lakh, saving ₹30,000–50,000 tax.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>Regime selection — choose at start of FY, switchable in some cases</li>
-          <li>80C investments — ELSS, PPF, EPF, LIC, tuition fees</li>
-          <li>HRA — only under old regime with valid rent proof</li>
-          <li>NPS 80CCD(1B) — extra ₹50,000 beyond 80C</li>
-          <li>Home loan — 80C principal + 24(b) interest deductions</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full Tax Saving Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/tax-saving-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>FY 2026-27: what this comparison actually does</h2>
+        <p>Two columns, one income. The new-regime column applies the ₹75,000 standard deduction (salary/pension) and <strong>ignores</strong> 80C, 80D, HRA, and the “other deductions” box — because those deductions are not available there. The old-regime column subtracts them after the ₹50,000 standard deduction, then runs the older slabs. Both columns add surcharge (if taxable income is above ₹50 lakh) with marginal relief, then 4% cess.</p>
+        <h3>New-regime slabs (taxable income)</h3>
+        <table class="compare-table">
+          <thead><tr><th>Band</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Up to ₹4 lakh</td><td>Nil</td></tr>
+            <tr><td>₹4–8 lakh</td><td>5%</td></tr>
+            <tr><td>₹8–12 lakh</td><td>10%</td></tr>
+            <tr><td>₹12–16 lakh</td><td>15%</td></tr>
+            <tr><td>₹16–20 lakh</td><td>20%</td></tr>
+            <tr><td>₹20–24 lakh</td><td>25%</td></tr>
+            <tr><td>Above ₹24 lakh</td><td>30%</td></tr>
+          </tbody>
+        </table>
+        <p>Section 87A (new regime) plus marginal relief makes tax nil on taxable income up to ₹12 lakh. A salaried person with ₹12.75 lakh gross and no other income is often at ₹12 lakh after the ₹75,000 standard deduction — which is why “zero tax up to ₹12.75 lakh” appears in news explainers. That is <em>taxable</em> income after standard deduction, not CTC.</p>
+        <h3>Worked ₹18 lakh salary</h3>
+        <p>New regime: taxable ₹18,00,000 − ₹75,000 = ₹17,25,000. Slab tax is ₹60,000 (up to ₹12L) + 15% of ₹4L + 20% of ₹1.25L = ₹60,000 + ₹60,000 + ₹25,000 = ₹1,45,000, plus 4% cess ≈ ₹1,50,800. Old regime with full ₹1.5 lakh 80C, ₹25,000 80D and ₹2 lakh HRA: taxable can fall near ₹13.5 lakh before 20%/30% slabs — run the boxes rather than memorising a rule of thumb. Home-loan interest u/s 24(b) belongs in “other deductions” on the old side only.</p>
+        <h3>What we do not compute</h3>
+        <p>Capital gains, dividend special rates, senior-citizen extra exemption under the old regime, and company-specific perquisites. Rebate 87A is not applied to special-rate income. Re-check after every Budget. Sources and the verification date sit in the grey box above the related tools. Longer read: <a href="/guides/old-vs-new-tax-regime-guide/">old vs new regime</a> and <a href="/guides/tax-saving-guide/">tax-saving guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Rules last verified 17 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -244,7 +277,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -274,6 +307,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
@@ -292,10 +326,6 @@
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
   <script>
-    function withCess(baseTax) {
-      return Math.round(baseTax * 1.04);
-    }
-
     document.getElementById('calcBtn').addEventListener('click', function () {
       const income = getNum('annualIncome');
       const d80c = Math.min(getNum('deduction80C') || 0, 150000);
@@ -314,26 +344,29 @@
       const taxableOld = Math.max(0, income - stdOld - d80c - d80d - hra - other);
       const taxableNew = Math.max(0, income - stdNew);
 
-      const taxOld = withCess(calcOldRegimeTax(taxableOld));
-      const taxNew = withCess(calcNewRegimeTax(taxableNew));
-      const savings = Math.abs(taxOld - taxNew);
-      const betterOld = taxOld < taxNew;
+      const oldT = calcIncomeTax(taxableOld, 'old');
+      const newT = calcIncomeTax(taxableNew, 'new');
+      const savings = Math.abs(oldT.total - newT.total);
+      const betterOld = oldT.total < newT.total;
 
-      setResult('taxOld', formatINR(taxOld));
-      setResult('taxNew', formatINR(taxNew));
+      setResult('taxOld', formatINR(oldT.total));
+      setResult('taxNew', formatINR(newT.total));
       setResult('taxSavings', formatINR(savings));
+      setResult('taxableOldOut', formatINR(taxableOld));
+      setResult('taxableNewOut', formatINR(taxableNew));
+      setResult('surchargeOut', formatINR(Math.max(oldT.surcharge, newT.surcharge)));
 
       const rec = document.getElementById('recommendation');
-      if (taxOld === taxNew) {
-        rec.textContent = 'Both regimes result in the same tax. You may choose either based on convenience.';
+      if (oldT.total === newT.total) {
+        rec.textContent = 'Both regimes result in the same tax on these inputs. Pick either based on compliance convenience.';
       } else if (betterOld) {
-        rec.textContent = 'Recommendation: Old regime saves you ' + formatINR(savings) + ' — claim your deductions under 80C, 80D and HRA.';
+        rec.textContent = 'On these inputs, the old regime is lower by ' + formatINR(savings) + ' (includes cess' + (oldT.surcharge ? ' and surcharge' : '') + '). Confirm deductions you can actually claim.';
       } else {
-        rec.textContent = 'Recommendation: New regime saves you ' + formatINR(savings) + ' — simpler filing with lower effective tax.';
+        rec.textContent = 'On these inputs, the new regime is lower by ' + formatINR(savings) + '. 80C, 80D and HRA are ignored in the new-regime column, which matches current law.';
       }
 
       showResult();
-    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
+      if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
   <script src="/assets/js/cookie-consent.js"></script>

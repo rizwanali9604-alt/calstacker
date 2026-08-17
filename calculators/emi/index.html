@@ -6,6 +6,17 @@
   <title>EMI Calculator Free Online — CalStacker</title>
   <meta name="description" content="Calculate home, car and personal loan EMI with full amortization schedule. Instant monthly EMI, total interest and payment for Indian loans.">
   <link rel="canonical" href="https://calstacker.com/calculators/emi/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="EMI Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Calculate home, car and personal loan EMI with full amortization schedule. Instant monthly EMI, total interest and payment for Indian loans.">
+  <meta property="og:url" content="https://calstacker.com/calculators/emi/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EMI Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Calculate home, car and personal loan EMI with full amortization schedule. Instant monthly EMI, total interest and payment for Indian loans.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → EMI Calculator</div>
       <h1 class="calc-page-title">EMI Calculator</h1>
@@ -182,7 +194,7 @@
         <div class="how-step">
           <div class="how-step-num">2</div>
           <h4>Click Calculate</h4>
-          <p>We apply the standard EMI formula with monthly compounding for accurate results.</p>
+          <p>We apply the standard reducing-balance EMI formula with monthly compounding. Your bank may round differently or add insurance.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">3</div>
@@ -196,26 +208,24 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How EMI Works for Home, Car & Personal Loans in India</h2>
-        <p>An Equated Monthly Instalment (EMI) is the fixed amount you repay each month on a home, car, or personal loan in India. Banks use the reducing-balance method: interest is charged on the outstanding principal, so early EMIs contain a larger interest component. For a typical ₹50 lakh home loan at 8.5% over 20 years, your EMI is approximately ₹43,391 — but total interest paid exceeds ₹54 lakh. Understanding EMI before you sign a loan agreement helps you choose the right tenure, compare lenders, and plan your monthly budget alongside SIP and tax-saving investments.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">EMI = P × R × (1+R)^N / ((1+R)^N − 1), where P = loan principal, R = monthly interest rate (annual rate ÷ 12 ÷ 100), N = tenure in months.</p>
-        <h3>Worked Example</h3>
-        <p>For a ₹30,00,000 home loan at 8.5% p.a. for 15 years (180 months): monthly rate R = 0.7083%, EMI ≈ ₹29,542, total payment ≈ ₹53.2 lakh, total interest ≈ ₹23.2 lakh. Extending tenure to 25 years drops EMI to ~₹24,180 but total interest rises to ~₹42.5 lakh — almost double the interest cost for a lower monthly outflow.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>Loan tenure — longer tenure lowers EMI but increases total interest significantly</li>
-          <li>Interest rate — even 0.25% difference saves lakhs on large home loans</li>
-          <li>Processing fee & insurance — add to effective cost beyond EMI</li>
-          <li>Prepayment — partial prepayment reduces outstanding principal and future interest</li>
-          <li>Fixed vs floating rate — floating rates change with RBI repo cycles</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full Home Loan EMI Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/emi-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>What an EMI actually contains</h2>
+        <p>Indian home, car, and personal loans almost always use a <strong>reducing-balance</strong> EMI: the instalment is fixed, but the split between interest and principal changes every month. Month 1 of a ₹50 lakh loan at 8.5% for 20 years is roughly ₹35,417 interest and only ₹7,974 principal. By year 15 the interest share has fallen sharply. That is why a prepayment early in the loan saves more than the same rupee amount in year 18.</p>
+        <p>This calculator uses EMI = P × r × (1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1), where r is the monthly rate (annual ÷ 12 ÷ 100) and n is tenure in months. Banks may still differ by a few rupees because of day-count conventions, processing fees bundled into the loan, or rounding.</p>
+        <h3>Tenure is the expensive lever</h3>
+        <p>For a ₹30 lakh home loan at 8.5%:</p>
+        <table class="compare-table">
+          <thead><tr><th>Tenure</th><th>EMI</th><th>Total interest</th></tr></thead>
+          <tbody>
+            <tr><td>10 years</td><td>≈ ₹37,186</td><td>≈ ₹14.6 lakh</td></tr>
+            <tr><td>15 years</td><td>≈ ₹29,542</td><td>≈ ₹23.2 lakh</td></tr>
+            <tr><td>20 years</td><td>≈ ₹26,035</td><td>≈ ₹32.5 lakh</td></tr>
+            <tr><td>25 years</td><td>≈ ₹24,180</td><td>≈ ₹42.5 lakh</td></tr>
+          </tbody>
+        </table>
+        <p>Stretching 10 years to 25 years cuts EMI by about ₹13,000 but more than doubles interest. If the lower EMI is the only way the loan is affordable, take it — then prepay toward <em>tenure</em> when you get a bonus, not toward a lower EMI, unless cash-flow is the constraint.</p>
+        <h3>What this tool does not include</h3>
+        <p>Stamp duty, registration, GST on some charges, credit-protect insurance, and floating-rate resets are outside the formula. FOIR (total EMIs ÷ net income) at most banks sits near 40–50%. Pair this page with the <a href="/calculators/salary/">salary calculator</a> before you sign. Longer walkthrough: <a href="/guides/emi-guide/">home loan EMI guide</a> and <a href="/guides/home-loan-prepayment-guide/">prepayment guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated 17 August 2026 · Formula: reducing-balance EMI · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -267,7 +277,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -297,6 +307,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
@@ -353,7 +364,7 @@
 
       let months = unit === 'years' ? Math.round(tenureVal * 12) : Math.round(tenureVal);
       if (months < 1) {
-        alert('Tenure must be at least 1 month');
+        showCalcError('Tenure must be at least 1 month');
         return;
       }
 

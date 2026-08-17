@@ -1,0 +1,24 @@
+# Files that must not be published (AdSense / spam / internal tooling)
+dashboard/
+data/
+blog/
+scripts/
+node_modules/
+.wrangler/
+.git/
+*.md
+assets/og-share.png
+
+# Thin / scaled URLs — served as redirects via _redirects, not as pages
+guides/emi/10-lakh-car-loan/
+guides/emi/25-lakh-10-years/
+guides/emi/30-lakh-15-years/
+guides/emi/50-lakh-20-years/
+guides/sip/5000-per-month-10-years/
+guides/sip/3000-per-month-20-years/
+guides/sip/10000-per-month-15-years/
+guides/salary/35000-ctc-in-hand/
+guides/salary/600000-ctc-breakdown/
+guides/tax/12-lakh-salary-old-vs-new/
+guides/tax/zero-tax-12-lakh/
+guides/hra/bangalore-25000-basic/

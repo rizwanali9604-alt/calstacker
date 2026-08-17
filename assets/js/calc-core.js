@@ -1,21 +1,66 @@
 /* ================================================
    CALSTACKER.COM — SHARED CALCULATOR ENGINE
-   All calculators use these shared utilities
+   Tax helpers last verified: 17 August 2026
+   FY 2026-27 / Tax Year 2026-27 (AY 2027-28)
+   Budget 2026 did not change personal slab rates
+   vs FY 2025-26 (Income-tax Act, 2025).
    ================================================ */
 
+function prefersReducedMotion() {
+  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 function formatINR(amount) {
-  return '₹' + Math.round(amount).toLocaleString('en-IN');
+  const n = Number(amount);
+  if (!isFinite(n)) return '₹0';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
 }
 
 function formatINRLarge(amount) {
-  if (amount >= 10000000) return '₹' + (amount / 10000000).toFixed(2) + ' Cr';
-  if (amount >= 100000) return '₹' + (amount / 100000).toFixed(2) + ' L';
-  return formatINR(amount);
+  const n = Number(amount);
+  if (!isFinite(n)) return '₹0';
+  if (n >= 10000000) return '₹' + (n / 10000000).toFixed(2) + ' Cr';
+  if (n >= 100000) return '₹' + (n / 100000).toFixed(2) + ' L';
+  return formatINR(n);
+}
+
+function clearCalcError() {
+  const el = document.getElementById('calcFormError');
+  if (el) {
+    el.textContent = '';
+    el.hidden = true;
+  }
+  document.querySelectorAll('.form-input-error').forEach(function (field) {
+    field.classList.remove('form-input-error');
+    field.removeAttribute('aria-invalid');
+  });
+}
+
+function showCalcError(message) {
+  let el = document.getElementById('calcFormError');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'calcFormError';
+    el.className = 'calc-form-error';
+    el.setAttribute('role', 'alert');
+    const btn = document.getElementById('calcBtn');
+    const form = document.querySelector('.calc-box form') || document.querySelector('form');
+    if (btn && btn.parentNode) {
+      btn.parentNode.insertBefore(el, btn);
+    } else if (form) {
+      form.appendChild(el);
+    } else {
+      const box = document.querySelector('.calc-box');
+      if (box) box.insertBefore(el, box.firstChild);
+    }
+  }
+  el.hidden = false;
+  el.textContent = message;
 }
 
 function validatePositive(value, fieldName) {
   if (value === '' || value === null || value === undefined || isNaN(value) || Number(value) < 0) {
-    alert(fieldName + ' must be a valid non-negative number');
+    showCalcError(fieldName + ' must be a valid non-negative number');
     return false;
   }
   return true;
@@ -23,23 +68,31 @@ function validatePositive(value, fieldName) {
 
 function validateRequiredPositive(value, fieldName) {
   if (!value || isNaN(value) || Number(value) <= 0) {
-    alert(fieldName + ' must be a positive number');
+    showCalcError(fieldName + ' must be a positive number');
     return false;
   }
   return true;
 }
 
 function showResult() {
+  clearCalcError();
   const box = document.getElementById('resultBox');
   if (box) {
     box.style.display = 'block';
     box.classList.add('visible');
+    box.setAttribute('aria-live', 'polite');
+    box.setAttribute('aria-atomic', 'true');
   }
 }
 
 function setResult(id, value) {
   const el = document.getElementById(id);
-  if (el) el.textContent = value;
+  if (!el) return;
+  el.textContent = value;
+  if (prefersReducedMotion()) return;
+  el.classList.remove('result-pop');
+  void el.offsetWidth;
+  el.classList.add('result-pop');
 }
 
 function getNum(id) {
@@ -47,7 +100,8 @@ function getNum(id) {
   return el ? parseFloat(el.value) : NaN;
 }
 
-/* FY 2026-27 Tax Helpers */
+/* ---------- Tax slabs (FY 2026-27) ---------- */
+
 function calcSlabTax(income, slabs) {
   let tax = 0;
   let prev = 0;
@@ -60,40 +114,154 @@ function calcSlabTax(income, slabs) {
   return tax;
 }
 
+const NEW_REGIME_SLABS = [
+  [400000, 0],
+  [800000, 0.05],
+  [1200000, 0.10],
+  [1600000, 0.15],
+  [2000000, 0.20],
+  [2400000, 0.25],
+  [Infinity, 0.30]
+];
+
+const OLD_REGIME_SLABS = [
+  [250000, 0],
+  [500000, 0.05],
+  [1000000, 0.20],
+  [Infinity, 0.30]
+];
+
+/** Slab tax after Section 87A rebate + marginal relief. Before surcharge and cess. */
 function calcNewRegimeTax(taxableIncome) {
   if (taxableIncome <= 0) return 0;
-  const tax = calcSlabTax(taxableIncome, [
-    [400000, 0],
-    [800000, 0.05],
-    [1200000, 0.10],
-    [1600000, 0.15],
-    [2000000, 0.20],
-    [2400000, 0.25],
-    [Infinity, 0.30]
-  ]);
-  const rebate = taxableIncome <= 1200000 ? Math.min(tax, 60000) : 0;
-  return Math.round(Math.max(0, tax - rebate));
+  const tax = calcSlabTax(taxableIncome, NEW_REGIME_SLABS);
+  if (taxableIncome <= 1200000) {
+    const rebate = Math.min(tax, 60000);
+    return Math.round(Math.max(0, tax - rebate));
+  }
+  const excess = taxableIncome - 1200000;
+  return Math.round(Math.max(0, Math.min(tax, excess)));
 }
 
 function calcOldRegimeTax(taxableIncome) {
   if (taxableIncome <= 0) return 0;
-  const tax = calcSlabTax(taxableIncome, [
-    [250000, 0],
-    [500000, 0.05],
-    [1000000, 0.20],
-    [Infinity, 0.30]
-  ]);
-  // Section 87A rebate (old regime): up to ₹12,500 when taxable income ≤ ₹5,00,000
-  const rebate = taxableIncome <= 500000 ? Math.min(tax, 12500) : 0;
-  return Math.round(Math.max(0, tax - rebate));
+  const tax = calcSlabTax(taxableIncome, OLD_REGIME_SLABS);
+  if (taxableIncome <= 500000) {
+    const rebate = Math.min(tax, 12500);
+    return Math.round(Math.max(0, tax - rebate));
+  }
+  const excess = taxableIncome - 500000;
+  return Math.round(Math.max(0, Math.min(tax, excess)));
 }
 
+function surchargeRate(income, regime) {
+  if (income <= 5000000) return 0;
+  if (income <= 10000000) return 0.10;
+  if (income <= 20000000) return 0.15;
+  if (income <= 50000000) return 0.25;
+  return regime === 'old' ? 0.37 : 0.25;
+}
+
+function surchargeThreshold(income) {
+  if (income > 50000000) return 50000000;
+  if (income > 20000000) return 20000000;
+  if (income > 10000000) return 10000000;
+  if (income > 5000000) return 5000000;
+  return 0;
+}
+
+function calcSurcharge(taxAfterRebate, taxableIncome, regime) {
+  const rate = surchargeRate(taxableIncome, regime);
+  if (rate === 0 || taxAfterRebate <= 0) return 0;
+  const raw = taxAfterRebate * rate;
+  const threshold = surchargeThreshold(taxableIncome);
+  if (!threshold) return Math.round(raw);
+  const taxFn = regime === 'old' ? calcOldRegimeTax : calcNewRegimeTax;
+  const taxAtThreshold = taxFn(threshold);
+  const surchargeAtThreshold = taxAtThreshold * surchargeRate(threshold, regime);
+  const maxTotal = taxAtThreshold + surchargeAtThreshold + (taxableIncome - threshold);
+  const tentative = taxAfterRebate + raw;
+  if (tentative > maxTotal) {
+    return Math.round(Math.max(0, maxTotal - taxAfterRebate));
+  }
+  return Math.round(raw);
+}
+
+function withCess(baseTax) {
+  return Math.round(Number(baseTax || 0) * 1.04);
+}
+
+/**
+ * Full individual tax: rebate + surcharge (with marginal relief) + 4% cess.
+ * Excludes special-rate income (capital gains) and non-resident rules.
+ */
+function calcIncomeTax(taxableIncome, regime) {
+  const r = regime === 'old' ? 'old' : 'new';
+  const taxAfterRebate = r === 'old' ? calcOldRegimeTax(taxableIncome) : calcNewRegimeTax(taxableIncome);
+  const surcharge = calcSurcharge(taxAfterRebate, taxableIncome, r);
+  const beforeCess = taxAfterRebate + surcharge;
+  const cess = Math.round(beforeCess * 0.04);
+  return {
+    regime: r,
+    taxableIncome: Math.max(0, taxableIncome),
+    taxAfterRebate,
+    surcharge,
+    cess,
+    total: beforeCess + cess
+  };
+}
+
+/* ---------- Professional tax (simplified state map) ---------- */
+/* Annual amounts for typical salaried income above the state threshold.
+   Maharashtra February is ₹300; other months ₹200 (₹2,500/year). */
+
+const PROFESSIONAL_TAX_ANNUAL = {
+  KA: 2400,
+  MH: 2500,
+  WB: 2400,
+  TN: 2500,
+  TS: 2400,
+  AP: 2400,
+  GJ: 2400,
+  KL: 2500,
+  MP: 2500,
+  OD: 2500,
+  AS: 2500,
+  NONE: 0
+};
+
+function getProfessionalTaxAnnual(stateCode, grossMonthly) {
+  if (!grossMonthly || grossMonthly <= 15000) return 0;
+  return PROFESSIONAL_TAX_ANNUAL[stateCode] || 0;
+}
+
+function getProfessionalTaxForMonth(stateCode, monthIndex, grossMonthly) {
+  const annual = getProfessionalTaxAnnual(stateCode, grossMonthly);
+  if (annual === 0) return 0;
+  if (stateCode === 'MH') return monthIndex === 10 ? 300 : 200;
+  return Math.round(annual / 12);
+}
+
+/* ---------- HRA (old regime, Section 10(13A) / Rule 2A) ---------- */
+
+function calcHRAExemption(basic, hraReceived, rentPaid, isMetro) {
+  const metroPct = isMetro ? 0.5 : 0.4;
+  const a = Math.max(0, hraReceived);
+  const b = Math.max(0, rentPaid - 0.1 * basic);
+  const c = Math.max(0, metroPct * basic);
+  return Math.min(a, b, c);
+}
+
+/* ---------- Loan / investment formulas ---------- */
+
 function calcEMI(principal, annualRate, months) {
+  if (!months || months <= 0) return 0;
   if (annualRate === 0) return principal / months;
   const r = annualRate / 12 / 100;
   return (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
 }
 
+/** SIP future value — annuity due (instalment at start of each month). */
 function calcSIPCorpus(monthly, annualReturn, years) {
   const i = annualReturn / 12 / 100;
   const n = years * 12;
@@ -101,7 +269,6 @@ function calcSIPCorpus(monthly, annualReturn, years) {
   return monthly * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
 }
 
-/** Monthly SIP needed to reach goal corpus */
 function calcSIPForGoal(goalAmount, annualReturn, years) {
   const i = annualReturn / 12 / 100;
   const n = years * 12;
@@ -110,18 +277,32 @@ function calcSIPForGoal(goalAmount, annualReturn, years) {
   return goalAmount * i / ((Math.pow(1 + i, n) - 1) * (1 + i));
 }
 
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.parentElement.classList.toggle('open');
+/* ---------- UI: FAQ, filters ---------- */
+
+document.querySelectorAll('.faq-q').forEach(function (btn) {
+  const item = btn.parentElement;
+  const panel = item ? item.querySelector('.faq-a') : null;
+  if (panel && !panel.id) {
+    panel.id = 'faq-panel-' + Math.random().toString(36).slice(2, 9);
+  }
+  btn.setAttribute('aria-expanded', item && item.classList.contains('open') ? 'true' : 'false');
+  if (panel) btn.setAttribute('aria-controls', panel.id);
+  btn.addEventListener('click', function () {
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 });
 
-document.querySelectorAll('.cat-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+document.querySelectorAll('.cat-tab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.cat-tab').forEach(function (t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
     tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
     const cat = tab.dataset.cat;
-    document.querySelectorAll('.calc-card').forEach(card => {
+    document.querySelectorAll('.calc-card').forEach(function (card) {
       card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
     });
   });

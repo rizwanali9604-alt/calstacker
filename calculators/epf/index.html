@@ -6,6 +6,17 @@
   <title>EPF Calculator Free Online — CalStacker</title>
   <meta name="description" content="Calculate EPF retirement corpus with 12% employee + 3.67% employer contribution on ₹15,000 wage ceiling. Monthly compounding at 8.25% p.a.">
   <link rel="canonical" href="https://calstacker.com/calculators/epf/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="EPF Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Calculate EPF retirement corpus with 12% employee + 3.67% employer contribution on ₹15,000 wage ceiling. Monthly compounding at 8.25% p.a.">
+  <meta property="og:url" content="https://calstacker.com/calculators/epf/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EPF Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Calculate EPF retirement corpus with 12% employee + 3.67% employer contribution on ₹15,000 wage ceiling. Monthly compounding at 8.25% p.a.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → EPF Calculator</div>
       <h1 class="calc-page-title">EPF / PF Calculator</h1>
@@ -154,7 +166,7 @@
         <p class="calc-formula-box">Monthly EPF (employee) = 12% × min(Basic, ₹15,000). Corpus grows with compound interest at declared rate (8.25% for FY 2025-26).</p>
         <h3>Worked Example</h3>
         <p>Basic ₹20,000/month for 10 years at 8.25%: employee contributes ₹1,800/month (capped), employer ₹1,800 to EPF — combined corpus approximately ₹6–7 lakh depending on wage ceiling rules applied by employer.</p>
-        <h3>Key Factors That Affect Your Result</h3>
+        <h3>What actually moves EPF corpus</h3>
         <ul class="calc-factor-list">
           <li>₹15,000 basic cap — maximum ₹1,800/month employee contribution</li>
           <li>UAN — links all EPF accounts across employers</li>
@@ -164,7 +176,7 @@
         </ul>
         <div class="tool-cta-inline">
           <h3>Read Our Full EPF Complete Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
+          <p>EPF interest is declared each year. The guide covers UAN, the wage ceiling, and when withdrawals stay tax-exempt.</p>
           <a href="/guides/epf-guide/" class="btn-primary">Open Guide →</a>
         </div>
         <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
@@ -211,7 +223,7 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">What is the current EPF interest rate? <span class="faq-icon">+</span></button>
-          <div class="faq-a">EPF interest is declared annually by the government. For FY 2024-25 it was around 8.25% p.a. Rates change each year; this calculator uses 8.25% as an approximation.</div>
+          <div class="faq-a">EPF interest is declared annually by the government. EPFO declared 8.25% for FY 2025-26. FY 2026-27 is notified later in the year; this calculator uses 8.25% until a new rate is published.</div>
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">Can I withdraw EPF before retirement? <span class="faq-icon">+</span></button>
@@ -238,7 +250,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -268,6 +280,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
@@ -299,7 +312,7 @@
       if (!validateRequiredPositive(currentAge, 'Current age')) return;
       if (!validateRequiredPositive(retirementAge, 'Retirement age')) return;
       if (retirementAge <= currentAge) {
-        alert('Retirement age must be greater than current age');
+        showCalcError('Retirement age must be greater than current age');
         return;
       }
 

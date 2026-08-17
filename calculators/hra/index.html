@@ -6,6 +6,17 @@
   <title>HRA Exemption Calculator Free Online — CalStacker</title>
   <meta name="description" content="Calculate HRA exemption under Section 10(13A). Metro vs non-metro, rent paid, basic salary and annual tax savings for salaried employees in India.">
   <link rel="canonical" href="https://calstacker.com/calculators/hra/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="HRA Exemption Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Calculate HRA exemption under Section 10(13A). Metro vs non-metro, rent paid, basic salary and annual tax savings for salaried employees in India.">
+  <meta property="og:url" content="https://calstacker.com/calculators/hra/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HRA Exemption Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Calculate HRA exemption under Section 10(13A). Metro vs non-metro, rent paid, basic salary and annual tax savings for salaried employees in India.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → HRA Calculator</div>
       <h1 class="calc-page-title">HRA Calculator</h1>
@@ -176,26 +188,18 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How HRA Exemption Is Calculated Under Section 10(13A)</h2>
-        <p>House Rent Allowance (HRA) exemption under Section 10(13A) reduces taxable salary if you pay rent and receive HRA from your employer. Exemption is the least of: (1) actual HRA received, (2) rent paid minus 10% of basic salary, (3) 50% of basic for metro cities (Mumbai, Delhi, Kolkata, Chennai) or 40% for non-metro. Available only under the old tax regime.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">Exemption = min(Actual HRA, Rent − 10% of Basic, 50%/40% of Basic). Taxable HRA = HRA received − exemption.</p>
-        <h3>Worked Example</h3>
-        <p>Basic ₹25,000/month, HRA ₹12,000, rent ₹15,000 in Bangalore (non-metro): (1) ₹12,000, (2) ₹15,000 − ₹2,500 = ₹12,500, (3) 40% × ₹25,000 = ₹10,000. Exemption = ₹10,000/month = ₹1.2 lakh/year tax saved at 30% slab ≈ ₹36,000.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>Metro vs non-metro — 50% vs 40% of basic rule</li>
-          <li>Rent receipts — mandatory; landlord PAN if rent > ₹1L/year</li>
-          <li>Old regime only — no HRA exemption in new regime</li>
-          <li>Basic salary definition — must match Form 16</li>
-          <li>Living with parents — rent agreement required for legitimate claims</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full HRA Exemption Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/hra-exemption-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>The three-number HRA test (old regime only)</h2>
+        <p>Exemption under Section 10(13A) read with Rule 2A is the <strong>least</strong> of three figures, computed on the same period (this page uses monthly, then multiplies by 12 for the annual line):</p>
+        <ol class="calc-factor-list">
+          <li>HRA actually received in the salary.</li>
+          <li>Rent paid minus 10% of basic salary (DA if it counts for retirement benefits — we do not add DA unless you bake it into basic).</li>
+          <li>50% of basic if you live in Delhi, Mumbai, Chennai or Kolkata; 40% of basic anywhere else. Bengaluru, Hyderabad, Pune and Gurgaon are <em>not</em> metros for this rule.</li>
+        </ol>
+        <p>Example, non-metro Bengaluru: basic ₹25,000, HRA ₹12,000, rent ₹15,000. (1) ₹12,000 (2) ₹15,000 − ₹2,500 = ₹12,500 (3) 40% × ₹25,000 = ₹10,000. Exemption = ₹10,000/month. Taxable HRA = ₹2,000/month. At a 30% marginal rate the annual tax saving is about ₹36,000 — which is why the “tax rate” box exists. It is a shortcut, not a full-year computation; use the <a href="/calculators/income-tax/">income-tax calculator</a> with the annual exemption for regime comparison.</p>
+        <h3>Paperwork that actually matters</h3>
+        <p>Rent receipts, rental agreement, and landlord PAN if annual rent exceeds ₹1 lakh. Form 12BB is how most employers collect this. Living with parents and paying rent is allowed only if the arrangement is genuine and documented; a fake receipt is tax evasion, not a hack. The new tax regime does not allow this exemption — if you switched, the result here does not reduce TDS.</p>
+        <p>Longer checklist: <a href="/guides/hra-exemption-guide/">HRA exemption guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Rule 2A last reviewed 17 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -243,7 +247,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -273,6 +277,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
