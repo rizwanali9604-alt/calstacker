@@ -22,7 +22,7 @@ const STANDARD_NAV = `  <nav class="nav">
     </div>
   </nav>`;
 
-const ADSENSE = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278513903196" crossorigin="anonymous"></script>`;
+const ADSENSE = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>`;
 
 const CALCS = [
   { slug: 'emi', name: 'EMI Calculator', desc: 'Calculate monthly EMI for home, car, or personal loans', groww: false },

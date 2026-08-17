@@ -23,7 +23,7 @@ function guideHtml(g) {
   <link rel="canonical" href="https://calstacker.com/guides/${g.slug}/">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278513903196" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   ${JSON.stringify({
     '@context': 'https://schema.org',
