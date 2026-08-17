@@ -6,6 +6,17 @@
   <title>About CalStacker — Free Financial Calculators for India</title>
   <meta name="description" content="About Rizwan Ali and CalStacker.com — free financial calculators and guides for salaried employees and investors in India.">
   <link rel="canonical" href="https://calstacker.com/about/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="About CalStacker — Free Financial Calculators for India">
+  <meta property="og:description" content="About Rizwan Ali and CalStacker.com — free financial calculators and guides for salaried employees and investors in India.">
+  <meta property="og:url" content="https://calstacker.com/about/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About CalStacker — Free Financial Calculators for India">
+  <meta name="twitter:description" content="About Rizwan Ali and CalStacker.com — free financial calculators and guides for salaried employees and investors in India.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -17,12 +28,37 @@
     gtag('config', 'G-RR873MXQNX');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://calstacker.com/#org",
+        "name": "CalStacker",
+        "url": "https://calstacker.com/",
+        "email": "contact@calstacker.com",
+        "founder": { "@id": "https://calstacker.com/about/#rizwan" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://calstacker.com/about/#rizwan",
+        "name": "Rizwan Ali",
+        "url": "https://calstacker.com/about/",
+        "jobTitle": "Publisher",
+        "worksFor": { "@id": "https://calstacker.com/#org" },
+        "email": "contact@calstacker.com"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
     <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -30,7 +66,7 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
@@ -42,11 +78,18 @@
     </div>
   </header>
 
-  <main class="content-page">
-    <p>CalStacker is a free financial education platform for salaried employees and investors in India. We publish accurate calculators and plain-language guides so you can understand your salary, plan taxes, compare loans, and project investments — without signing up or sharing personal data.</p>
+  <main class="content-page" id="main-content">
+    <p>CalStacker is a free financial education site for salaried employees and investors in India. We publish calculators and plain-language guides so you can estimate EMI, SIP, in-hand salary, and income tax in the browser — without creating an account or sending us your numbers.</p>
+
+    <div class="author-card">
+      <div class="author-avatar" aria-hidden="true">RA</div>
+      <div>
+        <h3>Rizwan Ali</h3>
+        <p>Builds and maintains CalStacker. Focus: Indian CTC-to-in-hand breakdowns, old vs new tax-regime comparisons, EMI schedules, and SIP projections using publicly available tax rules, EPFO notifications, and standard banking formulas. He is not a Chartered Accountant and CalStacker is not a SEBI-registered investment adviser. Corrections: <a href="mailto:contact@calstacker.com">contact@calstacker.com</a>.</p>
+      </div>
+    </div>
 
     <h2>Who runs CalStacker</h2>
-    <p><strong>Rizwan Ali</strong> builds and maintains CalStacker. He focuses on Indian personal finance tools — CTC-to-in-hand breakdowns, tax-regime comparisons, EMI planning, and SIP projections — using publicly available tax rules, EPFO notifications, and standard banking formulas.</p>
     <p>CalStacker is an independent publisher. We are not a bank, stock broker, mutual fund distributor, or SEBI-registered investment adviser. Our goal is to make everyday money decisions clearer through free tools and guides.</p>
     <p>Every calculator runs entirely in your browser. The numbers you enter are never sent to our servers.</p>
 
@@ -54,12 +97,12 @@
     <ul>
       <li><strong>20 calculators</strong> — EMI, SIP, salary, income tax, HRA, EPF, PPF, FD, GST, retirement, and more</li>
       <li><strong>Financial guides</strong> — Long-form articles on salary structure, tax saving, SIP investing, home loans, and EPF</li>
-      <li><strong>FAQs on every tool</strong> — How formulas work, what assumptions we use, and when to verify with a professional</li>
+      <li><strong>Assumptions on every tool</strong> — How formulas work, which FY rules we used, and when to verify with a professional</li>
     </ul>
 
     <h2>Editorial standards</h2>
-    <p>Content is researched from publicly available Indian tax rules, EPFO notifications, and standard financial formulas. Guides and calculator defaults are updated when major rule changes occur (for example new tax-regime slabs or EPF interest rates). Your employer or bank may use different structures — always verify figures that affect a real decision.</p>
-    <p>Guides are written by Rizwan Ali. We cite specific rupee amounts, state-level rules where relevant, and worked Indian examples. We welcome corrections at <a href="mailto:contact@calstacker.com">contact@calstacker.com</a>.</p>
+    <p>Content is researched from publicly available Indian tax rules, EPFO notifications, and standard financial formulas. Tax and salary tools carry a “last verified” date (currently 17 August 2026 for FY 2026-27 slabs). We update that date when we re-check a Budget or a rate circular. Your employer or bank may use different structures — always verify figures that affect a real decision.</p>
+    <p>Read the full <a href="/editorial-policy/">editorial policy</a> for sources, what we will not claim, and how to request a correction. Email <a href="mailto:contact@calstacker.com">contact@calstacker.com</a>.</p>
 
     <h2>Important disclaimer</h2>
     <p>CalStacker provides estimates for education and planning only. We do not provide personalised financial, tax, or legal advice. Always confirm important decisions with a qualified Chartered Accountant, tax professional, or SEBI-registered adviser. Read our full <a href="/disclaimer/">Disclaimer</a> and <a href="/terms/">Terms of Service</a>.</p>
@@ -77,7 +120,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -107,6 +150,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>

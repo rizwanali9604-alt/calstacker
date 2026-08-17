@@ -4,8 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CalStacker.com — Free Financial Calculators for India</title>
-  <meta name="description" content="Free EMI, SIP, income tax, salary, HRA and 15+ financial calculators for employees and investors in India. Instant results, no signup.">
+  <meta name="description" content="Free EMI, SIP, income tax, salary, HRA and 15 other financial calculators for employees and investors in India. Instant estimates, no signup.">
   <link rel="canonical" href="https://calstacker.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="CalStacker.com — Free Financial Calculators for India">
+  <meta property="og:description" content="Free EMI, SIP, income tax, salary, HRA and 15 other financial calculators for employees and investors in India. Instant estimates, no signup.">
+  <meta property="og:url" content="https://calstacker.com/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CalStacker.com — Free Financial Calculators for India">
+  <meta name="twitter:description" content="Free EMI, SIP, income tax, salary, HRA and 15 other financial calculators for employees and investors in India. Instant estimates, no signup.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -19,13 +30,29 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CalStacker",
+    "url": "https://calstacker.com/",
+    "description": "Free EMI, SIP, salary, and income-tax calculators for India.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalStacker",
+      "url": "https://calstacker.com/",
+      "founder": { "@type": "Person", "name": "Rizwan Ali", "url": "https://calstacker.com/about/" }
+    }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
         <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -33,20 +60,20 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <section class="hero">
+  <section id="main-content" class="hero">
     <div class="hero-badge"><span class="hero-dot"></span> 20 Free Calculators — Built for India</div>
     <h1 class="hero-title">Smart Finance Tools for<br><span class="hero-gradient">Employees & Investors</span></h1>
-    <p class="hero-sub">EMI, SIP, tax, salary and more. Instant accurate results. No signup required.</p>
+    <p class="hero-sub">EMI, SIP, tax, salary and more. Instant estimates in your browser. No signup required.</p>
     <div class="hero-cta-row">
       <a href="/calculators/emi/" class="btn-primary">EMI Calculator</a>
       <a href="/calculators/sip/" class="btn-ghost">SIP Calculator</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><strong>20+</strong><span>Calculators</span></div>
+      <div class="hero-stat"><strong>20</strong><span>Calculators</span></div>
       <div class="hero-stat"><strong>100%</strong><span>Free Forever</span></div>
       <div class="hero-stat"><strong>Instant</strong><span>Results</span></div>
     </div>
@@ -59,9 +86,9 @@
         <p>Filter by category or browse all tools below</p>
       </div>
       <div class="cat-tabs">
-        <button class="cat-tab active" data-cat="all">All</button>
-        <button class="cat-tab" data-cat="employee">Employee</button>
-        <button class="cat-tab" data-cat="investor">Investor</button>
+        <button class="cat-tab active" data-cat="all" aria-selected="true">All</button>
+        <button class="cat-tab" data-cat="employee" aria-selected="false">Employee</button>
+        <button class="cat-tab" data-cat="investor" aria-selected="false">Investor</button>
       </div>
     </div>
   </section>
@@ -70,7 +97,7 @@
     <div class="container">
       <div class="section-header">
         <h2>Most Popular</h2>
-        <p>Top 5 calculators searched by millions of Indians</p>
+        <p>Five tools most Indian employees start with</p>
       </div>
       <div class="calc-grid">
         <a href="/calculators/emi/" class="calc-card" data-cat="employee">
@@ -278,7 +305,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -308,6 +335,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>

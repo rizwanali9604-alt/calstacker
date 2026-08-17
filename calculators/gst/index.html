@@ -6,6 +6,17 @@
   <title>GST Calculator Free Online — CalStacker</title>
   <meta name="description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
   <link rel="canonical" href="https://calstacker.com/calculators/gst/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="GST Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <meta property="og:url" content="https://calstacker.com/calculators/gst/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GST Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → GST Calculator</div>
       <h1 class="calc-page-title">GST Calculator</h1>
@@ -135,26 +147,13 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How GST Amount Is Calculated on Inclusive & Exclusive Prices</h2>
-        <p>Goods and Services Tax (GST) in India has four main slabs: 5%, 12%, 18%, and 28%, plus 0% and 3% for precious metals. Most services attract 18% GST. Businesses above ₹40 lakh turnover (₹20 lakh in special category states) must register. GSTIN is required for B2B invoicing and input tax credit claims.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">GST Amount = Taxable Value × Rate / 100. Total = Taxable Value + GST. For reverse: Base = Total / (1 + Rate/100).</p>
-        <h3>Worked Example</h3>
-        <p>Product price ₹10,000 + 18% GST: GST = ₹1,800, total = ₹11,800. Inclusive pricing ₹11,800: base = ₹10,000, GST = ₹1,800.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>CGST + SGST — split equally for intra-state sales</li>
-          <li>IGST — inter-state transactions</li>
-          <li>Input tax credit — offset GST paid on purchases</li>
-          <li>Composition scheme — simplified compliance for small business</li>
-          <li>HSN/SAC codes — determine applicable rate</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full GST Guide for India</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/gst-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>GST on an Indian invoice, both directions</h2>
+        <p>Most consumer prices you see in an app are <strong>GST-inclusive</strong>. A shop bill for a laptop at ₹70,800 with 18% GST is not “₹70,800 plus tax”. Reverse the tax: base = 70,800 / 1.18 = ₹60,000; GST = ₹10,800. Exclusive mode does the opposite: ₹60,000 × 18% = ₹10,800; total ₹70,800.</p>
+        <p>This page splits intra-state tax as CGST + SGST (half each) and inter-state as IGST (full rate). It does not file GSTR-1 for you, does not decide your HSN code, and does not apply compensation cess (coal, cars, tobacco). If your item is cess-attracting, the total here will be low.</p>
+        <h3>Rate is not a guess</h3>
+        <p>Use the slab printed on the tax invoice or in the GST rate schedule for that HSN/SAC — 0, 5, 12, 18, or 28 are the common goods slabs, with 3% for some jewellery. Services are often 18%. Composition dealers do not charge GST the same way; do not use this calculator to “add 18%” on a composition invoice.</p>
+        <p>Turnover thresholds for mandatory registration (₹40 lakh goods / ₹20 lakh services, lower in some special-category states) change; confirm on the GST portal before you register. Guide: <a href="/guides/gst-guide/">GST guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated 17 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -225,7 +224,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -255,6 +254,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>

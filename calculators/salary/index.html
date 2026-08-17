@@ -6,6 +6,17 @@
   <title>Salary Calculator Free Online — CalStacker</title>
   <meta name="description" content="Convert annual CTC to monthly in-hand salary. EPF, professional tax, TDS breakdown and 12-month projection for FY 2026-27.">
   <link rel="canonical" href="https://calstacker.com/calculators/salary/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="Salary Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Convert annual CTC to monthly in-hand salary. EPF, professional tax, TDS breakdown and 12-month projection for FY 2026-27.">
+  <meta property="og:url" content="https://calstacker.com/calculators/salary/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Salary Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Convert annual CTC to monthly in-hand salary. EPF, professional tax, TDS breakdown and 12-month projection for FY 2026-27.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → Salary Calculator</div>
       <h1 class="calc-page-title">Salary Calculator</h1>
@@ -87,27 +99,62 @@
               <span class="input-prefix">₹</span>
               <input type="number" class="form-input" id="basicOverride" placeholder="Default: 40% of CTC" min="0" step="1000">
             </div>
+            <p class="form-hint">If blank, basic is treated as 40% of CTC — a common Indian CTC structure, not a legal rule.</p>
           </div>
           <div class="form-group">
             <label class="form-label" for="taxRegime">Tax Regime</label>
             <select class="form-select" id="taxRegime">
-              <option value="new">New Regime</option>
+              <option value="new">New Regime (default)</option>
               <option value="old">Old Regime</option>
             </select>
           </div>
         </div>
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label" for="cityType">City Type</label>
+            <label class="form-label" for="ptState">Employment state (professional tax)</label>
+            <select class="form-select" id="ptState">
+              <option value="KA">Karnataka (₹200/month)</option>
+              <option value="MH">Maharashtra (₹200; ₹300 in Feb)</option>
+              <option value="TN">Tamil Nadu (~₹2,500/year)</option>
+              <option value="TS">Telangana</option>
+              <option value="AP">Andhra Pradesh</option>
+              <option value="WB">West Bengal</option>
+              <option value="GJ">Gujarat</option>
+              <option value="KL">Kerala</option>
+              <option value="MP">Madhya Pradesh</option>
+              <option value="OD">Odisha</option>
+              <option value="AS">Assam</option>
+              <option value="NONE">No PT (Delhi, UP, Haryana, Punjab, Rajasthan, Bihar…)</option>
+            </select>
+            <p class="form-hint">Professional tax is a state levy. Delhi, Uttar Pradesh, Haryana, Punjab and several other states charge ₹0.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cityType">City type (for HRA, old regime)</label>
             <select class="form-select" id="cityType">
-              <option value="metro">Metro</option>
-              <option value="nonmetro">Non-Metro</option>
+              <option value="metro">Metro (Delhi, Mumbai, Chennai, Kolkata)</option>
+              <option value="nonmetro">Non-metro</option>
             </select>
           </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="rentMonthly">Monthly rent paid (optional, old regime HRA)</label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">₹</span>
+            <input type="number" class="form-input" id="rentMonthly" value="0" min="0" step="500">
+          </div>
+          <p class="form-hint">Leave 0 if you do not pay rent. HRA exemption applies only under the old regime. We assume HRA received is 40% of basic (50% if metro) unless your offer letter differs.</p>
+        </div>
+        <div class="form-grid">
           <div class="form-group" style="display:flex;align-items:flex-end;padding-bottom:8px;">
             <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:600;">
               <input type="checkbox" id="pfEnabled" checked style="width:18px;height:18px;">
-              Employee PF (12% of basic, cap ₹15,000/month)
+              Employee PF (12% of PF wages, cap ₹15,000/month)
+            </label>
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end;padding-bottom:8px;">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:600;">
+              <input type="checkbox" id="gratuityEnabled" checked style="width:18px;height:18px;">
+              Gratuity in CTC (4.81% of basic)
             </label>
           </div>
         </div>
@@ -121,18 +168,31 @@
         </div>
         <div class="result-grid">
           <div class="result-item">
+            <div class="result-item-label">Gross (monthly)</div>
+            <div class="result-item-value" id="grossMonthlyOut">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Employer PF + gratuity (annual)</div>
+            <div class="result-item-value" id="ctcRetirals">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">Taxable income (annual)</div>
+            <div class="result-item-value" id="taxableOut">₹0</div>
+          </div>
+          <div class="result-item">
             <div class="result-item-label">Employee PF (monthly)</div>
             <div class="result-item-value" id="pfMonthly">₹0</div>
           </div>
           <div class="result-item">
-            <div class="result-item-label">Professional Tax</div>
-            <div class="result-item-value" id="ptMonthly">₹200</div>
+            <div class="result-item-label">Professional tax (monthly avg)</div>
+            <div class="result-item-value" id="ptMonthly">₹0</div>
           </div>
           <div class="result-item">
             <div class="result-item-label">TDS (monthly)</div>
             <div class="result-item-value blue" id="tdsMonthly">₹0</div>
           </div>
         </div>
+        <p class="form-hint" id="salaryAssumptions" style="margin-top:14px;"></p>
         <h3 style="margin-top:24px;font-size:16px;font-weight:700;">12-Month Projection</h3>
         <div class="table-wrap">
           <table class="data-table">
@@ -153,6 +213,11 @@
 
       
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
+
+      <div class="rules-source-box">
+        <strong>FY 2026-27 tax &amp; CTC model — last verified 17 August 2026</strong>
+        Tax slabs match Union Budget 2026 (unchanged from FY 2025-26). New regime does not deduct employee PF or professional tax from taxable income. Old regime does. Employer PF is modelled as matching employee PF on PF wages (12% of min(basic, ₹15,000)/month). Gratuity accrual, if checked, is 4.81% of basic and is subtracted from CTC to estimate gross. Professional tax uses a simplified state map. Sources: <a href="https://www.incometax.gov.in/" rel="noopener noreferrer">Income Tax Department</a>; <a href="https://www.epfindia.gov.in/" rel="noopener noreferrer">EPFO</a>. Your offer letter may differ.
+      </div>
 
       <!-- related-calculators -->
       <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);">
@@ -181,7 +246,7 @@
         <div class="how-step">
           <div class="how-step-num">2</div>
           <h4>Select regime & PF</h4>
-          <p>Choose old or new tax regime, city type, and whether employee PF applies.</p>
+          <p>Choose tax regime, employment state (professional tax), PF, and whether gratuity is part of CTC.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">3</div>
@@ -195,26 +260,18 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How CTC Becomes In-Hand Salary in India</h2>
-        <p>CTC (Cost to Company) is not your in-hand salary. It includes employer PF, gratuity accrual, insurance, and gross pay. For a ₹6 LPA package with 40% basic in Karnataka, expect roughly ₹47,000–48,000 in-hand under the new tax regime after PF (₹1,800), professional tax (₹200), and TDS. Comparing job offers on CTC alone can mislead by ₹3,000–5,000 per month.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">In-Hand = Gross Salary − Employee PF − Professional Tax − TDS − Other deductions. Gross = Basic + HRA + Allowances + Bonus (as applicable).</p>
-        <h3>Worked Example</h3>
-        <p>₹8 LPA CTC, basic 40% (₹3.2L/year), HRA 40% of basic, Karnataka employment: gross ~₹66,667/month, PF ₹1,800, PT ₹200, TDS varies by regime — in-hand often ₹58,000–62,000 with new regime and minimal deductions.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>Basic salary percentage — drives PF, gratuity, and HRA calculations</li>
-          <li>Tax regime — old vs new significantly changes TDS</li>
-          <li>HRA exemption — requires rent receipts under old regime</li>
-          <li>Variable pay — may not be guaranteed monthly</li>
-          <li>State professional tax — ₹0 to ₹250/month depending on state</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full Salary & CTC Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/salary-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>How we turn CTC into an in-hand estimate</h2>
+        <p>A ₹12 lakh CTC is not ₹1 lakh a month in your account. This tool peels CTC in a fixed order:</p>
+        <ol class="calc-factor-list">
+          <li><strong>Gross pay</strong> = CTC − employer PF − (optional) gratuity accrual at 4.81% of basic. Employer PF is modelled as matching employee PF on PF wages (12% of min(basic, ₹15,000) per month). Many private offers also bury insurance and NPS in CTC; those are not modelled, so we can still overstate gross.</li>
+          <li><strong>Employee PF</strong> leaves the payslip for your EPF account (max ₹1,800/month on the wage cap).</li>
+          <li><strong>Professional tax</strong> uses the state dropdown. Karnataka is ₹200/month above the threshold; Maharashtra is ₹200 most months and ₹300 in February; Delhi, Uttar Pradesh, Haryana, Punjab and several others are ₹0. Pick “No PT” if your state is not listed with a rate.</li>
+          <li><strong>TDS</strong> uses FY 2026-27 slabs. Under the <em>new</em> regime, employee PF and professional tax do <strong>not</strong> reduce taxable income — only the ₹75,000 standard deduction does. Under the <em>old</em> regime they do, plus HRA if you enter rent.</li>
+        </ol>
+        <p>That last point is the usual spreadsheet mistake: copying old-regime deductions into a new-regime in-hand sheet. If you compare two offers, run both in the same regime and the same state.</p>
+        <h3>Karnataka vs Delhi, ₹12 LPA, new regime, 40% basic, PF and gratuity on</h3>
+        <p>Gross is CTC minus employer PF (₹21,600) minus gratuity (~₹23,088) ≈ ₹11.55 lakh. Taxable after ₹75,000 standard deduction is under ₹12 lakh, so income-tax is typically nil after 87A. In-hand then differs mainly by professional tax: ~₹200/month in Karnataka, ₹0 in Delhi. Insurance, joining bonus, and ESOP are still missing — treat the result as a floor, not a promise. Full walkthrough: <a href="/guides/salary-guide/">CTC vs in-hand guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Model last verified 17 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -235,11 +292,11 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">What is professional tax?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Professional tax is a state levy on salaried employees. In many states including Maharashtra and Karnataka, it is ₹200 per month for most salary slabs. Rates vary by state.</div>
+          <div class="faq-a">Professional tax is a state levy. Use the state dropdown: Karnataka ₹200/month (typical salaried slab), Maharashtra ₹200 with ₹300 in February (₹2,500/year), several southern and western states similar, and ₹0 in Delhi, Uttar Pradesh, Haryana, Punjab, Rajasthan, Bihar and others. Amounts are simplified; your state’s slab notification can differ.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Does metro city affect this calculator?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Metro vs non-metro mainly affects HRA exemption calculations. This salary tool uses it for reference; tax is computed on CTC minus PF, PT, and standard deduction per your chosen regime.</div>
+          <div class="faq-a">Metro vs non-metro changes HRA exemption (50% vs 40% of basic) when you enter rent under the old regime. It does not change new-regime TDS. Professional tax is chosen separately via the employment-state dropdown.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Is TDS the same every month?<span class="faq-icon">+</span></button>
@@ -262,7 +319,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -292,6 +349,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
@@ -310,10 +368,6 @@
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
   <script>
-    function withCess(baseTax) {
-      return Math.round(baseTax * 1.04);
-    }
-
     const MONTHS = ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
 
     document.getElementById('calcBtn').addEventListener('click', function () {
@@ -321,10 +375,15 @@
       const basicInput = document.getElementById('basicOverride').value;
       const regime = document.getElementById('taxRegime').value;
       const pfEnabled = document.getElementById('pfEnabled').checked;
+      const gratuityEnabled = document.getElementById('gratuityEnabled').checked;
+      const stateCode = document.getElementById('ptState').value;
+      const isMetro = document.getElementById('cityType').value === 'metro';
+      const rentMonthly = getNum('rentMonthly') || 0;
 
       if (!validateRequiredPositive(ctc, 'CTC')) return;
+      if (!validatePositive(rentMonthly, 'Monthly rent')) return;
 
-      const basicAnnual = basicInput && !isNaN(parseFloat(basicInput))
+      const basicAnnual = basicInput && !isNaN(parseFloat(basicInput)) && parseFloat(basicInput) > 0
         ? parseFloat(basicInput)
         : ctc * 0.4;
       const basicMonthly = basicAnnual / 12;
@@ -332,41 +391,76 @@
       const pfMonthly = pfEnabled ? 0.12 * Math.min(basicMonthly, 15000) : 0;
       const pfAnnual = pfMonthly * 12;
       const employerPfAnnual = pfAnnual;
-      const ptMonthly = 200;
-      const ptAnnual = ptMonthly * 12;
+      const gratuityAnnual = gratuityEnabled ? 0.0481 * basicAnnual : 0;
 
-      const grossAnnual = ctc - employerPfAnnual;
+      const grossAnnual = Math.max(0, ctc - employerPfAnnual - gratuityAnnual);
       const grossMonthly = grossAnnual / 12;
 
+      const ptAnnual = getProfessionalTaxAnnual(stateCode, grossMonthly);
+      const hraReceivedAnnual = (isMetro ? 0.5 : 0.4) * basicAnnual;
+      const hraExempt = (regime === 'old' && rentMonthly > 0)
+        ? calcHRAExemption(basicAnnual, Math.min(hraReceivedAnnual, grossAnnual), rentMonthly * 12, isMetro)
+        : 0;
+
       const stdDed = regime === 'new' ? 75000 : 50000;
-      const taxable = Math.max(0, grossAnnual - pfAnnual - ptAnnual - stdDed);
-      const baseTax = regime === 'new' ? calcNewRegimeTax(taxable) : calcOldRegimeTax(taxable);
-      const annualTax = withCess(baseTax);
+      let taxable = grossAnnual - stdDed;
+      if (regime === 'old') {
+        taxable -= pfAnnual;
+        taxable -= ptAnnual;
+        taxable -= hraExempt;
+      }
+      taxable = Math.max(0, taxable);
+
+      const tax = calcIncomeTax(taxable, regime);
+      const annualTax = tax.total;
       const tdsMonthly = annualTax / 12;
-
-      const inHandMonthly = grossMonthly - pfMonthly - ptMonthly - tdsMonthly;
-
-      setResult('inHandMonthly', formatINR(inHandMonthly));
-      setResult('pfMonthly', formatINR(pfMonthly));
-      setResult('ptMonthly', formatINR(ptMonthly));
-      setResult('tdsMonthly', formatINR(tdsMonthly));
 
       const tbody = document.getElementById('projectionBody');
       tbody.innerHTML = '';
+      let inHandSum = 0;
       for (let i = 0; i < 12; i++) {
+        const ptThisMonth = getProfessionalTaxForMonth(stateCode, i, grossMonthly);
+        const inHand = grossMonthly - pfMonthly - ptThisMonth - tdsMonthly;
+        inHandSum += inHand;
         const tr = document.createElement('tr');
         tr.innerHTML =
           '<td>' + MONTHS[i] + '</td>' +
           '<td>' + formatINR(grossMonthly) + '</td>' +
           '<td>' + formatINR(pfMonthly) + '</td>' +
-          '<td>' + formatINR(ptMonthly) + '</td>' +
+          '<td>' + formatINR(ptThisMonth) + '</td>' +
           '<td>' + formatINR(tdsMonthly) + '</td>' +
-          '<td>' + formatINR(inHandMonthly) + '</td>';
+          '<td>' + formatINR(inHand) + '</td>';
         tbody.appendChild(tr);
       }
 
+      const inHandAvg = inHandSum / 12;
+      const ptAvg = ptAnnual / 12;
+
+      setResult('inHandMonthly', formatINR(inHandAvg));
+      setResult('grossMonthlyOut', formatINR(grossMonthly));
+      setResult('ctcRetirals', formatINR(employerPfAnnual + gratuityAnnual));
+      setResult('taxableOut', formatINR(taxable));
+      setResult('pfMonthly', formatINR(pfMonthly));
+      setResult('ptMonthly', formatINR(ptAvg));
+      setResult('tdsMonthly', formatINR(tdsMonthly));
+
+      const notes = [];
+      notes.push('Gross = CTC − employer PF' + (gratuityEnabled ? ' − gratuity accrual (4.81% of basic)' : '') + '.');
+      if (regime === 'new') {
+        notes.push('New regime: employee PF and professional tax are not deducted from taxable income. Only the ₹75,000 standard deduction is applied.');
+      } else {
+        notes.push('Old regime: employee PF (within 80C) and professional tax reduce taxable income, plus ₹50,000 standard deduction' + (hraExempt > 0 ? ' and HRA exemption of ' + formatINR(hraExempt) + '/year' : '') + '.');
+      }
+      if (tax.surcharge > 0) {
+        notes.push('Income-tax includes surcharge of ' + formatINR(tax.surcharge) + ' plus 4% cess.');
+      } else {
+        notes.push('Income-tax includes 4% health and education cess. Surcharge applies only above ₹50 lakh taxable income.');
+      }
+      notes.push('Not modelled: employer NPS, insurance premiums in CTC, bonus/variable pay timing, EDLI/admin charges, or special-rate capital gains.');
+      document.getElementById('salaryAssumptions').textContent = notes.join(' ');
+
       showResult();
-    if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
+      if (typeof trackCalculate === 'function') trackCalculate(document.querySelector('.calc-page-title')?.textContent);
     });
   </script>
   <script src="/assets/js/cookie-consent.js"></script>

@@ -1,1 +1,39 @@
-# Cloudflare Pages — redirect rules (relative paths only)
+# Internal tooling — gone, not indexed
+/dashboard / 410
+/dashboard/ / 410
+/dashboard/* / 410
+/data / 410
+/data/ / 410
+/data/* / 410
+/scripts / 410
+/scripts/ / 410
+/scripts/* / 410
+
+# Thin / scaled pages — consolidate to the real tool
+/blog /guides/ 301
+/blog/ /guides/ 301
+/blog/* /guides/ 301
+/guides/emi/10-lakh-car-loan /calculators/emi/ 301
+/guides/emi/10-lakh-car-loan/ /calculators/emi/ 301
+/guides/emi/25-lakh-10-years /calculators/emi/ 301
+/guides/emi/25-lakh-10-years/ /calculators/emi/ 301
+/guides/emi/30-lakh-15-years /calculators/emi/ 301
+/guides/emi/30-lakh-15-years/ /calculators/emi/ 301
+/guides/emi/50-lakh-20-years /calculators/emi/ 301
+/guides/emi/50-lakh-20-years/ /calculators/emi/ 301
+/guides/sip/5000-per-month-10-years /calculators/sip/ 301
+/guides/sip/5000-per-month-10-years/ /calculators/sip/ 301
+/guides/sip/3000-per-month-20-years /calculators/sip/ 301
+/guides/sip/3000-per-month-20-years/ /calculators/sip/ 301
+/guides/sip/10000-per-month-15-years /calculators/sip/ 301
+/guides/sip/10000-per-month-15-years/ /calculators/sip/ 301
+/guides/salary/35000-ctc-in-hand /calculators/salary/ 301
+/guides/salary/35000-ctc-in-hand/ /calculators/salary/ 301
+/guides/salary/600000-ctc-breakdown /calculators/salary/ 301
+/guides/salary/600000-ctc-breakdown/ /calculators/salary/ 301
+/guides/tax/12-lakh-salary-old-vs-new /calculators/income-tax/ 301
+/guides/tax/12-lakh-salary-old-vs-new/ /calculators/income-tax/ 301
+/guides/tax/zero-tax-12-lakh /calculators/income-tax/ 301
+/guides/tax/zero-tax-12-lakh/ /calculators/income-tax/ 301
+/guides/hra/bangalore-25000-basic /calculators/hra/ 301
+/guides/hra/bangalore-25000-basic/ /calculators/hra/ 301

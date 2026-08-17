@@ -6,6 +6,17 @@
   <title>SIP Calculator Free Online — CalStacker</title>
   <meta name="description" content="Calculate mutual fund SIP returns, total invested amount and final corpus. Free SIP calculator with chart for Indian investors.">
   <link rel="canonical" href="https://calstacker.com/calculators/sip/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CalStacker">
+  <meta property="og:title" content="SIP Calculator Free Online — CalStacker">
+  <meta property="og:description" content="Calculate mutual fund SIP returns, total invested amount and final corpus. Free SIP calculator with chart for Indian investors.">
+  <meta property="og:url" content="https://calstacker.com/calculators/sip/">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIP Calculator Free Online — CalStacker">
+  <meta name="twitter:description" content="Calculate mutual fund SIP returns, total invested amount and final corpus. Free SIP calculator with chart for Indian investors.">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- Google tag (gtag.js) -->
@@ -39,11 +50,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
           <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">CalStacker</a>
-      <div class="nav-links">
+      <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
         <a href="/guides/" class="nav-link">Guides</a>
@@ -51,11 +63,11 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
     </div>
   </nav>
 
-  <header class="calc-page-header">
+  <header id="main-content" class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → SIP Calculator</div>
       <h1 class="calc-page-title">SIP Calculator</h1>
@@ -176,26 +188,23 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How SIP Returns Are Calculated (With Real Numbers)</h2>
-        <p>A Systematic Investment Plan (SIP) lets you invest a fixed amount in mutual funds every month. In India, most AMCs accept SIPs from ₹500/month. Returns compound over time: ₹5,000/month at 12% CAGR grows to roughly ₹11.6 lakh in 10 years, ₹49.5 lakh in 20 years, and ₹1.76 crore in 30 years. SIPs benefit from rupee cost averaging — you buy more units when markets fall and fewer when they rise, smoothing volatility over long horizons.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">Future Value = P × [((1+r)^n − 1) / r] × (1+r), where P = monthly SIP, r = monthly return (derived from annual CAGR), n = number of months.</p>
-        <h3>Worked Example</h3>
-        <p>Investing ₹10,000/month for 10 years at 12% expected return: total invested = ₹12 lakh, estimated corpus ≈ ₹22.4 lakh, wealth gained ≈ ₹10.4 lakh. To reach ₹50 lakh in 10 years at 12%, you need roughly ₹21,500/month SIP.</p>
-        <h3>Key Factors That Affect Your Result</h3>
-        <ul class="calc-factor-list">
-          <li>Investment horizon — SIP works best for 5+ year goals</li>
-          <li>Expected return — equity funds historically 10–12% long term; not guaranteed</li>
-          <li>Fund category — equity for long term, debt for short term</li>
-          <li>Step-up SIP — increasing SIP 10% annually accelerates corpus significantly</li>
-          <li>Market timing — SIP removes need to time the market</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full SIP Investment Guide</h3>
-          <p>In-depth guide with Indian examples, common mistakes, and FAQs.</p>
-          <a href="/guides/sip-investment-guide/" class="btn-primary">Open Guide →</a>
-        </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <h2>How this SIP projection is built (and what it is not)</h2>
+        <p>The number you see is a <strong>future-value illustration</strong>, not a mutual-fund return. We treat each instalment as paid at the <em>start</em> of the month (annuity due): FV = P × [((1+i)<sup>n</sup> − 1) / i] × (1+i), where i is annual expected return ÷ 12 ÷ 100. Many spreadsheet templates omit the final ×(1+i) and will show a slightly lower corpus. If your AMC invests on a later date each month, real units bought will differ.</p>
+        <p>Expected return is an input you choose. Equity funds have delivered roughly 10–12% CAGR over some long Indian windows and much less over others. Past CAGR is not a promise. Debt and hybrid funds need a lower rate in this box.</p>
+        <h3>₹10,000 a month at 12% (illustration only)</h3>
+        <table class="compare-table">
+          <thead><tr><th>Years</th><th>Invested</th><th>Illustrated corpus</th></tr></thead>
+          <tbody>
+            <tr><td>10</td><td>₹12 lakh</td><td>≈ ₹23.2 lakh</td></tr>
+            <tr><td>15</td><td>₹18 lakh</td><td>≈ ₹50.5 lakh</td></tr>
+            <tr><td>20</td><td>₹24 lakh</td><td>≈ ₹99.9 lakh</td></tr>
+            <tr><td>30</td><td>₹36 lakh</td><td>≈ ₹3.53 crore</td></tr>
+          </tbody>
+        </table>
+        <p>Use <strong>I know goal amount</strong> when you have a corpus target (house down payment, retirement). That mode inverts the same formula. A 10% annual step-up is modelled on the <a href="/calculators/step-up-sip/">step-up SIP calculator</a>, not here.</p>
+        <h3>Tax is outside this box</h3>
+        <p>Equity mutual-fund capital-gains tax, LTCG exemption, and TDS on withdrawals are not subtracted from the corpus. For a long-term goal, run the projection, then haircut the result for tax and inflation. Read the <a href="/guides/sip-investment-guide/">SIP investment guide</a> before treating 12% as a plan.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated 17 August 2026 · Assumption: start-of-month SIP · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -212,7 +221,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">What SIP formula does this calculator use?<span class="faq-icon">+</span></button>
-          <div class="faq-a">M = P × ((1+i)^n − 1) / i × (1+i), where P is monthly investment, i is monthly return (annual ÷ 12 ÷ 100), and n is total months. This is the standard future-value formula for SIPs with end-of-month contributions.</div>
+          <div class="faq-a">M = P × ((1+i)^n − 1) / i × (1+i), where P is monthly investment, i is monthly return (annual ÷ 12 ÷ 100), and n is total months. The extra ×(1+i) means we treat each SIP as invested at the start of the month (annuity due), which is slightly higher than an end-of-month model.</div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button">Is 12% return realistic for SIP?<span class="faq-icon">+</span></button>
@@ -247,7 +256,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
-          <p>Free financial calculators for employees and investors. No signup, instant results.</p>
+          <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
           <h4>Employee Tools</h4>
@@ -277,6 +286,7 @@
             <li><a href="/contact/">Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/editorial-policy/">Editorial Policy</a></li>
             <li><a href="/disclaimer/">Disclaimer</a></li>
             <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
