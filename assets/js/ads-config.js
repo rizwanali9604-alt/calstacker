@@ -2,7 +2,7 @@
  * AdSense ad unit config — enable after Google AdSense approval.
  */
 const ADS_CONFIG = {
-  client: 'ca-pub-8332278513903196',
+  client: 'ca-pub-8332278519903196',
   slots: {
     topBanner: '',
     inContent: '',
