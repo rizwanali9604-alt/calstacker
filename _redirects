@@ -1,13 +1,14 @@
-# Internal tooling — gone, not indexed
-/dashboard / 410
-/dashboard/ / 410
-/dashboard/* / 410
-/data / 410
-/data/ / 410
-/data/* / 410
-/scripts / 410
-/scripts/ / 410
-/scripts/* / 410
+# Internal tooling — Workers _redirects does not allow 410, so send to home.
+# These paths are also excluded from upload via .assetsignore.
+/dashboard / 301
+/dashboard/ / 301
+/dashboard/* / 301
+/data / 301
+/data/ / 301
+/data/* / 301
+/scripts / 301
+/scripts/ / 301
+/scripts/* / 301
 
 # Thin / scaled pages — consolidate to the real tool
 /blog /guides/ 301
