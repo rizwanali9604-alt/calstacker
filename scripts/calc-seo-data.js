@@ -42,7 +42,7 @@ module.exports = {
     example: '₹12 lakh annual salary, new regime, no other income: taxable after ₹75K standard deduction = ₹11.25L, tax after rebate often ₹0. Same salary, old regime with ₹1.5L 80C + ₹25K 80D + ₹2L HRA exemption: taxable income can drop by ₹3–4 lakh, saving ₹30,000–50,000 tax.',
     factors: ['Regime selection — choose at start of FY, switchable in some cases', '80C investments — ELSS, PPF, EPF, LIC, tuition fees', 'HRA — only under old regime with valid rent proof', 'NPS 80CCD(1B) — extra ₹50,000 beyond 80C', 'Home loan — 80C principal + 24(b) interest deductions'],
     extraFaqs: [
-      { q: 'Which tax regime is better for ₹8 LPA salary?', a: 'If you claim less than ₹2–2.5 lakh in total deductions (80C + HRA + 80D), new regime often wins. With home loan + HRA + full 80C, old regime may save ₹20,000–40,000 annually. Use this calculator to compare side by side.' },
+      { q: 'Which tax regime is better for ₹8 LPA salary?', a: 'At ₹8 lakh gross salary, new-regime tax is typically ₹0 after the ₹75,000 standard deduction and Section 87A. Old regime with ordinary 80C, HRA and NPS can still leave tax of about ₹18,000 in our engine. Home loan + HRA does not flip that at ₹8 lakh the way older articles claimed. Above ~₹12.75 lakh gross, compare both columns — old can win with a full 24(b) claim and high documented rent.' },
       { q: 'What is zero tax up to ₹12 lakh in new regime?', a: 'Combination of revised slabs, ₹75,000 standard deduction, and Section 87A rebate can reduce tax to zero for many salaried taxpayers with income around ₹12 lakh. Exact outcome depends on your full income and surcharge applicability.' }
     ]
   },
