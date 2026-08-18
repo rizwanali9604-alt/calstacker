@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GST Calculator Free Online — CalStacker</title>
-  <meta name="description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <title>GST Calculator India 2026 — GST 2.0 (5%, 18%, 40%) — CalStacker</title>
+  <meta name="description" content="Add or remove GST under GST 2.0: 5%, 18%, 40%, plus 0% and 3% precious metals. Inclusive and exclusive pricing for Indian invoices.">
   <link rel="canonical" href="https://calstacker.com/calculators/gst/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CalStacker">
-  <meta property="og:title" content="GST Calculator Free Online — CalStacker">
-  <meta property="og:description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <meta property="og:title" content="GST Calculator India 2026 — GST 2.0 (5%, 18%, 40%) — CalStacker">
+  <meta property="og:description" content="Add or remove GST under GST 2.0: 5%, 18%, 40%, plus 0% and 3% precious metals. Inclusive and exclusive pricing for Indian invoices.">
   <meta property="og:url" content="https://calstacker.com/calculators/gst/">
   <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GST Calculator Free Online — CalStacker">
-  <meta name="twitter:description" content="Add or remove GST at 5%, 12%, 18%, or 28%. Calculate base amount, GST component, and total for exclusive or inclusive pricing. Free GST calculator India.">
+  <meta name="twitter:title" content="GST Calculator India 2026 — GST 2.0 (5%, 18%, 40%) — CalStacker">
+  <meta name="twitter:description" content="Add or remove GST under GST 2.0: 5%, 18%, 40%, plus 0% and 3% precious metals. Inclusive and exclusive pricing for Indian invoices.">
   <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -38,7 +38,7 @@
   "@type": "WebApplication",
   "name": "GST Calculator",
   "url": "https://calstacker.com/calculators/gst/",
-  "description": "Calculate GST amount and total price with tax",
+  "description": "GST 2.0 calculator for India: 5%, 18%, 40%, 0% and 3% inclusive or exclusive amounts",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -71,7 +71,7 @@
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → GST Calculator</div>
       <h1 class="calc-page-title">GST Calculator</h1>
-      <p class="calc-page-desc">Add or remove GST at 5%, 12%, 18%, or 28% — exclusive or inclusive amounts</p>
+      <p class="calc-page-desc">GST 2.0 (from 22 September 2025): 5%, 18%, 40% — plus 0% and 3% precious metals</p>
     </div>
   </header>
 
@@ -95,11 +95,14 @@
         <div class="form-group">
           <label class="form-label" for="gstRate">GST Rate</label>
           <select class="form-select" id="gstRate">
-            <option value="5">5%</option>
-            <option value="12">12%</option>
-            <option value="18" selected>18%</option>
-            <option value="28">28%</option>
+            <option value="0">0% — exempt / nil</option>
+            <option value="3">3% — precious metals</option>
+            <option value="5">5% — merit / essentials</option>
+            <option value="18" selected>18% — standard (most goods &amp; services)</option>
+            <option value="40">40% — demerit / luxury (GST 2.0)</option>
+            <option value="custom">Other (legacy 12% / 28% or notified rate)</option>
           </select>
+          <p class="form-hint">Rate follows the HSN/SAC on the tax invoice, not a guess from this list.</p>
         </div>
         <div class="form-group">
           <label class="form-label" for="gstMode">Amount Type</label>
@@ -108,6 +111,11 @@
             <option value="inclusive">GST Inclusive (remove GST)</option>
           </select>
         </div>
+      </div>
+      <div class="form-group" id="gstRateCustomWrap" hidden>
+        <label class="form-label" for="gstRateCustom">Custom rate (%)</label>
+        <input type="number" class="form-input" id="gstRateCustom" min="0" max="100" step="0.01" placeholder="e.g. 12">
+        <p class="form-hint">Use only if the invoice still shows a notified rate that is not 0 / 3 / 5 / 18 / 40.</p>
       </div>
 
       <button type="button" class="calc-btn" onclick="calculateGST()">Calculate GST</button>
@@ -130,6 +138,14 @@
             <div class="result-item-label">GST Rate</div>
             <div class="result-item-value" id="resultRate">18%</div>
           </div>
+          <div class="result-item">
+            <div class="result-item-label">CGST (intra-state half)</div>
+            <div class="result-item-value" id="resultCgst">₹0</div>
+          </div>
+          <div class="result-item">
+            <div class="result-item-label">SGST (intra-state half)</div>
+            <div class="result-item-value" id="resultSgst">₹0</div>
+          </div>
         </div>
         <div class="result-highlight" id="modeSummary"></div>
       </div>
@@ -147,13 +163,13 @@
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>GST on an Indian invoice, both directions</h2>
-        <p>Most consumer prices you see in an app are <strong>GST-inclusive</strong>. A shop bill for a laptop at ₹70,800 with 18% GST is not “₹70,800 plus tax”. Reverse the tax: base = 70,800 / 1.18 = ₹60,000; GST = ₹10,800. Exclusive mode does the opposite: ₹60,000 × 18% = ₹10,800; total ₹70,800.</p>
-        <p>This page splits intra-state tax as CGST + SGST (half each) and inter-state as IGST (full rate). It does not file GSTR-1 for you, does not decide your HSN code, and does not apply compensation cess (coal, cars, tobacco). If your item is cess-attracting, the total here will be low.</p>
-        <h3>Rate is not a guess</h3>
-        <p>Use the slab printed on the tax invoice or in the GST rate schedule for that HSN/SAC — 0, 5, 12, 18, or 28 are the common goods slabs, with 3% for some jewellery. Services are often 18%. Composition dealers do not charge GST the same way; do not use this calculator to “add 18%” on a composition invoice.</p>
-        <p>Turnover thresholds for mandatory registration (₹40 lakh goods / ₹20 lakh services, lower in some special-category states) change; confirm on the GST portal before you register. Guide: <a href="/guides/gst-guide/">GST guide</a>.</p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated 17 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <h2>GST 2.0 on an Indian invoice, both directions</h2>
+        <p>From <strong>22 September 2025</strong> the GST Council’s GST 2.0 structure is the working set: <strong>5%</strong> (merit), <strong>18%</strong> (standard for most goods and services), and <strong>40%</strong> (specified demerit / luxury). <strong>0%</strong> remains for many exempt essentials. <strong>3%</strong> remains for specified precious metals. The old everyday <strong>12%</strong> and <strong>28%</strong> slabs were largely merged into 5% / 18% / 40%. This page defaults to 18%. Pick 12 or 28 only if the tax invoice in your hand still prints that rate (use Other).</p>
+        <p>Most consumer prices in an app are <strong>GST-inclusive</strong>. A laptop sticker of ₹70,800 at 18% is not “₹70,800 plus tax”. Reverse: base = 70,800 / 1.18 = ₹60,000; GST = ₹10,800. Exclusive mode does the opposite: ₹60,000 × 18% = ₹10,800; total ₹70,800. At 40% exclusive, ₹1,00,000 of taxable value is ₹40,000 GST and ₹1,40,000 total; intra-state that GST splits as ₹20,000 CGST + ₹20,000 SGST. Inter-state is IGST at the full rate (same rupee total).</p>
+        <p>This tool does not file GSTR-1, does not look up your HSN/SAC, and does not add compensation cess. Some tobacco, pan masala, and notified goods still carry cess on top of GST — the total here will then be low. Composition dealers do not charge GST the same way; do not “add 18%” on a composition invoice.</p>
+        <h3>Rate is the code, not the dropdown</h3>
+        <p>Use the slab printed on the tax invoice or in the current GST rate schedule for that HSN/SAC. Confirm on the <a href="https://www.gst.gov.in/" rel="noopener noreferrer">GST portal</a>. Turnover thresholds for mandatory registration (often ₹40 lakh goods / ₹20 lakh services, lower in some special-category states) change; confirm before you register. Longer read: <a href="/guides/gst-guide/">GST 2.0 guide</a>.</p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · GST 2.0 last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section>
@@ -162,22 +178,23 @@
     <div class="container">
       <div class="section-header">
         <h2>Add GST or peel it off the sticker price</h2>
+        <p>GST 2.0 rates first; custom only if the invoice disagrees</p>
       </div>
       <div class="how-steps">
         <div class="how-step">
           <div class="how-step-num">1</div>
-          <h4>Enter Amount</h4>
-          <p>Input the price before or after GST depending on your mode.</p>
+          <h4>Enter the rupee amount</h4>
+          <p>Sticker price if inclusive; taxable value if you are adding tax on a B2B quote.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">2</div>
-          <h4>Select Rate & Mode</h4>
-          <p>Choose GST slab (5/12/18/28%) and exclusive or inclusive pricing.</p>
+          <h4>Pick the GST 2.0 slab</h4>
+          <p>5%, 18% or 40% for almost everything after 22 September 2025. 0% and 3% sit in the list. Other is for a printed legacy rate.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">3</div>
-          <h4>Get Breakdown</h4>
-          <p>See base amount, GST component, and final total instantly.</p>
+          <h4>Read base, GST, and the CGST/SGST split</h4>
+          <p>Intra-state: half and half. Inter-state: treat the GST amount as IGST. Cess is not in this total.</p>
         </div>
       </div>
     </div>
@@ -188,8 +205,8 @@
       <div class="section-header"><h2>Frequently Asked Questions</h2></div>
       <div class="faq-list">
         <div class="faq-item">
-          <button type="button" class="faq-q">What are the GST slabs in India? <span class="faq-icon">+</span></button>
-          <div class="faq-a">Common GST rates are 5%, 12%, 18%, and 28%. Some items are nil-rated or exempt. Essential goods often attract 5%, while luxury items may be at 28%.</div>
+          <button type="button" class="faq-q">What are the GST slabs in India after GST 2.0? <span class="faq-icon">+</span></button>
+          <div class="faq-a">From 22 September 2025 the working slabs are 0% (exempt/nil), 5% (merit), 18% (standard), and 40% (specified demerit/luxury), plus 3% for specified precious metals. The old 12% and 28% rates were largely merged. The legal rate is still the HSN/SAC on the tax invoice.</div>
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">What is GST exclusive vs inclusive? <span class="faq-icon">+</span></button>
@@ -197,19 +214,19 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">How do I remove GST from an inclusive price? <span class="faq-icon">+</span></button>
-          <div class="faq-a">Base = Total ÷ (1 + rate/100). For 18% GST on ₹11,800 inclusive: Base = 11,800 ÷ 1.18 = ₹10,000 and GST = ₹1,800.</div>
+          <div class="faq-a">Base = Total ÷ (1 + rate/100). For 18% GST on ₹11,800 inclusive: Base = 11,800 ÷ 1.18 = ₹10,000 and GST = ₹1,800. At 40% on ₹1,40,000 inclusive: base = 1,40,000 ÷ 1.40 = ₹1,00,000.</div>
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">Is CGST and SGST included? <span class="faq-icon">+</span></button>
-          <div class="faq-a">For intra-state sales, GST splits equally into CGST and SGST (e.g. 9% + 9% = 18%). For inter-state, IGST applies at the full rate. This calculator shows combined GST.</div>
+          <div class="faq-a">For intra-state sales, GST splits equally into CGST and SGST (9% + 9% at 18%; 20% + 20% at 40%). For inter-state, IGST applies at the full rate. The rupee GST amount is the same; only the label changes.</div>
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q">Do freelancers need to charge GST? <span class="faq-icon">+</span></button>
           <div class="faq-a">Service suppliers often must register above ₹20 lakh turnover (₹10 lakh in some special-category states). Goods suppliers often have a higher threshold. Confirm the live limit on the GST portal before you charge tax — this page does not decide registration.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button">What is 18% GST applicable on?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Many services and goods currently sit at 18%, but the legal rate is the HSN/SAC on the tax invoice — not a guess from this FAQ. Milk and many fresh foods are nil or exempt; cess items are outside this tool.</div>
+          <button class="faq-q" type="button">What is 18% GST applicable on after GST 2.0?<span class="faq-icon">+</span></button>
+          <div class="faq-a">18% is the standard rate for most goods and services. 5% is the merit rate for many essentials. 40% is a narrow demerit/luxury band. Milk and many fresh foods stay nil or exempt. Cess items sit outside this tool. Always read the HSN/SAC, not this FAQ.</div>
         </div>
       </div>
     </div>
@@ -268,12 +285,28 @@
   <script src="/assets/js/analytics-events.js"></script>
   <script src="/assets/js/ads-config.js"></script>
   <script>
+    function getSelectedGstRate() {
+      const sel = document.getElementById('gstRate').value;
+      if (sel === 'custom') {
+        return parseFloat(document.getElementById('gstRateCustom').value);
+      }
+      return parseFloat(sel);
+    }
+
+    document.getElementById('gstRate').addEventListener('change', function () {
+      document.getElementById('gstRateCustomWrap').hidden = this.value !== 'custom';
+    });
+
     function calculateGST() {
       const amount = getNum('amount');
-      const rate = parseFloat(document.getElementById('gstRate').value);
+      const rate = getSelectedGstRate();
       const mode = document.getElementById('gstMode').value;
 
       if (!validateRequiredPositive(amount, 'Amount')) return;
+      if (isNaN(rate) || rate < 0 || rate > 100) {
+        showCalcError('Enter a GST rate between 0 and 100');
+        return;
+      }
 
       let base, gst, total;
 
@@ -287,6 +320,8 @@
         gst = total - base;
       }
 
+      const half = gst / 2;
+
       document.getElementById('totalLabel').textContent =
         mode === 'exclusive' ? 'Total Amount (incl. GST)' : 'Amount Entered (incl. GST)';
 
@@ -294,13 +329,15 @@
       setResult('resultBase', formatINR(base));
       setResult('resultGst', formatINR(gst));
       setResult('resultRate', rate + '%');
+      setResult('resultCgst', formatINR(half));
+      setResult('resultSgst', formatINR(half));
 
       const summary = document.getElementById('modeSummary');
       summary.style.display = 'block';
       if (mode === 'exclusive') {
-        summary.textContent = 'Added ' + rate + '% GST (' + formatINR(gst) + ') to base ' + formatINR(base);
+        summary.textContent = 'Added ' + rate + '% GST (' + formatINR(gst) + ') to base ' + formatINR(base) + '. Intra-state: CGST ' + formatINR(half) + ' + SGST ' + formatINR(half) + '. Inter-state: IGST ' + formatINR(gst) + '. Cess not included.';
       } else {
-        summary.textContent = 'Removed ' + rate + '% GST — base is ' + formatINR(base) + ', GST portion ' + formatINR(gst);
+        summary.textContent = 'Removed ' + rate + '% GST — base is ' + formatINR(base) + ', GST portion ' + formatINR(gst) + '. Intra-state split shown as CGST/SGST halves. Cess not included.';
       }
 
       showResult();
