@@ -114,12 +114,12 @@ module.exports = {
   },
   gst: {
     guide: '/guides/gst-guide/', guideTitle: 'GST Guide for India',
-    intro: 'Goods and Services Tax (GST) in India has four main slabs: 5%, 12%, 18%, and 28%, plus 0% and 3% for precious metals. Most services attract 18% GST. Businesses above ₹40 lakh turnover (₹20 lakh in special category states) must register. GSTIN is required for B2B invoicing and input tax credit claims.',
+    intro: 'GST 2.0 (from 22 September 2025) uses 5% (merit), 18% (standard), and 40% (demerit/luxury), plus 0% exempt and 3% for specified precious metals. The old 12% and 28% slabs were largely merged. Most services sit at 18%. Confirm HSN/SAC on the GST portal. Registration thresholds (often ₹40 lakh goods / ₹20 lakh services) still apply.',
     formula: 'GST Amount = Taxable Value × Rate / 100. Total = Taxable Value + GST. For reverse: Base = Total / (1 + Rate/100).',
     example: 'Product price ₹10,000 + 18% GST: GST = ₹1,800, total = ₹11,800. Inclusive pricing ₹11,800: base = ₹10,000, GST = ₹1,800.',
     factors: ['CGST + SGST — split equally for intra-state sales', 'IGST — inter-state transactions', 'Input tax credit — offset GST paid on purchases', 'Composition scheme — simplified compliance for small business', 'HSN/SAC codes — determine applicable rate'],
     extraFaqs: [
-      { q: 'What is 18% GST applicable on?', a: 'Most services (telecom, professional fees, restaurants with AC), electronics, and many goods fall under 18%. Essential items like milk, fresh vegetables are exempt or at 0%.' },
+      { q: 'What is 18% GST applicable on?', a: 'After GST 2.0, 18% is the standard rate for most goods and services. 5% is the merit rate; 40% is a narrow demerit/luxury band. The legal rate is the HSN/SAC on the tax invoice — not a guess from this FAQ. Cess items sit outside a plain GST add-on.' },
       { q: 'How do I calculate GST inclusive price?', a: 'Divide total by (1 + rate/100). For 18% inclusive: base = total / 1.18. Use our calculator for instant add/remove GST calculations.' }
     ]
   },

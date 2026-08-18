@@ -1,0 +1,2 @@
+# ads.txt for calstacker.com — Google AdSense
+google.com, pub-8332278519903196, DIRECT, f08c97feece19307

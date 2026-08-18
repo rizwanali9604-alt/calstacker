@@ -422,14 +422,14 @@ const guides = [
   {
     slug: 'gst-guide',
     breadcrumb: 'GST Guide',
-    title: 'GST Guide India 2026 — Slabs, Calculation & Registration Rules',
-    subtitle: '5%, 12%, 18%, 28% slabs explained for freelancers, small business, and salaried side income',
-    description: 'GST guide for India: tax slabs, inclusive vs exclusive pricing, registration threshold, and how to calculate GST on invoices.',
+    title: 'GST Guide India 2026 — GST 2.0 Slabs, Calculation & Registration',
+    subtitle: '5%, 18% and 40% after 22 September 2025 — not the old 12% / 28% list',
+    description: 'GST 2.0 in India from 22 September 2025: 5%, 18% and 40% slabs, 0% and 3% precious metals, inclusive pricing, registration, and ITC.',
     calcUrl: '/calculators/gst/',
     sidebarCalc: 'GST Calculator',
-    sidebarDesc: 'Add or remove GST instantly',
+    sidebarDesc: 'GST 2.0 — 5%, 18%, 40%',
     ctaTitle: 'Calculate GST on any amount',
-    ctaText: 'Forward and reverse GST calculation for all major slabs.',
+    ctaText: 'Forward and reverse GST at GST 2.0 rates, with a custom box for leftover notified rates.',
     ctaBtn: 'GST Calculator',
     related: [
       { url: '/guides/tax-saving-guide/', title: 'Tax Saving Guide' },
@@ -437,34 +437,14 @@ const guides = [
       { url: '/guides/old-vs-new-tax-regime-guide/', title: 'Tax Regime Guide' }
     ],
     faqs: [
-      { q: 'What are GST slabs in India?', a: 'Main slabs: 0%, 5%, 12%, 18%, and 28%. Precious metals at 3%. Most services attract 18%. Essential goods like fresh milk and vegetables are exempt.' },
-      { q: 'When must I register for GST?', a: 'Mandatory when turnover exceeds ₹40 lakh (goods) or ₹20 lakh (services) in most states. Special category states have lower thresholds. Voluntary registration allows input tax credit even below threshold.' },
-      { q: 'How to calculate GST inclusive price?', a: 'Base amount = Total / (1 + rate/100). For 18% inclusive ₹11,800: base = 11,800/1.18 = ₹10,000, GST = ₹1,800.' },
-      { q: 'CGST vs IGST — difference?', a: 'Intra-state sales: CGST + SGST split equally. Inter-state: IGST applies. Determines which government receives revenue.' },
-      { q: 'Do salaried employees need GST registration?', a: 'Only if side business/freelance turnover crosses threshold or you voluntarily register. Salary income alone does not require GST.' }
+      { q: 'What are GST slabs in India in 2026?', a: 'Under GST 2.0 (from 22 September 2025) the working slabs are 0% (exempt/nil), 5% (merit), 18% (standard for most goods and services), and 40% (specified demerit/luxury), plus 3% for specified precious metals. The old 12% and 28% slabs were largely merged. The legal rate is the HSN/SAC on the tax invoice, confirmed on the GST portal.' },
+      { q: 'When must I register for GST?', a: 'In most states, mandatory registration is commonly triggered around ₹40 lakh annual turnover for goods or ₹20 lakh for services, with lower thresholds in some special-category states. E-commerce sellers and inter-state suppliers have separate rules. Confirm the live limit on the GST portal before you charge tax.' },
+      { q: 'How to calculate GST inclusive price?', a: 'Base amount = Total / (1 + rate/100). For 18% inclusive ₹11,800: base = 11,800/1.18 = ₹10,000, GST = ₹1,800. For 40% inclusive ₹1,40,000: base = 1,40,000/1.40 = ₹1,00,000, GST = ₹40,000.' },
+      { q: 'CGST vs IGST — difference?', a: 'Intra-state sales: CGST + SGST split equally (9%+9% at 18%; 20%+20% at 40%). Inter-state: IGST at the full rate. The rupee GST amount is the same; only which government receives it changes.' },
+      { q: 'Do salaried employees need GST registration?', a: 'Salary income alone does not require GST. You may need to register if a side business or freelance turnover crosses the threshold, you supply through e-commerce, or you opt in voluntarily for input tax credit.' }
     ],
     body: `
-      <p>Goods and Services Tax (GST) unified India's indirect tax system in 2017, but slabs, inclusive pricing, and registration thresholds still confuse freelancers, small shop owners, and salaried professionals with side income. Charging wrong GST on invoices creates compliance risk; paying GST without claiming input credit wastes money.</p>
-
-      <p>This guide explains slabs, forward and reverse calculation, registration rules, and composition scheme basics for small business.</p>
-
-      <h2>GST Slabs Explained</h2>
-      <p><strong>0%:</strong> Fresh food, books, healthcare services (many). <strong>5%:</strong> Essentials, packaged food items. <strong>12%:</strong> Processed foods, some construction. <strong>18%:</strong> Most services, electronics, telecom — the default rate most professionals encounter. <strong>28%:</strong> Luxury items, automobiles, aerated drinks.</p>
-
-      <h2>Forward GST Calculation</h2>
-      <p>GST Amount = Taxable Value × Rate / 100. Total = Taxable Value + GST. Example: ₹10,000 service at 18% → GST ₹1,800, invoice total ₹11,800.</p>
-
-      <h2>Reverse GST (Inclusive Pricing)</h2>
-      <p>When price includes GST: Base = Total / (1 + Rate/100). GST = Total − Base. Restaurants and B2C often show inclusive prices — know how to extract GST for ITC if registered.</p>
-
-      <h2>Registration Threshold</h2>
-      <p>₹40 lakh annual turnover for goods (₹20 lakh for services) in most states triggers mandatory registration. E-commerce sellers and inter-state suppliers have separate rules. GSTIN required for B2B invoicing and input tax credit.</p>
-
-      <h2>Input Tax Credit</h2>
-      <p>Registered businesses offset GST paid on purchases against GST collected on sales. Unregistered freelancers cannot claim ITC — factor this when comparing freelance vs employment income.</p>
-
-      <h2>Composition Scheme</h2>
-      <p>Small businesses under ₹1.5 crore turnover can pay fixed GST rate on turnover with simplified compliance — limited ITC, suitable for small retailers and restaurants meeting criteria.</p>
+      <p>Do not regenerate this page from the old 12%/28% template. The live guide at guides/gst-guide/index.html is the GST 2.0 source of truth (5% / 18% / 40%, from 22 September 2025).</p>
 `
   },
   {
