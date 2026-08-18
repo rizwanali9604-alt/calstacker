@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAGR Calculator Free Online — CalStacker</title>
-  <meta name="description" content="Calculate CAGR for investments and mutual funds. CAGR = (End/Start)^(1/n)-1 shown as percentage — free instant tool for India.">
+  <title>CAGR Calculator — Lumpsum Only, Not SIP/XIRR — CalStacker</title>
+  <meta name="description" content="Annualise a start and end value. For SIPs use XIRR; this page will not treat total invested as a lumpsum start.">
   <link rel="canonical" href="https://calstacker.com/calculators/cagr/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CalStacker">
-  <meta property="og:title" content="CAGR Calculator Free Online — CalStacker">
-  <meta property="og:description" content="Calculate CAGR for investments and mutual funds. CAGR = (End/Start)^(1/n)-1 shown as percentage — free instant tool for India.">
+  <meta property="og:title" content="CAGR Calculator — Lumpsum Only, Not SIP/XIRR — CalStacker">
+  <meta property="og:description" content="Annualise a start and end value. For SIPs use XIRR; this page will not treat total invested as a lumpsum start.">
   <meta property="og:url" content="https://calstacker.com/calculators/cagr/">
   <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CAGR Calculator Free Online — CalStacker">
-  <meta name="twitter:description" content="Calculate CAGR for investments and mutual funds. CAGR = (End/Start)^(1/n)-1 shown as percentage — free instant tool for India.">
+  <meta name="twitter:title" content="CAGR Calculator — Lumpsum Only, Not SIP/XIRR — CalStacker">
+  <meta name="twitter:description" content="Annualise a start and end value. For SIPs use XIRR; this page will not treat total invested as a lumpsum start.">
   <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -71,7 +71,7 @@
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → CAGR Calculator</div>
       <h1 class="calc-page-title">CAGR Calculator</h1>
-      <p class="calc-page-desc">Compound Annual Growth Rate — CAGR = (End/Start)<sup>1/n</sup> − 1</p>
+      <p class="calc-page-desc">Annualise two lumpsum values. Do not paste a SIP’s “total invested” as Start</p>
     </div>
   </header>
 
@@ -134,92 +134,49 @@
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
   </main>
 
-  <section class="section-sm">
-    <div class="container">
-      <div class="section-header">
-        <h2>How to Use</h2>
-        <p>Find your investment CAGR in three steps</p>
-      </div>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-num">1</div>
-          <h4>Enter Start Value</h4>
-          <p>Input your initial investment or portfolio value.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">2</div>
-          <h4>Enter End Value</h4>
-          <p>Input the current or final value of your investment.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-num">3</div>
-          <h4>View CAGR</h4>
-          <p>See the smoothed annual growth rate as a percentage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-sm">
-    <div class="container">
-      <div class="section-header"><h2>Frequently Asked Questions</h2></div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q">What is CAGR?<span class="faq-icon">+</span></button>
-          <div class="faq-a">CAGR (Compound Annual Growth Rate) is the mean annual growth rate of an investment over a specified period, assuming profits are reinvested each year. It smooths out volatility.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">How is CAGR calculated?<span class="faq-icon">+</span></button>
-          <div class="faq-a">CAGR = (Ending Value / Beginning Value)<sup>1/n</sup> − 1, where n is the number of years. Multiply by 100 to express as a percentage.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">CAGR vs absolute return?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Absolute return shows total gain over the period. CAGR annualises that return, making it easier to compare investments held for different durations.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Can CAGR be negative?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Yes. If your final value is less than the initial value, CAGR will be negative, indicating an average annual loss over the investment period.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Is CAGR accurate for SIP investments?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Standard CAGR works best for lumpsum investments. For SIPs with multiple cash flows, use XIRR (Extended Internal Rate of Return) for a more accurate measure.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button">What is good CAGR for mutual funds in India?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Large-cap equity funds: 10–12% CAGR over 10+ years historically. Mid-cap: 12–15% with higher volatility. Debt funds: 6–8%. Always compare against benchmark index CAGR.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button">CAGR vs absolute return — difference?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Absolute return = total % gain (e.g. 150% over 10 years). CAGR = smoothed annual rate (9.6% for same example). CAGR allows comparison across different time periods.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
-        <h2>How CAGR Measures Investment Growth</h2>
-        <p>Compound Annual Growth Rate (CAGR) measures smoothed annual return between two values over time. If your ₹1 lakh investment grew to ₹2.5 lakh in 5 years, CAGR = (2.5/1)^(1/5) − 1 = 20.1%. CAGR ignores volatility — a fund that doubled in year 1 and flatlined shows same CAGR as steady growth. Use with XIRR for SIP cash flows.</p>
-        <h3>Formula</h3>
-        <p class="calc-formula-box">CAGR = (Final Value / Initial Value)^(1/n) − 1, where n = years. Express as percentage × 100.</p>
-        <h3>Worked Example</h3>
-        <p>Nifty 50 index from ~8,000 (2015) to ~24,000 (2025): CAGR ≈ 11.6% over 10 years. ₹5 lakh growing at 12% CAGR for 8 years = ₹12.4 lakh.</p>
-        <h3>How to read this CAGR</h3>
-        <ul class="calc-factor-list">
-          <li>Not risk-adjusted — high CAGR may hide volatility</li>
-          <li>Past performance — doesn't guarantee future returns</li>
-          <li>vs XIRR — use XIRR for irregular SIP/redemption flows</li>
-          <li>Benchmark comparison — compare fund CAGR vs Nifty 50</li>
-          <li>Period selection — CAGR varies wildly by start/end dates</li>
-        </ul>
-        <div class="tool-cta-inline">
-          <h3>Read Our Full SIP Investment Guide</h3>
-          <p>CAGR describes a lumpsum path. SIPs need XIRR because cash flows are many, not one.</p>
-          <a href="/guides/sip-investment-guide/" class="btn-primary">Open Guide →</a>
+        <h2>CAGR is a straight line between two dots</h2>
+        <p>CAGR = (End / Start)<sup>1/years</sup> − 1. It answers only: “If this lumpsum had grown at a constant rate, what rate?” It does not see the crash in year two or the bounce in year five. A fund that went ₹1 lakh → ₹2 lakh in twelve months and then sat still for four years can show the same five-year CAGR as a fund that grinded up smoothly.</p>
+        <p>Period shopping is the usual abuse. Nifty from a market low to a high looks heroic; the same index from a previous high looks dull. Always write the start date and end date next to the number.</p>
+        <table class="compare-table">
+          <thead><tr><th>Measure</th><th>Use it for</th><th>Do not use it for</th></tr></thead>
+          <tbody>
+            <tr><td>CAGR</td><td>One lumpsum, two values, n years</td><td>Monthly SIPs</td></tr>
+            <tr><td>Absolute return</td><td>“It made 80% in three years”</td><td>Comparing a 3-year fund to a 10-year fund</td></tr>
+            <tr><td>XIRR</td><td>SIP, STP, withdrawals</td><td>A single purchase with no other cash flows (CAGR is enough)</td></tr>
+          </tbody>
+        </table>
+        <p>Illustration: ₹1 lakh → ₹2.5 lakh in 5 years is about 20.1% CAGR. That is not a promise that the next five years repeat. For SIPs, open the fund’s XIRR on the AMC factsheet or your app — this page will overstate or understate if you paste “total invested” as Start and “current value” as End.</p>
+        <p class="related-inline"><a href="/calculators/lumpsum/">lumpsum projection</a> · <a href="/calculators/sip/">SIP</a></p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+      </div>
+    </div>
+  </section><section class="section-sm">
+    <div class="container">
+      <div class="section-header"><h2>CAGR vs XIRR vs absolute return</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">Can CAGR be negative?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If End is below Start, the rate is a loss, annualised. That is still a CAGR.</div>
         </div>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last updated August 2026 · <a href="/about/">About the author</a></p>
+        <div class="faq-item">
+          <button class="faq-q" type="button">I have a SIP. Which box is Start?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Do not use this page. Start/End CAGR assumes one cash flow. Use XIRR in your CAMS/KFin/app statement.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Should I compare my fund to Nifty CAGR?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes, over the same start and end dates. A 12% fund CAGR against an 11% Nifty CAGR is a different story from 12% against a 16% Nifty CAGR.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Does CAGR include dividends?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Only if End already includes reinvested dividends (total return). Price-only CAGR ignores payouts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Is a “good” Indian equity CAGR 12%?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Long-term large-cap history often lands around that neighbourhood, with ugly decades in between. It is not a hurdle this calculator certifies.</div>
+        </div>
       </div>
     </div>
   </section>
