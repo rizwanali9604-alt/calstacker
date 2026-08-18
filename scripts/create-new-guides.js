@@ -295,12 +295,12 @@ const guides = [
     faqs: [
       { q: 'What is zero tax up to ₹12 lakh in new regime?', a: 'The new regime combines revised slabs, ₹75,000 standard deduction for salaried employees, and Section 87A rebate so many taxpayers with income around ₹12 lakh pay no tax. Exact liability depends on total income and surcharge.' },
       { q: 'Can I switch between tax regimes every year?', a: 'Salaried employees with business income can switch annually in most cases. Employees without business income generally choose at the start of the year; check latest Finance Act rules for your category.' },
-      { q: 'Is old regime better if I pay home loan EMI?', a: 'Often yes. Old regime allows 80C on principal (within limits) and Section 24(b) interest deduction up to ₹2 lakh on self-occupied property, plus HRA if renting elsewhere. Combined deductions can exceed new regime savings.' },
+      { q: 'Is old regime better if I pay home loan EMI?', a: 'Often yes once new-regime tax is no longer zero. Old regime allows 80C on principal (within limits) and Section 24(b) interest up to ₹2 lakh on self-occupied property, plus HRA if you rent elsewhere. At ₹18 lakh gross with Mumbai HRA and a full 24(b) claim, old can save about ₹41,000 versus new in our engine. At ₹12 lakh gross, new is typically ₹0 even with a home loan — run both columns.' },
       { q: 'Does new regime have standard deduction?', a: 'Yes. Salaried employees get ₹75,000 standard deduction under the new regime in recent budgets, significantly reducing taxable income.' },
-      { q: 'Which regime for ₹15 LPA with full 80C and HRA?', a: 'Run both calculations. With ₹1.5L 80C, ₹2L HRA exemption, and ₹25K 80D, old regime often wins by ₹40,000–80,000 annually at ₹15 lakh gross. Use our calculator for your exact break-up.' }
+      { q: 'Which regime for ₹15 LPA with full 80C and HRA?', a: 'Run both calculations. At ₹15 lakh gross, new-regime tax after ₹75,000 standard deduction is about ₹97,500 including cess. Old with only 80C + 80D + a typical non-metro HRA can still be higher than new. Add NPS 80CCD(1B) and a full ₹2 lakh Section 24(b) claim and old can come out a little ahead (about ₹13,000 in one engine run) — not ₹40,000–80,000 from 80C and HRA alone. Use the calculator for your break-up.' }
     ],
     body: `
-      <p>Every financial year, millions of salaried Indians face the same question: old tax regime or new? The new regime promises lower slabs and simpler compliance; the old regime rewards those who invest in PPF, pay home loan interest, claim HRA, and buy health insurance. Pick wrong and you overpay tax by ₹20,000–₹1 lakh annually with no way to fix it until ITR filing.</p>
+      <p>Every financial year, salaried Indians choose old tax regime or new. FY 2026-27 is not the old playbook: Section 87A on the new regime makes tax nil on taxable income up to ₹12 lakh (often about ₹12.75 lakh gross salary after the ₹75,000 standard deduction). The old regime still wins for some people with large documented HRA, 80C, 80D, NPS and home-loan interest — not for everyone from ₹8 lakh upward. Pick wrong and you can overpay by tens of thousands until the next year’s ITR. Longer worked numbers: <a href="/guides/tax-saving-guide/">tax-saving guide</a>.</p>
 
       <p>This guide compares FY 2026-27 slabs, lists every deduction you lose in the new regime, and provides decision rules for incomes from ₹6 lakh to ₹25 lakh. Pair this with our income tax calculator for personalised numbers.</p>
 
@@ -317,13 +317,13 @@ const guides = [
       </ul>
 
       <h2>Decision Framework</h2>
-      <p><strong>Choose new regime if:</strong> Total deductions under old regime are below ₹2–2.5 lakh, you live in owned house without HRA, and you prefer simplicity. <strong>Choose old regime if:</strong> You pay significant rent with HRA component, have home loan, max 80C + 80D, or NPS contributions.</p>
+      <p><strong>Choose new regime if:</strong> Gross salary is around ₹12.75 lakh or below (taxable ≤ ₹12 lakh after the ₹75,000 standard deduction), or you cannot document large old-regime items. <strong>Choose old regime if:</strong> A side-by-side calculation still shows lower tax after HRA, 80C, 80D, NPS 80CCD(1B) and Section 24(b). A ₹2–2.5 lakh deduction pile is <em>not</em> a shortcut at ₹12 lakh gross — new is still typically zero there. See the <a href="/guides/tax-saving-guide/">tax-saving guide</a> for ₹8L / ₹12L / ₹18L engine runs.</p>
 
       <h2>Worked Example: ₹12 Lakh Salary</h2>
-      <p>New regime with standard deduction: taxable ~₹11.25L, tax often nil after rebate for many. Old regime without deductions: higher tax. Old regime with ₹1.5L 80C + ₹1.2L HRA + ₹25K 80D: taxable drops by ~₹2.95L — old regime wins if you actually claim these.</p>
+      <p>New regime: ₹12,00,000 − ₹75,000 standard deduction = ₹11,25,000 taxable. Section 87A makes tax <strong>₹0</strong> (plus cess still ₹0). Old regime with only statutory EPF ₹21,600: taxable ₹11,28,400, total tax about <strong>₹1,57,061</strong> including cess. Even with ₹1.5 lakh 80C, ₹25,000 80D and about ₹1.32 lakh HRA, old tax is still about ₹84,000 — new still wins. Old at this income needs deductions large enough to get near the old 87A ceiling (₹5 lakh taxable), typically a full Section 24(b) claim plus high documented rent. Do not treat “I invested in ELSS” as enough to beat new-regime zero.</p>
 
       <h2>Common Mistakes</h2>
-      <p>Defaulting to new regime because "everyone says zero tax". Not submitting rent proofs while staying on old regime. Forgetting employer must deduct TDS per declared regime — mismatch causes March pain.</p>
+      <p>Staying on the old regime at ₹8–12 lakh gross because “80C always saves tax.” Treating Bengaluru or Hyderabad as a 50% HRA metro. Not submitting rent proofs while on old. Forgetting the employer withholds TDS to the regime you declared in April — a mismatch shows up as a March spike or a refund, not as a free pass.</p>
 `
   },
   {
