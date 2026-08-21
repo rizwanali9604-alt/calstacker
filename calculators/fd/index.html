@@ -11,12 +11,15 @@
   <meta property="og:title" content="FD Calculator India — Quarterly Compounding & Post-Tax Yield — CalStacker">
   <meta property="og:description" content="Estimate cumulative FD maturity with quarterly compounding, then think in post-tax rupees and DICGC limits.">
   <meta property="og:url" content="https://calstacker.com/calculators/fd/">
-  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FD Calculator India — Quarterly Compounding & Post-Tax Yield — CalStacker">
   <meta name="twitter:description" content="Estimate cumulative FD maturity with quarterly compounding, then think in post-tax rupees and DICGC limits.">
-  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/consent-defaults.js"></script>
@@ -62,7 +65,9 @@
     </div>
   </nav>
 
-  <header id="main-content" class="calc-page-header">
+  <main id="main-content">
+
+  <header class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → FD Calculator</div>
       <h1 class="calc-page-title">Fixed Deposit (FD) Calculator</h1>
@@ -77,7 +82,7 @@
     </div>
   </div>
 
-  <main class="calc-interface">
+  <div class="calc-interface">
     <div class="calc-box">
       <div class="form-grid">
         <div class="form-group">
@@ -145,12 +150,12 @@
 
       </div>
 
-      </div>
-    </div>
+      
+    
 
   
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
-  </main>
+  </div>
 
   <section class="section-sm calc-seo-section">
     <div class="container">
@@ -172,10 +177,18 @@
         </div>
         <p>Compare PPF when you want EEE treatment and can lock 15 years. Compare a debt fund only after you accept NAV risk. Walkthrough: <a href="/guides/ppf-fd-guide/">PPF vs FD</a> and <a href="/guides/fd-vs-sip-guide/">FD vs SIP</a>.</p>
         <p class="related-inline">Related: <a href="/calculators/rd/">RD</a> · <a href="/calculators/ppf/">PPF</a> · <a href="/calculators/income-tax/">income tax</a></p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 21 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <div class="calc-depth">
+<h3>Laddering, TDS, and the ₹5 lakh insurance cap</h3>
+        <p>One ₹20 lakh FD at a small-finance bank quoting 8.5% is not “safer because the rate is higher.” DICGC covers ₹5 lakh per bank per depositor (principal + interest) under current rules. Split across banks if the stack is larger. A 5-year tax-saver FD can use 80C (old regime) but interest is still taxable; ordinary FDs have no 80C.</p>
+        <p>₹5 lakh at 7% quarterly for 5 years matures about ₹7.07 lakh before tax (same identity as this engine). At a 30% slab you keep roughly ₹1.45 lakh of the ₹2.07 lakh interest after tax + cess — post-tax yield is not the card rate. TDS at 10% (when the bank’s threshold is crossed) is an advance, not the final bill. Form 15G/15H if you are eligible.</p>
+        <p>Premature break usually reprices the whole period, often minus 0.50–1.00%. Senior-citizen extra is a tariff: type the higher rate; the formula will not add 0.50% because you are 61. Compare EEE PPF when the money can lock 15 years: <a href="/guides/ppf-fd-guide/">PPF vs FD</a>.</p>
+        </div>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
-  </section><section class="section-sm">
+  </section>
+
+  <section class="section-sm">
     <div class="container">
       <div class="section-header"><h2>FD tax, TDS, and compounding</h2></div>
       <div class="faq-list">
@@ -203,7 +216,10 @@
     </div>
   </section>
 
-    <footer class="footer">
+    
+  </main>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">

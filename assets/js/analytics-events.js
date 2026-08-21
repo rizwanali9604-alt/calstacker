@@ -1,5 +1,6 @@
 /**
  * CalStacker GA4 custom events — include after gtag is loaded.
+ * No-ops until the visitor accepts analytics (gtag then exists).
  */
 function trackEvent(name, params) {
   if (typeof gtag === 'function') {
@@ -21,24 +22,6 @@ function trackResultView(calculatorName) {
   });
 }
 
-function trackAffiliateClick(partner, calculatorName) {
-  trackEvent('affiliate_click', {
-    partner: partner || 'unknown',
-    calculator: calculatorName || document.title,
-    page_path: window.location.pathname
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.aff-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const partner = btn.dataset.partner || btn.textContent.trim().slice(0, 32);
-      trackAffiliateClick(partner);
-    });
-  });
-});
-
-// Enhanced showResult wrapper when calc-core loads first
 (function patchShowResult() {
   const orig = window.showResult;
   if (typeof orig !== 'function') return;

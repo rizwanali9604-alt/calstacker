@@ -3,6 +3,5 @@ Allow: /
 Disallow: /dashboard/
 Disallow: /data/
 Disallow: /scripts/
-Disallow: /blog/
 
 Sitemap: https://calstacker.com/sitemap.xml

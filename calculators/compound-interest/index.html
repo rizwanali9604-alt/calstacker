@@ -11,12 +11,15 @@
   <meta property="og:title" content="Compound Interest Calculator — Quarterly vs Monthly India — CalStacker">
   <meta property="og:description" content="Compare annual, quarterly and monthly compounding on the same principal. Built for Indian FD-style frequency choices.">
   <meta property="og:url" content="https://calstacker.com/calculators/compound-interest/">
-  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Compound Interest Calculator — Quarterly vs Monthly India — CalStacker">
   <meta name="twitter:description" content="Compare annual, quarterly and monthly compounding on the same principal. Built for Indian FD-style frequency choices.">
-  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/consent-defaults.js"></script>
@@ -62,7 +65,9 @@
     </div>
   </nav>
 
-  <header id="main-content" class="calc-page-header">
+  <main id="main-content">
+
+  <header class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → Compound Interest Calculator</div>
       <h1 class="calc-page-title">Compound Interest Calculator</h1>
@@ -77,7 +82,7 @@
     </div>
   </div>
 
-  <main class="calc-interface">
+  <div class="calc-interface">
     <div class="calc-box">
       <div class="form-group">
         <label class="form-label" for="principal">Principal Amount (₹)</label>
@@ -138,11 +143,11 @@
         </div>
         </div>
       </div>
-    </div>
+    
 
   
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
-  </main>
+  </div>
 
   <section class="section-sm calc-seo-section">
     <div class="container">
@@ -165,10 +170,18 @@
           <p>FD and RD interest is added to your income. PPF interest is exempt. Equity mutual funds are not “8% compounded monthly”. Use the <a href="/calculators/fd/">FD calculator</a> when the product is a bank deposit, and the <a href="/calculators/sip/">SIP calculator</a> when cash flows are monthly investments.</p>
         </div>
         <p class="related-inline">Related: <a href="/calculators/simple-interest/">simple interest</a> · <a href="/calculators/fd/">FD</a> · <a href="/calculators/ppf/">PPF</a></p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 21 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <div class="calc-depth">
+<h3>Nominal rate versus what actually hits the passbook</h3>
+        <p>₹1 lakh at a “8% FD” for 10 years is not one number. Annual compound ≈ ₹2.16 lakh. Quarterly (the usual Indian cumulative FD) ≈ ₹2.21 lakh. Daily compounding at the same 8% adds little versus quarterly — a 0.25% lower card rate wipes the frequency slogan. Always compare maturity rupees, then tax. This page does not withhold TDS or apply slab tax; the <a href="/calculators/fd/">FD calculator</a> is the product-shaped version of the same formula.</p>
+        <p>Mutual-fund “12% CAGR” is not n = 12 in this formula. CAGR is a smoothed history between two portfolio values. Using this page to “grow” a SIP at 12% monthly compound is the wrong identity — use the <a href="/calculators/sip/">SIP calculator</a> (annuity due).</p>
+        <p>Rule of 72 remains a teaching shortcut: 72 / 8 ≈ 9 years to double. It ignores tax, expense ratios, and the fact that 8% will not arrive as a constant. Use it to sanity-check a brochure, not to time a house purchase.</p>
+        </div>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
-  </section><section class="section-sm">
+  </section>
+
+  <section class="section-sm">
     <div class="container">
       <div class="section-header"><h2>Compounding in Indian products</h2></div>
       <div class="faq-list">
@@ -196,7 +209,10 @@
     </div>
   </section>
 
-    <footer class="footer">
+    
+  </main>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">

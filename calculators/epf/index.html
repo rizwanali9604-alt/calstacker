@@ -11,12 +11,15 @@
   <meta property="og:title" content="EPF Calculator — ₹15,000 Wage Ceiling & 12% — CalStacker">
   <meta property="og:description" content="Project EPF corpus using the statutory wage cap, employee 12%, and the EPFO rate you enter.">
   <meta property="og:url" content="https://calstacker.com/calculators/epf/">
-  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EPF Calculator — ₹15,000 Wage Ceiling & 12% — CalStacker">
   <meta name="twitter:description" content="Project EPF corpus using the statutory wage cap, employee 12%, and the EPFO rate you enter.">
-  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/consent-defaults.js"></script>
@@ -62,7 +65,9 @@
     </div>
   </nav>
 
-  <header id="main-content" class="calc-page-header">
+  <main id="main-content">
+
+  <header class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → <a href="/#employee">Calculators</a> → EPF Calculator</div>
       <h1 class="calc-page-title">EPF / PF Calculator</h1>
@@ -77,7 +82,7 @@
     </div>
   </div>
 
-  <main class="calc-interface">
+  <div class="calc-interface">
     <div class="calc-box">
       <div class="form-grid">
         <div class="form-group">
@@ -104,7 +109,7 @@
         </div>
       </div>
       <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">
-        Contributions: 12% employee + 3.67% employer on min(Basic+DA, ₹15,000). Interest: 8.25% p.a. compounded monthly.
+        Contributions: 12% employee + 3.67% employer on min(Basic+DA, ₹15,000). Interest: last declared 8.25% p.a. for FY 2025-26 (not a freeze for FY 2026-27). Compounding here is a planning estimate.
       </p>
 
       <button type="button" class="calc-btn" onclick="calculateEPF()">Calculate EPF Corpus</button>
@@ -144,19 +149,19 @@
 
       </div>
 
-      </div>
-    </div>
+      
+    
 
   
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
-  </main>
+  </div>
 
   <section class="section-sm calc-seo-section">
     <div class="container">
       <div class="calc-seo-content">
         <h2>The ₹15,000 wage ceiling is doing most of the work</h2>
         <p>For a typical private establishment, employee EPF is 12% of PF wages. PF wages are often capped at <strong>₹15,000 a month</strong>, so employee contribution maxes at ₹1,800 even if basic is ₹40,000 — unless your employer runs PF on higher wages (some do; the offer letter says so). Employer 12% on the ceiling is split: 8.33% of ₹15,000 toward EPS (pension) and the rest toward EPF. EPS is not the same corpus this calculator compounds.</p>
-        <p>Interest is declared by EPFO for each financial year (8.25% was notified for FY 2024-25; confirm the latest year on <a href="https://www.epfindia.gov.in/" rel="noopener">epfindia.gov.in</a>). This page compounds at the rate you type. It is a planning estimate, not your passbook.</p>
+        <p>Interest is declared by EPFO for each financial year (8.25% was notified for FY 2025-26 (Ministry of Labour, 1 July 2026); FY 2026-27 had not been notified as of 18 August 2026 — confirm the latest year on <a href="https://www.epfindia.gov.in/" rel="noopener">epfindia.gov.in</a>). This page compounds at the rate you type. It is a planning estimate, not your passbook.</p>
         <table class="compare-table">
           <thead><tr><th>Monthly basic</th><th>Employee 12% if capped at ₹15,000</th></tr></thead>
           <tbody>
@@ -171,10 +176,18 @@
           <li>Tax on withdrawal depends on years of service and current Section 10(12) / TDS rules — not modelled here.</li>
         </ul>
         <p class="related-inline">Longer: <a href="/guides/epf-guide/">EPF guide</a> · <a href="/calculators/salary/">salary (in-hand after PF)</a></p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 21 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <div class="calc-depth">
+<h3>EPS is not this corpus, and 8.25% is last year’s declared rate</h3>
+        <p>On statutory capped wages, employer 12% of ₹15,000 splits: 8.33% of ₹15,000 toward EPS (pension) and the rest toward EPF. The number this calculator compounds is the EPF slice plus employee 12%, at the rate you type — not the EPS pension formula, not the commutation, not Section 10(12) tax on a premature withdrawal.</p>
+        <p>EPFO declared <strong>8.25% for FY 2025-26</strong> (Ministry of Labour notification dated 1 July 2026). FY 2026-27 had not been notified as of 18 August 2026. Do not freeze 8.25% for a 30-year projection. Interest is declared yearly; this page is a constant-rate sketch.</p>
+        <p>Transfer on job change via UAN. A casual final-settlement withdrawal resets compounding and can be taxable if service is short. Employee contribution can sit in 80C (old regime) inside the same ₹1.5 lakh bucket as PPF and ELSS — EPF already using ₹21,600 a year of that bucket is why “I will also max PPF” often does not fit.</p>
+        </div>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
-  </section><section class="section-sm">
+  </section>
+
+  <section class="section-sm">
     <div class="container">
       <div class="section-header"><h2>EPF ceiling, EPS, and UAN</h2></div>
       <div class="faq-list">
@@ -202,7 +215,10 @@
     </div>
   </section>
 
-    <footer class="footer">
+    
+  </main>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
