@@ -168,7 +168,6 @@ function patchJsonLd(html) {
         }
         if (node['@type'] === 'Article') {
           node.author = PERSON;
-          node.dateModified = TODAY;
         }
         if (node['@graph']) walkNode(node['@graph']);
       }
@@ -188,8 +187,6 @@ function patchHtml(html) {
     /<div class="calc-icon-wrap">🔗<\/div>/g,
     '<div class="calc-icon-wrap icon-link" aria-hidden="true"></div>'
   );
-  html = html.replace(/Last updated \d{1,2} August 2026/g, 'Last updated 21 August 2026');
-  html = html.replace(/Last verified \d{1,2} August 2026/g, 'Last verified 21 August 2026');
   html = ensureCookieScript(html);
   return html;
 }

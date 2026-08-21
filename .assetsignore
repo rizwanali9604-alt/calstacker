@@ -7,7 +7,8 @@ node_modules/
 .wrangler/
 .git/
 *.md
-assets/og-share.png
+assets/img/og-share.png
+# OG image lives at assets/img/og-share.png and is published (keep under 1MB)
 
 # Thin / scaled URLs — served as redirects via _redirects, not as pages
 guides/emi/10-lakh-car-loan/

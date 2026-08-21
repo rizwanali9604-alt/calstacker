@@ -11,12 +11,15 @@
   <meta property="og:title" content="CAGR Calculator — Lumpsum Only, Not SIP/XIRR — CalStacker">
   <meta property="og:description" content="Annualise a start and end value. For SIPs use XIRR; this page will not treat total invested as a lumpsum start.">
   <meta property="og:url" content="https://calstacker.com/calculators/cagr/">
-  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta property="og:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <meta property="og:image:alt" content="CalStacker — free finance calculators for India">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CAGR Calculator — Lumpsum Only, Not SIP/XIRR — CalStacker">
   <meta name="twitter:description" content="Annualise a start and end value. For SIPs use XIRR; this page will not treat total invested as a lumpsum start.">
-  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
+  <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.jpg">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/consent-defaults.js"></script>
@@ -62,7 +65,9 @@
     </div>
   </nav>
 
-  <header id="main-content" class="calc-page-header">
+  <main id="main-content">
+
+  <header class="calc-page-header">
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → CAGR Calculator</div>
       <h1 class="calc-page-title">CAGR Calculator</h1>
@@ -77,7 +82,7 @@
     </div>
   </div>
 
-  <main class="calc-interface">
+  <div class="calc-interface">
     <div class="calc-box">
       <div class="form-grid">
         <div class="form-group">
@@ -123,11 +128,11 @@
         <div class="result-highlight" id="cagrSummary"></div>
         </div>
       </div>
-    </div>
+    
 
   
         <p class="calc-inline-disclaimer" style="font-size:13px;color:var(--text-secondary);margin-top:16px;padding:12px;border-left:3px solid var(--border);line-height:1.5;">Results are estimates for education and planning only — not financial, tax, or investment advice. Confirm important decisions with a Chartered Accountant or SEBI-registered adviser. See our <a href="/disclaimer/">Disclaimer</a>.</p>
-  </main>
+  </div>
 
   <section class="section-sm calc-seo-section">
     <div class="container">
@@ -145,10 +150,21 @@
         </table>
         <p>Illustration: ₹1 lakh → ₹2.5 lakh in 5 years is about 20.1% CAGR. That is not a promise that the next five years repeat. For SIPs, open the fund’s XIRR on the AMC factsheet or your app — this page will overstate or understate if you paste “total invested” as Start and “current value” as End.</p>
         <p class="related-inline"><a href="/calculators/lumpsum/">lumpsum projection</a> · <a href="/calculators/sip/">SIP</a></p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 21 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <div class="calc-depth">
+<h3>Worked numbers, and the SIP trap</h3>
+        <p>₹1,00,000 → ₹1,61,051 in 5 years is 10.00% CAGR. ₹1,00,000 → ₹1,76,234 in 5 years is about 12.00%. Those two are lumpsum paths. If you actually sent ₹5,000 a month, the “start” is not ₹3,00,000 of contributions and the “end” is not a CAGR problem — cash went in on 60 different dates. Pasting total invested as Start on this page will usually overstate the rate because later instalments had less time in the market.</p>
+        <p>Another abuse: measuring a fund from 23 March 2020 (COVID low) to a later high, then shopping that CAGR against a category average that used calendar years. Write both dates. If you cannot name them, do not quote the percentage in an office chat.</p>
+        <div class="omit-box">
+          <h3>What this calculator will not do</h3>
+          <p>It will not annualise a SIP, an STP, or a folio with withdrawals. It will not add dividends unless they are already inside End. It will not tell you whether 12% is “good” versus Nifty — that comparison needs the same window on the index. If a YouTube thumbnail says “this fund gave 42% CAGR”, ask: start date, end date, lumpsum or SIP, and whether dividends were reinvested.</p>
+        </div>
+        </div>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
-  </section><section class="section-sm">
+  </section>
+
+  <section class="section-sm">
     <div class="container">
       <div class="section-header"><h2>CAGR vs XIRR vs absolute return</h2></div>
       <div class="faq-list">
@@ -176,7 +192,10 @@
     </div>
   </section>
 
-    <footer class="footer">
+    
+  </main>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">

@@ -277,7 +277,19 @@ function calcSIPForGoal(goalAmount, annualReturn, years) {
   return goalAmount * i / ((Math.pow(1 + i, n) - 1) * (1 + i));
 }
 
-/* ---------- UI: FAQ, filters ---------- */
+/* ---------- UI: FAQ, filters, scrollable tables ---------- */
+
+document.querySelectorAll('.table-wrap').forEach(function (wrap, i) {
+  wrap.setAttribute('tabindex', '0');
+  wrap.setAttribute('role', 'region');
+  const prev = wrap.previousElementSibling;
+  if (prev && /^H[1-6]$/.test(prev.tagName)) {
+    if (!prev.id) prev.id = 'table-heading-' + (i + 1);
+    wrap.setAttribute('aria-labelledby', prev.id);
+  } else {
+    wrap.setAttribute('aria-label', 'Results table');
+  }
+});
 
 document.querySelectorAll('.faq-q').forEach(function (btn, i) {
   const item = btn.parentElement;
@@ -312,6 +324,11 @@ document.querySelectorAll('.faq-q').forEach(function (btn, i) {
       t.setAttribute('tabindex', on ? '0' : '-1');
     });
     if (catalog) {
+      catalog.setAttribute('role', 'tabpanel');
+      const active = tabs.filter(function (t) {
+        return t.getAttribute('data-cat') === cat;
+      })[0];
+      if (active) catalog.setAttribute('aria-labelledby', active.id);
       let shown = 0;
       catalog.querySelectorAll('.calc-card').forEach(function (card) {
         const match = cat === 'all' || card.getAttribute('data-cat') === cat;
@@ -329,6 +346,8 @@ document.querySelectorAll('.faq-q').forEach(function (btn, i) {
   }
 
   tabs.forEach(function (tab, i) {
+    const cat = tab.getAttribute('data-cat') || String(i);
+    if (!tab.id) tab.id = 'cat-tab-' + cat;
     tab.setAttribute('role', 'tab');
     tab.setAttribute('aria-controls', 'calc-catalog');
     tab.addEventListener('click', function () {
