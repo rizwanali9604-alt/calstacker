@@ -19,15 +19,7 @@
   <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-RR873MXQNX');
-  </script>
+  <script src="/assets/js/consent-defaults.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
 </head>
@@ -35,7 +27,7 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
         <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">CalStacker</a>
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
       <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
@@ -44,7 +36,10 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-controls="site-nav-links" aria-expanded="false">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -52,7 +47,7 @@
     <div class="container">
       <div class="breadcrumb"><a href="/">Home</a> → Privacy Policy</div>
       <h1 class="calc-page-title">Privacy Policy</h1>
-      <p class="calc-page-desc">Last updated: June 2026</p>
+      <p class="calc-page-desc">Last updated: 21 August 2026</p>
     </div>
   </header>
 
@@ -64,13 +59,13 @@
     <p>All financial calculations are performed locally in your web browser. We do not require account creation, and we do not store the numbers you enter into our calculators on our servers.</p>
 
     <h2>Automatically Collected Information</h2>
-    <p>Like most websites, we may use analytics and advertising services that collect standard log data such as IP address, browser type, pages visited, and referring URL. This helps us understand traffic patterns and improve the site.</p>
+    <p>Our hosting provider and advertising partners may receive standard request data such as IP address, browser type, pages visited, and referring URL. Calculator inputs are not sent to our servers.</p>
 
     <h2>Analytics (Google Analytics 4)</h2>
-    <p>We use Google Analytics 4 (measurement ID G-RR873MXQNX) to understand how visitors use our site — pages viewed, calculator usage, and general traffic patterns. This helps us improve our tools. Google Analytics may set cookies and collect anonymized usage data. You can learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p>Google Analytics 4 (measurement ID G-RR873MXQNX) loads only after you click “Accept analytics” on the cookie banner. If you choose “Ads only”, we do not load Analytics from this site. Analytics may then set cookies and record page views and calculator-usage events. You can learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
 
-    <h2>Cookies & Advertising</h2>
-    <p>We use Google AdSense to display advertisements on this site (publisher ID ca-pub-8332278519903196). Google and its advertising partners may use cookies to serve ads based on your prior visits to this or other websites. Analytics and advertising cookies may be used together. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a> or manage cookies in your browser. See our <a href="/terms/">Terms of Service</a>.</p>
+    <h2>Cookies &amp; Advertising</h2>
+    <p>We include the Google AdSense script (publisher ID ca-pub-8332278519903196) so advertisements can display and so Google can review the site. AdSense may set cookies even if you decline analytics. The banner does not claim that ads wait for a click. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a> or control cookies in your browser. See our <a href="/terms/">Terms of Service</a>.</p>
 
     <h2>Third-Party Links</h2>
     <p>Our site may contain links to third-party websites (brokers, tax filing services, etc.). We are not responsible for the privacy practices of those external sites.</p>
@@ -85,11 +80,11 @@
     <p>Questions about this policy? Email contact@calstacker.com</p>
   </main>
 
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <div class="footer-logo">Cal<span>Stacker</span></div>
           <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
@@ -128,7 +123,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 CalStacker.com — Free Financial Calculators</span>
-        <span>Made for Indian employees & investors</span>
+        <span>Made for Indian employees &amp; investors</span>
       </div>
     </div>
   </footer>

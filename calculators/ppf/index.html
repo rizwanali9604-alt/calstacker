@@ -19,34 +19,26 @@
   <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-RR873MXQNX');
-  </script>
+  <script src="/assets/js/consent-defaults.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
 
   
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "PPF Calculator",
-  "url": "https://calstacker.com/calculators/ppf/",
-  "description": "Calculate PPF maturity amount and interest earned",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "INR"
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PPF Calculator",
+    "url": "https://calstacker.com/calculators/ppf/",
+    "description": "Calculate PPF maturity amount and interest earned",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
   }
-}
   </script>
 </head>
 <body>
@@ -54,7 +46,7 @@
 
           <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">CalStacker</a>
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
       <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
@@ -63,7 +55,10 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-controls="site-nav-links" aria-expanded="false">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -153,7 +148,7 @@
     <div class="container">
       <div class="calc-seo-content">
         <h2>PPF is a 15-year calendar, not a flexible FD</h2>
-        <p>Public Provident Fund is a government scheme: minimum ₹500 and maximum ₹1.5 lakh per financial year across all PPF accounts you hold. The interest rate is notified every quarter (7.1% p.a. was in force for recent quarters — re-check the DEA/NSO circular before you treat a 15-year projection as fixed). Interest is credited on the lowest balance between the 5th and the last day of each month, which is why depositing before the 5th matters.</p>
+        <p>Public Provident Fund is a government scheme: minimum ₹500 and maximum ₹1.5 lakh per financial year across all PPF accounts you hold. The interest rate is notified every quarter. For Q2 FY 2026-27 (1 July–30 September 2026) PPF is 7.10% p.a. (Ministry of Finance, 30 June 2026). Recheck the next DEA circular before you treat a 15-year projection as fixed. Interest is credited on the lowest balance between the 5th and the last day of each month, which is why depositing before the 5th matters.</p>
         <p>Tax treatment is EEE under current law: 80C on the deposit (old regime), interest exempt, maturity exempt. That is the main reason PPF beats a similar-rate FD after tax for someone in the 20–30% slab who can lock money.</p>
         <table class="compare-table">
           <thead><tr><th>Account year</th><th>What you can usually do</th></tr></thead>
@@ -166,7 +161,7 @@
         </table>
         <p>₹1.5 lakh every year for 15 years at a constant 7.1% is a common illustration near ₹40 lakh. If the notified rate falls, the table on this page will overstate. If you skip a year, you still need the ₹500 minimum to keep the account from defaulting.</p>
         <p class="related-inline">Rules overview: <a href="/guides/ppf-fd-guide/">PPF vs FD guide</a> · <a href="/calculators/epf/">EPF</a> (different product, also 80C)</p>
-        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 18 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
+        <p class="editorial-byline">Written by <a href="/about/">Rizwan Ali</a> · Last verified 21 August 2026 · <a href="/editorial-policy/">Editorial policy</a></p>
       </div>
     </div>
   </section><section class="section-sm">
@@ -197,11 +192,11 @@
     </div>
   </section>
 
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <div class="footer-logo">Cal<span>Stacker</span></div>
           <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
@@ -240,7 +235,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 CalStacker.com — Free Financial Calculators</span>
-        <span>Made for Indian employees & investors</span>
+        <span>Made for Indian employees &amp; investors</span>
       </div>
     </div>
   </footer>

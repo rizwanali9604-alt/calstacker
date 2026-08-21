@@ -19,15 +19,7 @@
   <meta name="twitter:image" content="https://calstacker.com/assets/img/og-share.png">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR873MXQNX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-RR873MXQNX');
-  </script>
+  <script src="/assets/js/consent-defaults.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8332278519903196"
      crossorigin="anonymous"></script>
   <script type="application/ld+json">
@@ -41,7 +33,11 @@
       "@type": "Organization",
       "name": "CalStacker",
       "url": "https://calstacker.com/",
-      "founder": { "@type": "Person", "name": "Rizwan Ali", "url": "https://calstacker.com/about/" }
+      "founder": {
+        "@type": "Person",
+        "name": "Rizwan Ali",
+        "url": "https://calstacker.com/about/"
+      }
     }
   }
   </script>
@@ -51,7 +47,7 @@
 
         <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">CalStacker</a>
+      <a href="/" class="nav-logo">Cal<span>Stacker</span></a>
       <div class="nav-links" id="site-nav-links">
         <a href="/#employee" class="nav-link">Employee Tools</a>
         <a href="/#investor" class="nav-link">Investor Tools</a>
@@ -60,7 +56,10 @@
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/calculators/emi/" class="nav-cta">EMI Calculator →</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-controls="site-nav-links" aria-expanded="false">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -79,176 +78,121 @@
     </div>
   </section>
 
-  <section class="section" id="tools">
+    <section class="section" id="tools">
     <div class="container">
       <div class="section-header">
         <h2>All Calculators</h2>
-        <p>Filter by category or browse all tools below</p>
+        <p>Twenty tools, listed once. Use the tabs to show employee or investor calculators.</p>
       </div>
       <div class="cat-tabs">
-        <button class="cat-tab active" data-cat="all" aria-selected="true">All</button>
-        <button class="cat-tab" data-cat="employee" aria-selected="false">Employee</button>
-        <button class="cat-tab" data-cat="investor" aria-selected="false">Investor</button>
+        <button type="button" class="cat-tab active" data-cat="all" aria-selected="true">All</button>
+        <button type="button" class="cat-tab" id="employee" data-cat="employee" aria-selected="false">Employee</button>
+        <button type="button" class="cat-tab" id="investor" data-cat="investor" aria-selected="false">Investor</button>
       </div>
-    </div>
-  </section>
-
-  <section class="section-sm" id="popular" style="padding-top:0;">
-    <div class="container">
-      <div class="section-header">
-        <h2>Most Popular</h2>
-        <p>Five tools most Indian employees start with</p>
-      </div>
-      <div class="calc-grid">
+      <p id="catalog-live" class="catalog-live" aria-live="polite"></p>
+      <div class="calc-grid" id="calc-catalog">
         <a href="/calculators/emi/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🏠</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-8h6v8"/></svg></div>
           <div class="calc-info"><div class="calc-name">EMI Calculator</div><div class="calc-desc">Home, car & personal loan EMI with amortization</div></div>
           <span class="calc-badge badge-popular">Popular</span>
           <span class="calc-arrow">→</span>
         </a>
-        <a href="/calculators/sip/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">📈</div>
-          <div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Mutual fund SIP returns & corpus projection</div></div>
-          <span class="calc-badge badge-popular">Popular</span>
-          <span class="calc-arrow">→</span>
-        </a>
         <a href="/calculators/income-tax/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">📋</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3h6v1M8 10h8M8 14h6"/></svg></div>
           <div class="calc-info"><div class="calc-name">Income Tax Calculator</div><div class="calc-desc">Old vs new regime FY 2026-27 comparison</div></div>
           <span class="calc-badge badge-popular">Popular</span>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/salary/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">💼</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
           <div class="calc-info"><div class="calc-name">Salary Calculator</div><div class="calc-desc">CTC to in-hand salary breakdown</div></div>
           <span class="calc-badge badge-popular">Popular</span>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/hra/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🏢</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01M9 16h.01M15 16h.01"/></svg></div>
           <div class="calc-info"><div class="calc-name">HRA Calculator</div><div class="calc-desc">HRA exemption under Section 10(13A)</div></div>
           <span class="calc-badge badge-popular">Popular</span>
           <span class="calc-arrow">→</span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-sm" id="employee">
-    <div class="container">
-      <div class="section-header">
-        <h2>Employee Calculators</h2>
-        <p>Tax, salary, loans and benefits for salaried professionals</p>
-      </div>
-      <div class="calc-grid">
-        <a href="/calculators/emi/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🏠</div>
-          <div class="calc-info"><div class="calc-name">EMI Calculator</div><div class="calc-desc">Loan EMI & amortization schedule</div></div>
-          <span class="calc-arrow">→</span>
-        </a>
-        <a href="/calculators/income-tax/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">📋</div>
-          <div class="calc-info"><div class="calc-name">Income Tax Calculator</div><div class="calc-desc">FY 2026-27 tax computation</div></div>
-          <span class="calc-arrow">→</span>
-        </a>
-        <a href="/calculators/salary/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">💼</div>
-          <div class="calc-info"><div class="calc-name">Salary Calculator</div><div class="calc-desc">CTC to take-home pay</div></div>
-          <span class="calc-arrow">→</span>
-        </a>
-        <a href="/calculators/hra/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🏢</div>
-          <div class="calc-info"><div class="calc-name">HRA Calculator</div><div class="calc-desc">Rent allowance exemption</div></div>
-          <span class="calc-arrow">→</span>
-        </a>
         <a href="/calculators/gratuity/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🎁</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M12 10v11M3 14h18M12 10c0-3 2-5 4.5-5S21 7 21 10M12 10c0-3-2-5-4.5-5S3 7 3 10"/></svg></div>
           <div class="calc-info"><div class="calc-name">Gratuity Calculator</div><div class="calc-desc">15/26 formula, ₹20 lakh cap</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/epf/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🏦</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6M5 10v10h14V10M4 20h16"/></svg></div>
           <div class="calc-info"><div class="calc-name">EPF Calculator</div><div class="calc-desc">₹15,000 wage ceiling & 12%</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/gst/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🧾</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5M9 13h6M9 17h4"/></svg></div>
           <div class="calc-info"><div class="calc-name">GST Calculator</div><div class="calc-desc">GST 2.0 — 5%, 18%, 40%</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/ppf/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">🔒</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
           <div class="calc-info"><div class="calc-name">PPF Calculator</div><div class="calc-desc">₹1.5L cap, lock-in, EEE tax</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/fd/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">💰</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c.8-1 2-1.5 3.5-1.5s2.4.6 2.5 2c0 3-7 1.5-7 4.5.2 1.4 1.4 2 3.5 2s2.7-.6 3.5-1.5"/></svg></div>
           <div class="calc-info"><div class="calc-name">FD Calculator</div><div class="calc-desc">Quarterly compounding & post-tax yield</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/rd/" class="calc-card" data-cat="employee">
-          <div class="calc-icon-wrap">📅</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
           <div class="calc-info"><div class="calc-name">RD Calculator</div><div class="calc-desc">Monthly deposits vs a SIP</div></div>
           <span class="calc-arrow">→</span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-sm" id="investor">
-    <div class="container">
-      <div class="section-header">
-        <h2>Investor Calculators</h2>
-        <p>SIP, lumpsum, retirement and wealth planning tools</p>
-      </div>
-      <div class="calc-grid">
         <a href="/calculators/sip/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">📈</div>
-          <div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Monthly SIP corpus projection</div></div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <div class="calc-info"><div class="calc-name">SIP Calculator</div><div class="calc-desc">Mutual fund SIP returns & corpus projection</div></div>
+          <span class="calc-badge badge-popular">Popular</span>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/lumpsum/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">💵</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
           <div class="calc-info"><div class="calc-name">Lumpsum Calculator</div><div class="calc-desc">Bonus or one-time corpus</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/step-up-sip/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">📊</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20V8"/></svg></div>
           <div class="calc-info"><div class="calc-name">Step-Up SIP</div><div class="calc-desc">Hike the SIP with your raise</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/compound-interest/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">🔢</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14M5 15h14M10 3l-2 18M16 3l-2 18"/></svg></div>
           <div class="calc-info"><div class="calc-name">Compound Interest</div><div class="calc-desc">Annual vs quarterly vs monthly</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/cagr/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">📉</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7v7"/><path d="M11 7 3 15M14 20l7-7"/></svg></div>
           <div class="calc-info"><div class="calc-name">CAGR Calculator</div><div class="calc-desc">Two values — not SIP/XIRR</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/swp/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">💸</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12h14"/><path d="M16 8l3 4-3 4"/></svg></div>
           <div class="calc-info"><div class="calc-name">SWP Calculator</div><div class="calc-desc">Drawdowns — 4% is not a pension</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/retirement/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">🌴</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
           <div class="calc-info"><div class="calc-name">Retirement Planner</div><div class="calc-desc">Inflated expenses, then SIP gap</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/net-worth/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">⚖️</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M12 7l-7 8h5l2-8 2 8h5l-7-8"/></svg></div>
           <div class="calc-info"><div class="calc-name">Net Worth Calculator</div><div class="calc-desc">House equity, EPF, loans once</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/simple-interest/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">➕</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
           <div class="calc-info"><div class="calc-name">Simple Interest</div><div class="calc-desc">Flat-rate quotes vs bank EMI</div></div>
           <span class="calc-arrow">→</span>
         </a>
         <a href="/calculators/inflation/" class="calc-card" data-cat="investor">
-          <div class="calc-icon-wrap">📆</div>
+          <div class="calc-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c3-8 6-8 8 0s5 8 8 0"/></svg></div>
           <div class="calc-info"><div class="calc-name">Inflation Calculator</div><div class="calc-desc">CPI vs school fees and health</div></div>
           <span class="calc-arrow">→</span>
         </a>
@@ -272,6 +216,14 @@
           <p>Section 80C, HRA, NPS, and old vs new regime with worked examples.</p>
         </article>
         <article class="guide-card">
+          <h2><a href="/guides/old-vs-new-tax-regime-guide/">Old vs New Tax Regime</a></h2>
+          <p>Which regime saves more tax at your salary — with slabs and deduction comparison.</p>
+        </article>
+        <article class="guide-card">
+          <h2><a href="/guides/hra-exemption-guide/">HRA Exemption Guide</a></h2>
+          <p>Claim House Rent Allowance under the old regime with the four Rule 2A metros.</p>
+        </article>
+        <article class="guide-card">
           <h2><a href="/guides/sip-investment-guide/">SIP Investment Guide</a></h2>
           <p>Start a mutual fund SIP from ₹500/month and understand compounding.</p>
         </article>
@@ -281,30 +233,42 @@
         </article>
         <article class="guide-card">
           <h2><a href="/guides/epf-guide/">EPF Complete Guide</a></h2>
-          <p>Contribution rates, UAN, withdrawal rules, and how to check your balance.</p>
+          <p>Contribution rates, last declared 8.25% for FY 2025-26, UAN, and withdrawals.</p>
         </article>
         <article class="guide-card">
-          <h2><a href="/guides/hra-exemption-guide/">HRA Exemption Guide</a></h2>
-          <p>Claim House Rent Allowance tax benefit under the old regime with correct documents.</p>
+          <h2><a href="/guides/gst-guide/">GST 2.0 Guide</a></h2>
+          <p>5%, 18% and 40% slabs from 22 September 2025, inclusive pricing, and ITC.</p>
+        </article>
+        <article class="guide-card">
+          <h2><a href="/guides/gratuity-guide/">Gratuity Guide</a></h2>
+          <p>15/26 formula, five-year eligibility, ₹20 lakh cap, and Section 10(10).</p>
+        </article>
+        <article class="guide-card">
+          <h2><a href="/guides/ppf-fd-guide/">PPF vs FD Guide</a></h2>
+          <p>7.10% PPF for Q2 FY 2026-27 versus taxable FD interest, with engine numbers.</p>
+        </article>
+        <article class="guide-card">
+          <h2><a href="/guides/fd-vs-sip-guide/">FD vs SIP Guide</a></h2>
+          <p>When a bank deposit wins, when an equity SIP belongs, and the 10-year rupee gap.</p>
+        </article>
+        <article class="guide-card">
+          <h2><a href="/guides/home-loan-prepayment-guide/">Home Loan Prepayment</a></h2>
+          <p>RBI floating-rate rules, tenure vs EMI, and interest saved on real EMI math.</p>
         </article>
         <article class="guide-card">
           <h2><a href="/guides/retirement-planning-guide/">Retirement Planning Guide</a></h2>
-          <p>Corpus target, inflation, SIP required, and SWP strategy for post-retirement income.</p>
-        </article>
-        <article class="guide-card">
-          <h2><a href="/guides/old-vs-new-tax-regime-guide/">Old vs New Tax Regime</a></h2>
-          <p>Which regime saves more tax at your salary — with slabs and deduction comparison.</p>
+          <p>Inflate today’s spend, then back out corpus and SIP — not a 25× slogan.</p>
         </article>
       </div>
       <p style="text-align:center;margin-top:24px;"><a href="/guides/" class="btn-ghost">View all guides →</a></p>
     </div>
   </section>
 
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div style="font-size:20px;font-weight:800;">Cal<span style="color:var(--accent)">Stacker</span></div>
+          <div class="footer-logo">Cal<span>Stacker</span></div>
           <p>Free financial calculators for employees and investors. No signup, instant estimates.</p>
         </div>
         <div class="footer-col">
@@ -343,7 +307,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 CalStacker.com — Free Financial Calculators</span>
-        <span>Made for Indian employees & investors</span>
+        <span>Made for Indian employees &amp; investors</span>
       </div>
     </div>
   </footer>

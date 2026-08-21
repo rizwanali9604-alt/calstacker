@@ -279,11 +279,11 @@ function calcSIPForGoal(goalAmount, annualReturn, years) {
 
 /* ---------- UI: FAQ, filters ---------- */
 
-document.querySelectorAll('.faq-q').forEach(function (btn) {
+document.querySelectorAll('.faq-q').forEach(function (btn, i) {
   const item = btn.parentElement;
   const panel = item ? item.querySelector('.faq-a') : null;
   if (panel && !panel.id) {
-    panel.id = 'faq-panel-' + Math.random().toString(36).slice(2, 9);
+    panel.id = 'faq-panel-' + (i + 1);
   }
   btn.setAttribute('aria-expanded', item && item.classList.contains('open') ? 'true' : 'false');
   if (panel) btn.setAttribute('aria-controls', panel.id);
@@ -293,17 +293,66 @@ document.querySelectorAll('.faq-q').forEach(function (btn) {
   });
 });
 
-document.querySelectorAll('.cat-tab').forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    document.querySelectorAll('.cat-tab').forEach(function (t) {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
+(function initCatalogTabs() {
+  const tablist = document.querySelector('.cat-tabs');
+  if (!tablist) return;
+
+  tablist.setAttribute('role', 'tablist');
+  tablist.setAttribute('aria-label', 'Calculator categories');
+
+  const tabs = Array.prototype.slice.call(tablist.querySelectorAll('.cat-tab'));
+  const catalog = document.getElementById('calc-catalog');
+  const live = document.getElementById('catalog-live');
+
+  function applyCat(cat, setHash) {
+    tabs.forEach(function (t) {
+      const on = t.getAttribute('data-cat') === cat;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
     });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    const cat = tab.dataset.cat;
-    document.querySelectorAll('.calc-card').forEach(function (card) {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+    if (catalog) {
+      let shown = 0;
+      catalog.querySelectorAll('.calc-card').forEach(function (card) {
+        const match = cat === 'all' || card.getAttribute('data-cat') === cat;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      if (live) {
+        live.textContent = shown + (shown === 1 ? ' calculator shown' : ' calculators shown');
+      }
+    }
+    if (setHash && history.replaceState) {
+      const id = cat === 'all' ? 'tools' : cat;
+      history.replaceState(null, '', '#' + id);
+    }
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', 'calc-catalog');
+    tab.addEventListener('click', function () {
+      applyCat(tab.getAttribute('data-cat'), true);
+    });
+    tab.addEventListener('keydown', function (e) {
+      let next = i;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      tabs[next].focus();
+      applyCat(tabs[next].getAttribute('data-cat'), true);
     });
   });
-});
+
+  function fromHash() {
+    const hash = (location.hash || '').replace('#', '');
+    if (hash === 'employee' || hash === 'investor') applyCat(hash, false);
+    else applyCat('all', false);
+  }
+
+  fromHash();
+  window.addEventListener('hashchange', fromHash);
+})();
